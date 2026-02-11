@@ -54,7 +54,7 @@ export default function Home() {
           </div>
 
           {rows.map((row, i) => (
-            <div key={i} style={{ paddingTop: i > 0 ? "var(--space-lg)" : 0 }}>
+            <div key={i} className={i > 0 ? "card-row-gap" : ""}>
               {row.layout === "paired" ? (
                 <div className="grid-2col fade-in fade-d3">
                   {row.projects.map((p) => (
