@@ -1,65 +1,80 @@
 import Image from "next/image";
+import Footer from "@/components/Footer";
+import ProjectCard from "@/components/ProjectCard";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    <main>
+      <div className="site-container">
+        {/* Hero */}
+        <section style={{ minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "flex-end", paddingBottom: 60, }}>
+          <h1 className="heading-display fade-in" style={{ fontSize: "clamp(2.5rem, 8vw, 8rem)", }}>
+            Hey
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              src="/images/image-hand.png"
+              alt="Peace hand"
+              width={64}
+              height={64}
+              className="hand-icon"
+              style={{
+                display: "inline-block",
+                verticalAlign: "middle",
+                width: "0.9em",
+                height: "0.9em",
+                objectFit: "contain",
+                margin: "0 0.05em",
+              }}
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+            {" "}I&apos;m Alex —
+            <br />
+            <span className="heading-accent" style={{ display: "block" }}>
+              Crafting brands and
+              <br />
+              digital experiences
+            </span>
+          </h1>
+          <div className="divider fade-in fade-d2" style={{ marginTop: 24 }} />
+        </section>
+
+        {/* Selected Exhibitions */}
+        <section style={{ paddingTop: 40, paddingBottom: 80 }}>
+          <div className="fade-in fade-d2" style={{ marginBottom: 48 }}>
+            <h2 className="heading-lg">
+              Selected
+              <br />
+              <span className="heading-accent">Exhibitions</span>
+            </h2>
+          </div>
+
+          {/* Row 1: 2 col */}
+          <div className="grid-2col fade-in fade-d3" style={{ marginBottom: 40 }}>
+            <ProjectCard slug="bloomtree" title="Bloomtree" description="2024 website redesign, systems & identity" layout="paired" />
+            <ProjectCard slug="grow-therapy" title="Grow Therapy" description="Designing care that actually shows up" layout="paired" />
+          </div>
+
+          {/* Row 2: full width */}
+          <div className="fade-in fade-d4" style={{ marginBottom: 40 }}>
+            <ProjectCard slug="003-sample" title="003 Sample project" description="Full brand strategy, systems & identity in action" layout="solo" />
+          </div>
+
+          {/* Row 3: 2 col */}
+          <div className="grid-2col fade-in fade-d5" style={{ marginBottom: 40 }}>
+            <ProjectCard slug="04-sample" title="04 Sample project" description="2024 art direction, systems & identity" layout="paired" />
+            <ProjectCard slug="05-sample" title="05 Sample project" description="2024 art direction, systems & identity" layout="paired" />
+          </div>
+        </section>
+
+        {/* Tagline */}
+        <section className="fade-in" style={{ paddingTop: 100, paddingBottom: 80 }}>
+          <h2 className="heading-display">
+            What works,
+            <br />
+            <span className="heading-accent">No more, no less</span>
+          </h2>
+        </section>
+      </div>
+
+      <Footer />
+    </main>
   );
 }

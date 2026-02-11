@@ -1,26 +1,393 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ============================================ */
+/* THEME — Tailwind v4 custom tokens           */
+/* ============================================ */
+@theme {
+  --color-bg: #141414;
+  --color-fg: #fffff0;
+  --color-fg-muted: #7e7e7e;
+  --color-fg-dim: #7e7e7e;
+  --color-gray-ph: #7e7e7e;
+  --color-accent: #c8ff00;
+
+  --font-sans: "neue-haas-grotesk-display", "aktiv-grotesk", sans-serif;
+  --font-body: "aktiv-grotesk", "neue-haas-grotesk-display", sans-serif;
+  --font-serif: "Denton", "Georgia", serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ============================================ */
+/* FONT FACES                                   */
+/* ============================================ */
+@font-face {
+  font-family: "Denton";
+  src: url("/fonts/Denton-LightItalic.otf") format("opentype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ============================================ */
+/* BASE RESETS                                  */
+/* ============================================ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================ */
+/* LAYOUT — Full-width with consistent margins  */
+/* ============================================ */
+:root {
+  --site-px: clamp(24px, 5vw, 80px);
+}
+
+.site-container {
+  width: 100%;
+  padding-left: var(--site-px);
+  padding-right: var(--site-px);
+}
+
+/* ============================================ */
+/* TYPE SYSTEM                                  */
+/* ============================================ */
+
+.heading-display {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  line-height: 1.0;
+  letter-spacing: -0.04em;
+  color: #fffff0;
+}
+
+.heading-xl {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: clamp(2.5rem, 5.5vw, 4.2rem);
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: #fffff0;
+}
+
+.heading-lg {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: #fffff0;
+}
+
+.heading-md {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: clamp(1.25rem, 2vw, 1.5rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: #fffff0;
+}
+
+.heading-sm {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 1.1rem;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: #fffff0;
+}
+
+.heading-accent {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--color-fg-muted);
+}
+
+.stat-value {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: 2.2rem;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #fffff0;
+}
+
+.text-big {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #fffff0;
+}
+
+.text-body {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--color-fg-muted);
+}
+
+.text-small {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--color-fg-muted);
+}
+
+.label {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-fg-dim);
+}
+
+.label-sm {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  line-height: 1.4;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-fg-dim);
+}
+
+.link {
+  color: #fffff0;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.link:hover {
+  opacity: 0.7;
+}
+
+.link-muted {
+  color: var(--color-fg-muted);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.link-muted:hover {
+  color: #fffff0;
+}
+
+/* ============================================ */
+/* BUTTONS                                      */
+/* ============================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  padding: 12px 28px;
+  border-radius: 100px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: #fffff0;
+  color: #141414;
+  border-color: #fffff0;
+}
+
+.btn-primary:hover {
+  background: transparent;
+  color: #fffff0;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: #fffff0;
+  border-color: rgba(255, 255, 240, 0.25);
+}
+
+.btn-secondary:hover {
+  border-color: #fffff0;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: #fffff0;
+  border-color: transparent;
+  padding: 12px 0;
+}
+
+.btn-ghost:hover {
+  opacity: 0.7;
+}
+
+.btn-sm {
+  font-size: 0.75rem;
+  padding: 8px 20px;
+}
+
+.btn-lg {
+  font-size: 0.9rem;
+  padding: 16px 36px;
+}
+
+/* ============================================ */
+/* DIVIDERS                                     */
+/* ============================================ */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 240, 0.15);
+}
+
+.divider-subtle {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 240, 0.08);
+}
+
+/* ============================================ */
+/* RESPONSIVE GRIDS                             */
+/* ============================================ */
+.grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--site-px);
+}
+
+.grid-3col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+}
+
+.grid-4col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .grid-2col {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-3col {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .grid-4col {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+}
+
+/* ============================================ */
+/* IMAGE PLACEHOLDERS                           */
+/* ============================================ */
+.img-placeholder {
+  width: 100%;
+  background-color: #7e7e7e;
+  border-radius: 12px;
+}
+
+.img-placeholder.ratio-portrait  { aspect-ratio: 4 / 5; }
+.img-placeholder.ratio-landscape { aspect-ratio: 16 / 9; }
+.img-placeholder.ratio-wide      { aspect-ratio: 5 / 3; }
+.img-placeholder.ratio-photo     { aspect-ratio: 4 / 3; }
+.img-placeholder.ratio-square    { aspect-ratio: 1 / 1; }
+
+@media (max-width: 768px) {
+  .ratio-responsive {
+    aspect-ratio: 1 / 1 !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .ratio-responsive-paired {
+    aspect-ratio: 1 / 1;
+  }
+
+  .ratio-responsive-solo {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* ============================================ */
+/* WAVE EMOJI                                   */
+/* ============================================ */
+.wave-emoji {
+  display: inline-block;
+  animation: wave 2.5s ease-in-out infinite;
+  transform-origin: 70% 70%;
+  font-style: normal;
+}
+
+@keyframes wave {
+  0%, 100% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+  60% { transform: rotate(0deg); }
+}
+
+/* ============================================ */
+/* MARQUEE                                      */
+/* ============================================ */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 20s linear infinite;
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ============================================ */
+/* STRIPES                                      */
+/* ============================================ */
+.stripe-line {
+  height: 5px;
+}
+
+.stripe-line:nth-child(odd) {
+  background: #fffff0;
+}
+
+.stripe-line:nth-child(even) {
+  background: #141414;
+}
+
+/* ============================================ */
+/* FADE-IN ANIMATIONS                           */
+/* ============================================ */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.fade-d1 { animation-delay: 0.1s; }
+.fade-d2 { animation-delay: 0.2s; }
+.fade-d3 { animation-delay: 0.35s; }
+.fade-d4 { animation-delay: 0.5s; }
+.fade-d5 { animation-delay: 0.65s; }
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
