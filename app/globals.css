@@ -38,7 +38,7 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 
   /* Spacing tokens — tighter fluid scaling
      Roughly 60% of previous values for denser feel */
-  --space-hero: clamp(100px, 12vw, 200px);
+  --space-hero: clamp(140px, 12vw, 200px);
   --space-hero-divider: clamp(20px, 2.5vw, 40px);
   --space-xl: clamp(48px, 7vw, 120px);
   --space-lg: clamp(32px, 4vw, 64px);
@@ -304,6 +304,28 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 }
 
 /* ============================================ */
+/* NAV — fixed, responsive padding              */
+/* ============================================ */
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: clamp(24px, 6vw, 96px);
+}
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: clamp(32px, 4vw, 64px);
+}
+
+/* ============================================ */
 /* LINKS                                        */
 /* ============================================ */
 .link { color: var(--color-fg); text-decoration: none; transition: opacity 0.3s ease; }
@@ -384,8 +406,8 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
   .grid-4col { grid-template-columns: 1fr 1fr; }
   .footer-columns { flex-direction: column; gap: var(--space-lg); }
   .stat-card { padding: 28px; }
-  .project-meta { flex-direction: column; }
-  .meta-columns { gap: var(--space-sm) !important; }
+  .project-meta { flex-direction: column; gap: var(--space-md) !important; }
+  .meta-columns { gap: var(--space-md) !important; flex-wrap: wrap; }
 }
 
 /* ============================================ */
