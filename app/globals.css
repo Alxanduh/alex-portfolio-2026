@@ -319,6 +319,18 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
   align-items: center;
   padding-top: clamp(20px, 3vw, 48px);
 }
+.nav-logo {
+  display: block;
+  width: 64px;
+  height: 53px;
+  flex-shrink: 0;
+}
+@media (max-width: 768px) {
+  .nav-logo {
+    width: 56px;
+    height: 46px;
+  }
+}
 .nav-links {
   display: flex;
   flex-direction: row;
@@ -408,9 +420,9 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
   .project-meta { flex-direction: column; gap: var(--space-md) !important; }
   .meta-columns { flex-direction: column; gap: var(--space-md) !important; }
   .hero-home {
-    justify-content: center !important;
+    justify-content: flex-start !important;
     min-height: auto !important;
-    padding-top: 140px;
+    padding-top: 25dvh;
     padding-bottom: var(--space-lg);
   }
 }
