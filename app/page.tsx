@@ -32,7 +32,7 @@ export default function Home() {
     <main>
       <div className="site-container">
         {/* ---- HERO ---- */}
-        <section style={{ minHeight: "100dvh", display: "flex", flexDirection: "column", justifyContent: "flex-end", paddingBottom: "var(--space-hero-divider)" }}>
+        <section className="hero-home" style={{ minHeight: "100dvh", display: "flex", flexDirection: "column", justifyContent: "flex-end", paddingBottom: "var(--space-hero-divider)" }}>
           <h1 className="heading-display fade-in">
             Hey
             <Image src="/images/image-hand.png" alt="Peace hand" width={84} height={114}
