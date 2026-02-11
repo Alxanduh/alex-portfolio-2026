@@ -134,7 +134,7 @@ function ContentSection({ section }: { section: ProjectSection }) {
     return (
       <section>
         {section.image ? (
-          <img src={section.image} alt="" style={{ width: "100%", display: "block", aspectRatio: "16/9", objectFit: "cover", borderRadius: 12 }} />
+          <img src={section.image} alt="" style={{ width: "100%", display: "block", aspectRatio: "16/9", objectFit: "cover", borderRadius: "var(--radius-card)" }} />
         ) : (
           <div className="img-placeholder ratio-landscape fade-in" />
         )}
@@ -154,8 +154,8 @@ function ContentSection({ section }: { section: ProjectSection }) {
       <div className="grid-2col-tight fade-in" style={section.caption ? { marginBottom: "var(--space-sm)" } : undefined}>
         {section.images ? (
           <>
-            <img src={section.images[0]} alt="" style={{ width: "100%", aspectRatio: "1/1", objectFit: "cover", borderRadius: 12 }} />
-            <img src={section.images[1]} alt="" style={{ width: "100%", aspectRatio: "1/1", objectFit: "cover", borderRadius: 12 }} />
+            <img src={section.images[0]} alt="" style={{ width: "100%", aspectRatio: "1/1", objectFit: "cover", borderRadius: "var(--radius-card)" }} />
+            <img src={section.images[1]} alt="" style={{ width: "100%", aspectRatio: "1/1", objectFit: "cover", borderRadius: "var(--radius-card)" }} />
           </>
         ) : (
           <>

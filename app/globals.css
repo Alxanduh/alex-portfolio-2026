@@ -34,17 +34,18 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 /* LAYOUT — Figma: 124px pad on 1920w frame     */
 /* ============================================ */
 :root {
-  --site-px: clamp(20px, 4vw, 80px);
+  --site-px: clamp(16px, 4vw, 64px);
 
   /* Spacing tokens — tighter fluid scaling
      Roughly 60% of previous values for denser feel */
-  --space-hero: clamp(140px, 12vw, 200px);
+  --space-hero: clamp(160px, 14vw, 240px);
   --space-hero-divider: clamp(20px, 2.5vw, 40px);
-  --space-xl: clamp(48px, 7vw, 120px);
+  --space-xl: clamp(64px, 9vw, 160px);
   --space-lg: clamp(32px, 4vw, 64px);
   --space-md: clamp(20px, 2.5vw, 40px);
   --space-sm: clamp(12px, 1.5vw, 24px);
   --space-xs: clamp(8px, 0.75vw, 12px);
+  --radius-card: clamp(8px, 1vw, 12px);
 }
 .site-container { width: 100%; padding-left: var(--site-px); padding-right: var(--site-px); }
 
@@ -316,7 +317,7 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding-top: clamp(24px, 6vw, 96px);
+  padding-top: clamp(20px, 3vw, 48px);
 }
 .nav-links {
   display: flex;
@@ -411,7 +412,7 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 /* ============================================ */
 /* IMAGE PLACEHOLDERS — Figma: 12px radius      */
 /* ============================================ */
-.img-placeholder { width: 100%; background-color: #7e7e7e; border-radius: 12px; }
+.img-placeholder { width: 100%; background-color: #7e7e7e; border-radius: var(--radius-card); }
 .img-placeholder.ratio-square    { aspect-ratio: 1 / 1; }
 .img-placeholder.ratio-portrait  { aspect-ratio: 4 / 5; }
 .img-placeholder.ratio-landscape { aspect-ratio: 16 / 9; }
@@ -431,8 +432,7 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 /* ============================================ */
 .stat-card {
   border: 1px solid #7e7e7e;
-  border-radius: 12px;
-  padding: 48px;
+  border-radius: var(--radius-card);  padding: 48px;
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -453,7 +453,6 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
     padding: 20px;
     min-width: 200px;
     max-width: 280px;
-    border-radius: 8px;
   }
   .stat-card-inner {
     gap: 32px;

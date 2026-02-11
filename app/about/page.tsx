@@ -14,7 +14,7 @@ export default function About() {
         <div className="divider fade-in fade-d1" style={{ marginTop: "var(--space-sm)" }} />
 
         {/* ---- BIO ---- */}
-        <section className="fade-in fade-d2" style={{ paddingTop: "var(--space-lg)" }}>
+        <section className="fade-in fade-d2" style={{ paddingTop: "var(--space-md)" }}>
           <p className="text-big" style={{ maxWidth: 762 }}>
             Raised on a healthy dose of Saturday morning cartoons, legos,
             skateboarding, and rock and roll. I channel this creative energy into
@@ -28,7 +28,7 @@ export default function About() {
         </section>
 
         {/* ---- MY FOCUS ---- */}
-        <section style={{ paddingTop: "var(--space-lg)", paddingBottom: "var(--space-lg)" }}>
+        <section style={{ paddingTop: "var(--space-xl)" }}>
           <div className="fade-in" style={{ marginBottom: "var(--space-lg)" }}>
             <h2 className="heading-xl">My<br /><span className="heading-accent">focus</span></h2>
           </div>
@@ -53,7 +53,7 @@ export default function About() {
         </section>
 
         {/* ---- WHEN I'M NOT ON THE COMPUTER ---- */}
-        <section style={{ paddingBottom: "var(--space-lg)" }}>
+        <section style={{ paddingTop: "var(--space-xl)", paddingBottom: "var(--space-xl)" }}>
           <div className="fade-in" style={{ marginBottom: "var(--space-lg)" }}>
             <h2 className="heading-xl">
               When i&apos;m<br /><span className="heading-accent">Not on the computer</span>
