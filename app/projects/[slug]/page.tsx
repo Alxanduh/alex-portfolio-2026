@@ -75,11 +75,11 @@ export default async function ProjectPage({ params }: Props) {
           >
             {project.highlights.map((h, i) => (
               <div key={i} className="stat-card fade-in" style={{
-                minWidth: 300, maxWidth: 447, flex: "0 0 auto",
+                flex: "0 0 auto",
                 animationDelay: `${0.1 + i * 0.1}s`,
               }}>
                 <div className="divider" />
-                <div style={{ display: "flex", flexDirection: "column", gap: 88, justifyContent: "center", flex: 1, paddingTop: "var(--space-xs)" }}>
+                <div className="stat-card-inner">
                   <p className="stat-value">{h.stat}</p>
                   <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-xs)" }}>
                     <p className="text-big">{h.title}</p>
