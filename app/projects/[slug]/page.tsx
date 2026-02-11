@@ -1,142 +1,176 @@
-import Link from "next/link";
+import { notFound } from "next/navigation";
 import Footer from "@/components/Footer";
+import ProjectCard from "@/components/ProjectCard";
+import DragScroll from "@/components/DragScroll";
+import { getProjectBySlug, getRelatedProjects, getAllSlugs } from "@/lib/projects";
+import type { ProjectSection } from "@/lib/projects";
 
-export default async function ProjectPage({
-  params,
-}: {
+export function generateStaticParams() {
+  return getAllSlugs().map((slug) => ({ slug }));
+}
+
+interface Props {
   params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
+}
 
-  const project = {
-    title: "Grow Therapy",
-    subtitle: "Designing care that\nactually shows up",
-    role: "Lead Designer",
-    year: "2025",
-    scope: "Brand, Web, Systems",
-  };
+export default async function ProjectPage({ params }: Props) {
+  const { slug } = await params;
+  const project = getProjectBySlug(slug);
+  if (!project) notFound();
+
+  const related = getRelatedProjects(project.related);
 
   return (
     <main>
+      {/* ---- HERO + META ---- */}
       <div className="site-container">
-        {/* Hero */}
-        <section style={{ paddingTop: 120, paddingBottom: 24 }}>
+        <section style={{ paddingTop: "var(--space-hero)" }}>
           <h1 className="heading-xl fade-in">
-            {project.title}
-            <br />
-            <span className="heading-accent" style={{ display: "block", fontSize: "clamp(1.5rem, 3.5vw, 2.4rem)", marginTop: 4 }}>
+            {project.title}<br />
+            <span className="heading-accent">
               {project.subtitle.split("\n").map((line, i) => (
-                <span key={i}>{line}{i === 0 && <br />}</span>
+                <span key={i}>{line}{i < project.subtitle.split("\n").length - 1 && <br />}</span>
               ))}
             </span>
           </h1>
+        </section>
 
-          {/* Meta */}
-          <div className="fade-in fade-d1" style={{ display: "flex", gap: 48, padding: "16px 0", marginTop: 16, marginBottom: 48 }}>
-            {[
-              { label: "Role", value: project.role },
-              { label: "Year", value: project.year },
-              { label: "Scope", value: project.scope },
-            ].map((meta) => (
-              <div key={meta.label}>
-                <p className="label" style={{ marginBottom: 2 }}>{meta.label}</p>
-                <p className="text-body">{meta.value}</p>
+        <div className="divider fade-in fade-d1" style={{ marginTop: "var(--space-sm)" }} />
+
+        <section className="project-meta fade-in fade-d2" style={{
+          display: "flex", justifyContent: "space-between", alignItems: "flex-start",
+          paddingTop: "var(--space-sm)", paddingBottom: "var(--space-lg)", gap: "var(--space-lg)",
+        }}>
+          <div className="meta-columns" style={{ display: "flex", gap: "var(--space-lg)", flexShrink: 0 }}>
+            {project.meta.map((m, i) => (
+              <div key={i} style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+                <span className="label-light">{m.label}</span>
+                <span className="text-body-tight">{m.value}</span>
               </div>
             ))}
           </div>
-          <div className="divider" />
-        </section>
-
-        {/* Hero Image */}
-        <section className="fade-in fade-d2" style={{ paddingTop: 48, paddingBottom: 80 }}>
-          <div className="img-placeholder ratio-landscape" />
-        </section>
-
-        {/* Project Highlights */}
-        <section style={{ paddingBottom: 64 }}>
-          <div className="fade-in" style={{ marginBottom: 32 }}>
-            <h2 className="heading-accent" style={{ fontSize: "1.4rem" }}>Project highlights</h2>
-          </div>
-          <div className="divider" />
-          <div className="grid-4col fade-in fade-d1" style={{ paddingTop: 24 }}>
-            {[
-              { value: "10%", label: "Metric label" },
-              { value: "1", label: "Metric label" },
-              { value: "10%", label: "Metric label" },
-              { value: "1", label: "Metric label" },
-            ].map((stat, i) => (
-              <div key={i}>
-                <p className="stat-value" style={{ marginBottom: 4 }}>{stat.value}</p>
-                <p className="label" style={{ marginBottom: 8 }}>{stat.label}</p>
-                <p className="text-small">A brief description of this project highlight and its context.</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Gallery */}
-        <section style={{ paddingBottom: 80 }}>
-          <div className="fade-in" style={{ marginBottom: 24 }}>
-            <div className="img-placeholder ratio-landscape" />
-          </div>
-
-          <div className="fade-in" style={{ padding: "48px 0" }}>
-            <p className="label" style={{ marginBottom: 6 }}>What we did together, and why</p>
-            <p className="text-body" style={{ maxWidth: 600 }}>
-              A brief description of the work, the approach, and the thinking behind the design decisions made throughout this project.
-            </p>
-          </div>
-
-          <div className="grid-2col fade-in" style={{ marginBottom: 24 }}>
-            <div className="img-placeholder ratio-photo" />
-            <div className="img-placeholder ratio-photo" />
-          </div>
-          <div className="grid-2col fade-in" style={{ marginBottom: 24 }}>
-            <div className="img-placeholder ratio-photo" />
-            <div className="img-placeholder ratio-photo" />
-          </div>
-
-          <div className="fade-in" style={{ padding: "48px 0" }}>
-            <p className="label" style={{ marginBottom: 6 }}>What we did together, and why</p>
-            <p className="text-body" style={{ maxWidth: 600 }}>
-              A brief description of the work, the approach, and the thinking behind the design decisions made throughout this project.
-            </p>
-          </div>
-
-          <div className="grid-2col fade-in" style={{ marginBottom: 24 }}>
-            <div className="img-placeholder ratio-photo" />
-            <div className="img-placeholder ratio-photo" />
-          </div>
-          <div className="fade-in" style={{ marginBottom: 24 }}>
-            <div className="img-placeholder ratio-landscape" />
-          </div>
-          <div className="grid-2col fade-in">
-            <div className="img-placeholder ratio-photo" />
-            <div className="img-placeholder ratio-photo" />
-          </div>
-        </section>
-
-        {/* Related Projects */}
-        <section style={{ paddingBottom: 80 }}>
-          <div className="fade-in" style={{ marginBottom: 40 }}>
-            <h2 className="heading-lg">
-              Check out<br />
-              <span className="heading-accent">this stuff too</span>
-            </h2>
-          </div>
-          <div className="grid-2col fade-in fade-d1">
-            {[1, 2].map((n) => (
-              <Link key={n} href="/projects/sample" className="block transition-opacity hover:opacity-85">
-                <p className="label" style={{ marginBottom: 4 }}>Sample project</p>
-                <p className="text-small" style={{ marginBottom: 16 }}>A brief description of this related work.</p>
-                <div className="img-placeholder ratio-responsive ratio-responsive-paired" />
-              </Link>
-            ))}
+          <div style={{ maxWidth: 800, display: "flex", flexDirection: "column", gap: 8 }}>
+            <span className="label">Intro</span>
+            <p className="text-big">{project.intro}</p>
           </div>
         </section>
       </div>
 
+      {/* ---- HERO IMAGE ---- */}
+      <div className="fade-in fade-d3" style={{ paddingTop: "var(--space-lg)" }}>
+        {project.heroImage ? (
+          <img src={project.heroImage} alt={project.title} style={{ width: "100%", display: "block", aspectRatio: "16/9", objectFit: "cover" }} />
+        ) : (
+          <div className="img-placeholder ratio-landscape" style={{ borderRadius: 0 }} />
+        )}
+      </div>
+
+      {/* ---- HIGHLIGHTS ---- */}
+      {project.highlights.length > 0 && (
+        <div style={{ paddingTop: "var(--space-lg)", paddingBottom: "var(--space-lg)", paddingLeft: "var(--site-px)", overflow: "hidden" }}>
+          <h2 className="heading-highlight fade-in" style={{ marginBottom: "var(--space-lg)" }}>Project highlights</h2>
+          <DragScroll
+            className="drag-scroll"
+            style={{ display: "flex", gap: "var(--space-sm)", overflowX: "auto", paddingRight: "var(--site-px)", paddingBottom: "var(--space-xs)" }}
+          >
+            {project.highlights.map((h, i) => (
+              <div key={i} className="stat-card fade-in" style={{
+                minWidth: 300, maxWidth: 447, flex: "0 0 auto",
+                animationDelay: `${0.1 + i * 0.1}s`,
+              }}>
+                <div className="divider" />
+                <div style={{ display: "flex", flexDirection: "column", gap: 88, justifyContent: "center", flex: 1, paddingTop: "var(--space-xs)" }}>
+                  <p className="stat-value">{h.stat}</p>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-xs)" }}>
+                    <p className="text-big">{h.title}</p>
+                    <p className="text-body-thin">{h.body}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </DragScroll>
+        </div>
+      )}
+
+      {/* ---- CONTENT SECTIONS ---- */}
+      <div className="site-container" style={{ display: "flex", flexDirection: "column", gap: "var(--space-md)" }}>
+        {project.sections.map((section, i) => (
+          <ContentSection key={i} section={section} />
+        ))}
+      </div>
+
+      {/* ---- RELATED PROJECTS ---- */}
+      {related.length > 0 && (
+        <div className="site-container">
+          <section style={{ paddingTop: "var(--space-xl)", paddingBottom: "var(--space-md)" }}>
+            <h2 className="heading-display-alt fade-in" style={{ marginBottom: "var(--space-md)" }}>
+              Check out<br /><span className="heading-accent">this stuff too</span>
+            </h2>
+            <div className="grid-2col-tight fade-in fade-d1">
+              {related.map((p) => (
+                <ProjectCard
+                  key={p.slug}
+                  slug={p.slug}
+                  label={p.label}
+                  title={p.title}
+                  description={p.description}
+                  size="large"
+                  labelWeight="light"
+                />
+              ))}
+            </div>
+          </section>
+        </div>
+      )}
+
       <Footer />
     </main>
+  );
+}
+
+/* ---- SECTION RENDERER ---- */
+function ContentSection({ section }: { section: ProjectSection }) {
+  if (section.type === "full") {
+    return (
+      <section>
+        {section.image ? (
+          <img src={section.image} alt="" style={{ width: "100%", display: "block", aspectRatio: "16/9", objectFit: "cover", borderRadius: 12 }} />
+        ) : (
+          <div className="img-placeholder ratio-landscape fade-in" />
+        )}
+        {section.caption && (
+          <div className="fade-in fade-d1" style={{ maxWidth: 1100, marginTop: "var(--space-sm)" }}>
+            {section.caption.label && <p className="label-thin" style={{ marginBottom: 8 }}>{section.caption.label}</p>}
+            {section.caption.title && <p className="heading-md" style={{ marginBottom: 8 }}>{section.caption.title}</p>}
+            {section.caption.body && <p className="text-body-light">{section.caption.body}</p>}
+          </div>
+        )}
+      </section>
+    );
+  }
+
+  return (
+    <section>
+      <div className="grid-2col-tight fade-in" style={section.caption ? { marginBottom: "var(--space-sm)" } : undefined}>
+        {section.images ? (
+          <>
+            <img src={section.images[0]} alt="" style={{ width: "100%", aspectRatio: "1/1", objectFit: "cover", borderRadius: 12 }} />
+            <img src={section.images[1]} alt="" style={{ width: "100%", aspectRatio: "1/1", objectFit: "cover", borderRadius: 12 }} />
+          </>
+        ) : (
+          <>
+            <div className="img-placeholder ratio-square" />
+            <div className="img-placeholder ratio-square" />
+          </>
+        )}
+      </div>
+      {section.caption && (
+        <div className="fade-in fade-d1" style={{ maxWidth: 1100 }}>
+          {section.caption.label && <p className="label-thin" style={{ marginBottom: 8 }}>{section.caption.label}</p>}
+          {section.caption.title && <p className="heading-md" style={{ marginBottom: 8 }}>{section.caption.title}</p>}
+          {section.caption.body && <p className="text-body-light">{section.caption.body}</p>}
+        </div>
+      )}
+    </section>
   );
 }

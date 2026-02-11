@@ -1,16 +1,13 @@
 @import "tailwindcss";
 
 /* ============================================ */
-/* THEME — Tailwind v4 custom tokens           */
+/* THEME                                        */
 /* ============================================ */
 @theme {
   --color-bg: #141414;
   --color-fg: #fffff0;
   --color-fg-muted: #7e7e7e;
-  --color-fg-dim: #7e7e7e;
-  --color-gray-ph: #7e7e7e;
   --color-accent: #c8ff00;
-
   --font-sans: "neue-haas-grotesk-display", "aktiv-grotesk", sans-serif;
   --font-body: "aktiv-grotesk", "neue-haas-grotesk-display", sans-serif;
   --font-serif: "Denton", "Georgia", serif;
@@ -28,366 +25,448 @@
 }
 
 /* ============================================ */
-/* BASE RESETS                                  */
+/* BASE                                         */
 /* ============================================ */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+*, *::before, *::after { box-sizing: border-box; }
+body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 
 /* ============================================ */
-/* LAYOUT — Full-width with consistent margins  */
+/* LAYOUT — Figma: 124px pad on 1920w frame     */
 /* ============================================ */
 :root {
-  --site-px: clamp(24px, 5vw, 80px);
+  --site-px: clamp(24px, 6.5vw, 124px);
+
+  /* Spacing tokens — desktop values */
+  --space-hero: 248px;      /* Project hero top (nav 152 + 96) */
+  --space-hero-divider: 56px; /* Hero text → divider */
+  --space-xl: 196px;        /* Major section gaps */
+  --space-lg: 96px;         /* Card rows, minor sections */
+  --space-md: 64px;         /* Content blocks, image gaps */
+  --space-sm: 32px;         /* Tight elements */
+  --space-xs: 16px;         /* Minimal gaps */
 }
 
-.site-container {
-  width: 100%;
-  padding-left: var(--site-px);
-  padding-right: var(--site-px);
+@media (max-width: 768px) {
+  :root {
+    --space-hero: 140px;
+    --space-hero-divider: 32px;
+    --space-xl: 80px;
+    --space-lg: 48px;
+    --space-md: 32px;
+    --space-sm: 24px;
+    --space-xs: 12px;
+  }
 }
+.site-container { width: 100%; padding-left: var(--site-px); padding-right: var(--site-px); }
 
 /* ============================================ */
 /* TYPE SYSTEM                                  */
+/*                                              */
+/* Cross-referenced from Home, About & Project  */
+/* Figma CSS exports. Every value verified.      */
+/*                                              */
+/* NHGD = Neue Haas Grotesk Display Pro         */
+/* AG   = Aktiv Grotesk                         */
+/* DT   = Denton Light Italic                   */
 /* ============================================ */
 
+/* ---- HEADINGS (NHGD) ---- */
+
+/* NHGD 224/224 w450 — Home tagline "What works" */
+.heading-tagline {
+  font-family: var(--font-sans);
+  font-weight: 450;
+  font-size: clamp(3rem, 14vw, 14rem);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  color: var(--color-fg);
+}
+
+/* NHGD 132/124 w450 — Project "Check out this stuff too" */
+.heading-display-alt {
+  font-family: var(--font-sans);
+  font-weight: 450;
+  font-size: clamp(2.75rem, 8.5vw, 8.25rem);
+  line-height: 0.94;
+  letter-spacing: -0.02em;
+  color: var(--color-fg);
+}
+
+/* NHGD 128/128 w450 — Home hero */
 .heading-display {
   font-family: var(--font-sans);
-  font-weight: 400;
-  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-weight: 450;
+  font-size: clamp(2.75rem, 8vw, 8rem);
   line-height: 1.0;
-  letter-spacing: -0.04em;
-  color: #fffff0;
+  letter-spacing: -0.02em;
+  color: var(--color-fg);
 }
 
-.heading-xl {
-  font-family: var(--font-sans);
-  font-weight: 400;
-  font-size: clamp(2.5rem, 5.5vw, 4.2rem);
-  line-height: 1.12;
-  letter-spacing: -0.03em;
-  color: #fffff0;
-}
-
+/* NHGD 116/116 w450 — Footer email */
 .heading-lg {
   font-family: var(--font-sans);
-  font-weight: 400;
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.15;
+  font-weight: 450;
+  font-size: clamp(1.75rem, 7.5vw, 7.25rem);
+  line-height: 1.0;
   letter-spacing: -0.02em;
-  color: #fffff0;
+  color: var(--color-fg);
 }
 
+/* NHGD 96/96 w450 — Section headings (all pages) */
+.heading-xl {
+  font-family: var(--font-sans);
+  font-weight: 450;
+  font-size: clamp(2.25rem, 6vw, 6rem);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  color: var(--color-fg);
+}
+
+/* NHGD 64/72 w450 — About focus column titles */
+.heading-focus {
+  font-family: var(--font-sans);
+  font-weight: 450;
+  font-size: clamp(1.75rem, 4vw, 4rem);
+  line-height: 1.125;
+  color: var(--color-fg);
+}
+
+/* NHGD 40/48 w450 — Project related card titles */
+.heading-md-lg {
+  font-family: var(--font-sans);
+  font-weight: 450;
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+  line-height: 1.2;
+  color: var(--color-fg);
+}
+
+/* NHGD 32/40 w450 — Home card titles, image captions */
 .heading-md {
   font-family: var(--font-sans);
-  font-weight: 500;
-  font-size: clamp(1.25rem, 2vw, 1.5rem);
-  line-height: 1.2;
-  letter-spacing: -0.01em;
-  color: #fffff0;
+  font-weight: 450;
+  font-size: clamp(1.25rem, 2vw, 2rem);
+  line-height: 1.25;
+  color: var(--color-fg);
 }
 
-.heading-sm {
-  font-family: var(--font-sans);
-  font-weight: 500;
-  font-size: 1.1rem;
-  line-height: 1.3;
-  letter-spacing: -0.01em;
-  color: #fffff0;
+/* ---- DENTON ACCENTS ---- */
+
+/* Global fix: all serif italic text gets left padding to prevent clipping */
+.font-serif.italic,
+[class*="heading-accent"],
+[class*="stat-value"],
+[class*="heading-highlight"] {
+  overflow: visible;
 }
 
+/* Inherits size from parent — muted gray */
 .heading-accent {
   font-family: var(--font-serif);
   font-weight: 300;
   font-style: italic;
   color: var(--color-fg-muted);
+  display: block;
+  margin-left: -0.2em;
+  padding-left: 0.2em;
 }
 
+/* Inherits size from parent — white */
+.heading-accent-light {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--color-fg);
+  display: block;
+  margin-left: -0.2em;
+  padding-left: 0.2em;
+}
+
+/* DT 88/88 w300 — Stat card values */
 .stat-value {
-  font-family: var(--font-sans);
-  font-weight: 400;
-  font-size: 2.2rem;
-  line-height: 1;
-  letter-spacing: -0.03em;
-  color: #fffff0;
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(2.5rem, 5.5vw, 5.5rem);
+  line-height: 1.0;
+  color: var(--color-fg);
+  margin-left: -0.15em; padding-left: 0.15em;
 }
 
+/* DT 80/80 w300 — "Project highlights" label */
+.heading-highlight {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(2rem, 5vw, 5rem);
+  line-height: 1.0;
+  color: var(--color-fg-muted);
+  margin-left: -0.15em; padding-left: 0.15em;
+}
+
+/* ---- BODY TEXT (AG) ---- */
+
+/* AG 24/32 w400 — Bio, intro, stat titles */
 .text-big {
   font-family: var(--font-body);
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #fffff0;
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
+  line-height: 1.333;
+  font-weight: 400;
+  color: var(--color-fg);
 }
 
+/* AG 24/48 w400 — Footer links, About focus lists */
+.text-list {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.5vw, 1.5rem);
+  line-height: 2.0;
+  font-weight: 400;
+  color: var(--color-fg);
+}
+
+/* AG 18/24 w400 — Card descriptions, nav, general body */
 .text-body {
   font-family: var(--font-body);
-  font-size: 0.875rem;
-  line-height: 1.65;
-  color: var(--color-fg-muted);
+  font-size: 1.125rem;
+  line-height: 1.333;
+  font-weight: 400;
+  color: var(--color-fg);
 }
 
+/* AG 18/32 w300 — Project image caption body */
+.text-body-light {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.778;
+  font-weight: 300;
+  color: var(--color-fg);
+}
+
+/* AG 18/26 w400 — Meta values */
+.text-body-tight {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.444;
+  font-weight: 400;
+  color: var(--color-fg);
+}
+
+/* AG 18/26 w300 — Stat card body */
+.text-body-thin {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.444;
+  font-weight: 300;
+  color: var(--color-fg);
+}
+
+/* Small text */
 .text-small {
   font-family: var(--font-body);
-  font-size: 0.78rem;
+  font-size: 0.875rem;
   line-height: 1.5;
   color: var(--color-fg-muted);
 }
 
+/* ---- LABELS ---- */
+
+/* AG 16/24 w500 — Home card labels */
 .label {
   font-family: var(--font-body);
-  font-size: 0.7rem;
-  line-height: 1.4;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--color-fg-dim);
-}
-
-.label-sm {
-  font-family: var(--font-body);
-  font-size: 0.65rem;
-  line-height: 1.4;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--color-fg-dim);
-}
-
-.link {
-  color: #fffff0;
-  text-decoration: none;
-  transition: opacity 0.3s ease;
-}
-
-.link:hover {
-  opacity: 0.7;
-}
-
-.link-muted {
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 500;
   color: var(--color-fg-muted);
-  text-decoration: none;
-  transition: color 0.3s ease;
 }
 
-.link-muted:hover {
-  color: #fffff0;
+/* AG 16/24 w400 — Project meta labels */
+.label-light {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--color-fg-muted);
 }
+
+/* AG 16/24 w300 — Project image caption subtitles */
+.label-thin {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 300;
+  color: var(--color-fg-muted);
+}
+
+/* AG 24/32 w400 -0.04em — Footer info bar */
+.label-footer {
+  font-family: var(--font-body);
+  font-size: clamp(0.875rem, 1.5vw, 1.5rem);
+  line-height: 1.333;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  color: var(--color-fg-muted);
+}
+
+/* AG 18/112% w400 — Nav links */
+.nav-link {
+  font-family: var(--font-body);
+  font-size: clamp(0.875rem, 1.1vw, 1.125rem);
+  line-height: 1.12;
+  font-weight: 400;
+}
+
+/* ============================================ */
+/* LINKS                                        */
+/* ============================================ */
+.link { color: var(--color-fg); text-decoration: none; transition: opacity 0.3s ease; }
+.link:hover { opacity: 0.7; }
+.link-muted { color: var(--color-fg-muted); text-decoration: none; transition: color 0.3s ease; }
+.link-muted:hover { color: var(--color-fg); }
 
 /* ============================================ */
 /* BUTTONS                                      */
 /* ============================================ */
 .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-body);
-  font-size: 0.82rem;
-  letter-spacing: 0.02em;
-  padding: 12px 28px;
-  border-radius: 100px;
-  border: 1px solid transparent;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--font-body); font-size: 0.875rem; letter-spacing: 0.02em;
+  padding: 12px 28px; border-radius: 100px; border: 1px solid transparent;
+  cursor: pointer; transition: all 0.3s ease; text-decoration: none;
 }
-
-.btn-primary {
-  background: #fffff0;
-  color: #141414;
-  border-color: #fffff0;
-}
-
-.btn-primary:hover {
-  background: transparent;
-  color: #fffff0;
-}
-
-.btn-secondary {
-  background: transparent;
-  color: #fffff0;
-  border-color: rgba(255, 255, 240, 0.25);
-}
-
-.btn-secondary:hover {
-  border-color: #fffff0;
-}
-
-.btn-ghost {
-  background: transparent;
-  color: #fffff0;
-  border-color: transparent;
-  padding: 12px 0;
-}
-
-.btn-ghost:hover {
-  opacity: 0.7;
-}
-
-.btn-sm {
-  font-size: 0.75rem;
-  padding: 8px 20px;
-}
-
-.btn-lg {
-  font-size: 0.9rem;
-  padding: 16px 36px;
-}
+.btn-primary { background: var(--color-fg); color: #141414; border-color: var(--color-fg); }
+.btn-primary:hover { background: transparent; color: var(--color-fg); }
+.btn-secondary { background: transparent; color: var(--color-fg); border-color: rgba(255,255,240,0.25); }
+.btn-secondary:hover { border-color: var(--color-fg); }
+.btn-ghost { background: transparent; color: var(--color-fg); border-color: transparent; padding: 12px 0; }
+.btn-ghost:hover { opacity: 0.7; }
 
 /* ============================================ */
-/* DIVIDERS                                     */
+/* DIVIDERS — Figma: SVG stroke #FFFFF0         */
 /* ============================================ */
-.divider {
-  width: 100%;
-  height: 1px;
-  background: rgba(255, 255, 240, 0.15);
-}
-
-.divider-subtle {
-  width: 100%;
-  height: 1px;
-  background: rgba(255, 255, 240, 0.08);
-}
+.divider { width: 100%; height: 1px; background: var(--color-fg); }
+.divider-subtle { width: 100%; height: 1px; background: rgba(255,255,240,0.15); }
 
 /* ============================================ */
-/* RESPONSIVE GRIDS                             */
+/* GRIDS                                        */
+/*                                              */
+/* Home paired cards: 96px gap (var(--site-px)) */
+/* Project 2-up imgs: 64px gap                  */
+/* About focus cols:  96px gap                  */
+/* About photo grid:  32px gap                  */
+/* Project related:   64px gap                  */
 /* ============================================ */
-.grid-2col {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--site-px);
+.grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: var(--site-px); }
+.grid-2col-tight { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
+.grid-3col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--site-px); }
+.grid-4col { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 32px; }
+
+/* Footer columns — desktop: side by side, mobile: stacked */
+.footer-columns {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
-.grid-3col {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 40px;
+/* Project meta — desktop: side by side, mobile: stacked */
+.project-meta {
+  flex-wrap: wrap;
 }
-
-.grid-4col {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 24px;
+.meta-columns {
+  flex-wrap: wrap;
 }
 
 @media (max-width: 768px) {
-  .grid-2col {
-    grid-template-columns: 1fr;
-  }
-
-  .grid-3col {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-
-  .grid-4col {
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-  }
+  .grid-2col { grid-template-columns: 1fr; gap: var(--space-lg); }
+  .grid-2col-tight { grid-template-columns: 1fr; gap: var(--space-md); }
+  .grid-3col { grid-template-columns: 1fr; gap: var(--space-lg); }
+  .grid-4col { grid-template-columns: 1fr 1fr; gap: var(--space-xs); }
+  .footer-columns { flex-direction: column; gap: var(--space-lg); }
+  .stat-card { padding: 32px; }
+  .project-meta { flex-direction: column; }
+  .meta-columns { gap: var(--space-sm) !important; }
 }
 
 /* ============================================ */
-/* IMAGE PLACEHOLDERS                           */
+/* IMAGE PLACEHOLDERS — Figma: 12px radius      */
 /* ============================================ */
-.img-placeholder {
-  width: 100%;
-  background-color: #7e7e7e;
-  border-radius: 12px;
-}
-
+.img-placeholder { width: 100%; background-color: #7e7e7e; border-radius: 12px; }
+.img-placeholder.ratio-square    { aspect-ratio: 1 / 1; }
 .img-placeholder.ratio-portrait  { aspect-ratio: 4 / 5; }
 .img-placeholder.ratio-landscape { aspect-ratio: 16 / 9; }
-.img-placeholder.ratio-wide      { aspect-ratio: 5 / 3; }
 .img-placeholder.ratio-photo     { aspect-ratio: 4 / 3; }
-.img-placeholder.ratio-square    { aspect-ratio: 1 / 1; }
 
 @media (max-width: 768px) {
-  .ratio-responsive {
-    aspect-ratio: 1 / 1 !important;
-  }
+  .ratio-responsive { aspect-ratio: 1 / 1 !important; }
 }
-
 @media (min-width: 769px) {
-  .ratio-responsive-paired {
-    aspect-ratio: 1 / 1;
-  }
-
-  .ratio-responsive-solo {
-    aspect-ratio: 16 / 9;
-  }
+  .ratio-responsive-paired { aspect-ratio: 1 / 1; }
+  .ratio-responsive-solo   { aspect-ratio: 16 / 9; }
 }
 
 /* ============================================ */
-/* WAVE EMOJI                                   */
+/* STAT CARDS — Figma: 447w, 1px #7e7e7e, 12r   */
+/* 48px padding, 88px gap stat→text, 16px gaps  */
 /* ============================================ */
-.wave-emoji {
-  display: inline-block;
-  animation: wave 2.5s ease-in-out infinite;
-  transform-origin: 70% 70%;
-  font-style: normal;
-}
-
-@keyframes wave {
-  0%, 100% { transform: rotate(0deg); }
-  10% { transform: rotate(14deg); }
-  20% { transform: rotate(-8deg); }
-  30% { transform: rotate(14deg); }
-  40% { transform: rotate(-4deg); }
-  50% { transform: rotate(10deg); }
-  60% { transform: rotate(0deg); }
+.stat-card {
+  border: 1px solid #7e7e7e;
+  border-radius: 12px;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
 /* ============================================ */
-/* MARQUEE                                      */
+/* MARQUEE — DT 224/224 w300                    */
+/* Two identical halves, translateX(-50%) loop   */
 /* ============================================ */
+.marquee-wrapper {
+  overflow: hidden;
+  padding-top: var(--space-xl);
+  width: 100%;
+}
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee 20s linear infinite;
+  animation: marquee 140s linear infinite;
+  will-change: transform;
 }
-
+.marquee-half {
+  display: flex;
+  flex-shrink: 0;
+}
+.marquee-text {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(5rem, 14vw, 14rem);
+  line-height: 1.0;
+  white-space: nowrap;
+  padding-right: 48px;
+  flex-shrink: 0;
+}
 @keyframes marquee {
-  0%   { transform: translateX(0); }
+  0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
 /* ============================================ */
-/* STRIPES                                      */
+/* STRIPES — 23 bars, 4→46px, 32px gap          */
 /* ============================================ */
-.stripe-line {
-  height: 5px;
-}
-
-.stripe-line:nth-child(odd) {
-  background: #fffff0;
-}
-
-.stripe-line:nth-child(even) {
-  background: #141414;
-}
+.stripes { display: flex; flex-direction: column; }
+.stripes .stripe-line { width: 100%; background: var(--color-fg); }
 
 /* ============================================ */
-/* FADE-IN ANIMATIONS                           */
+/* DRAG SCROLL — hide scrollbar                 */
 /* ============================================ */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeUp 0.8s ease forwards;
-}
+.drag-scroll { scrollbar-width: none; -ms-overflow-style: none; }
+.drag-scroll::-webkit-scrollbar { display: none; }
 
+/* ============================================ */
+/* ANIMATIONS                                   */
+/* ============================================ */
+.fade-in { opacity: 0; transform: translateY(20px); animation: fadeUp 0.8s ease forwards; }
 .fade-d1 { animation-delay: 0.1s; }
 .fade-d2 { animation-delay: 0.2s; }
 .fade-d3 { animation-delay: 0.35s; }
 .fade-d4 { animation-delay: 0.5s; }
 .fade-d5 { animation-delay: 0.65s; }
-
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }

@@ -1,76 +1,91 @@
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import ProjectCard from "@/components/ProjectCard";
+import { getHomeProjects } from "@/lib/projects";
 
 export default function Home() {
+  const projects = getHomeProjects();
+
+  const rows: { layout: "paired" | "solo"; projects: typeof projects }[] = [];
+  let pairBuffer: typeof projects = [];
+
+  projects.forEach((p) => {
+    if (p.homeLayout === "solo") {
+      if (pairBuffer.length > 0) {
+        rows.push({ layout: "paired", projects: [...pairBuffer] });
+        pairBuffer = [];
+      }
+      rows.push({ layout: "solo", projects: [p] });
+    } else {
+      pairBuffer.push(p);
+      if (pairBuffer.length === 2) {
+        rows.push({ layout: "paired", projects: [...pairBuffer] });
+        pairBuffer = [];
+      }
+    }
+  });
+  if (pairBuffer.length > 0) {
+    rows.push({ layout: "paired", projects: [...pairBuffer] });
+  }
+
   return (
     <main>
       <div className="site-container">
-        {/* Hero */}
-        <section style={{ minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "flex-end", paddingBottom: 60, }}>
-          <h1 className="heading-display fade-in" style={{ fontSize: "clamp(2.5rem, 8vw, 8rem)", }}>
+        {/* ---- HERO ---- */}
+        <section style={{ minHeight: "100vh", display: "flex", flexDirection: "column", justifyContent: "flex-end", paddingBottom: "var(--space-hero-divider)" }}>
+          <h1 className="heading-display fade-in">
             Hey
-            <Image
-              src="/images/image-hand.png"
-              alt="Peace hand"
-              width={64}
-              height={64}
-              className="hand-icon"
-              style={{
-                display: "inline-block",
-                verticalAlign: "middle",
-                width: "0.9em",
-                height: "0.9em",
-                objectFit: "contain",
-                margin: "0 0.05em",
-              }}
+            <Image src="/images/image-hand.png" alt="Peace hand" width={84} height={114}
+              style={{ display: "inline-block", verticalAlign: "baseline", width: "0.66em", height: "0.89em", objectFit: "contain", margin: "0 0.05em" }}
             />
-            {" "}I&apos;m Alex —
+            {" "}I&apos;m Alex—
             <br />
-            <span className="heading-accent" style={{ display: "block" }}>
-              Crafting brands and
-              <br />
-              digital experiences
+            <span className="heading-accent-light">
+              Crafting brands and<br />digital experiences
             </span>
           </h1>
-          <div className="divider fade-in fade-d2" style={{ marginTop: 24 }} />
+          <div className="divider fade-in fade-d2" style={{ marginTop: "var(--space-hero-divider)" }} />
         </section>
 
-        {/* Selected Exhibitions */}
-        <section style={{ paddingTop: 40, paddingBottom: 80 }}>
-          <div className="fade-in fade-d2" style={{ marginBottom: 48 }}>
-            <h2 className="heading-lg">
-              Selected
-              <br />
-              <span className="heading-accent">Exhibitions</span>
-            </h2>
+        {/* ---- SELECTED EXHIBITIONS ---- */}
+        <section style={{ paddingTop: "var(--space-xl)", paddingBottom: "var(--space-lg)" }}>
+          <div className="fade-in fade-d2" style={{ marginBottom: "var(--space-lg)" }}>
+            <h2 className="heading-xl">Selected<br /><span className="heading-accent">Exhibitions</span></h2>
           </div>
 
-          {/* Row 1: 2 col */}
-          <div className="grid-2col fade-in fade-d3" style={{ marginBottom: 40 }}>
-            <ProjectCard slug="bloomtree" title="Bloomtree" description="2024 website redesign, systems & identity" layout="paired" />
-            <ProjectCard slug="grow-therapy" title="Grow Therapy" description="Designing care that actually shows up" layout="paired" />
-          </div>
-
-          {/* Row 2: full width */}
-          <div className="fade-in fade-d4" style={{ marginBottom: 40 }}>
-            <ProjectCard slug="003-sample" title="003 Sample project" description="Full brand strategy, systems & identity in action" layout="solo" />
-          </div>
-
-          {/* Row 3: 2 col */}
-          <div className="grid-2col fade-in fade-d5" style={{ marginBottom: 40 }}>
-            <ProjectCard slug="04-sample" title="04 Sample project" description="2024 art direction, systems & identity" layout="paired" />
-            <ProjectCard slug="05-sample" title="05 Sample project" description="2024 art direction, systems & identity" layout="paired" />
-          </div>
+          {rows.map((row, i) => (
+            <div key={i} style={{ paddingTop: i > 0 ? "var(--space-lg)" : 0 }}>
+              {row.layout === "paired" ? (
+                <div className="grid-2col fade-in fade-d3">
+                  {row.projects.map((p) => (
+                    <ProjectCard
+                      key={p.slug}
+                      slug={p.slug}
+                      label={p.label}
+                      title={p.title}
+                      description={p.description}
+                      layout="paired"
+                    />
+                  ))}
+                </div>
+              ) : (
+                <div className="fade-in fade-d4">
+                  <ProjectCard
+                    slug={row.projects[0].slug}
+                    label={row.projects[0].label}
+                    title={row.projects[0].title}
+                    description={row.projects[0].description}
+                    layout="solo"
+                  />
+                </div>
+              )}
+            </div>
+          ))}
         </section>
 
-        {/* Tagline */}
-        <section className="fade-in" style={{ paddingTop: 100, paddingBottom: 80 }}>
-          <h2 className="heading-display">
-            What works,
-            <br />
-            <span className="heading-accent">No more, no less</span>
-          </h2>
+        {/* ---- TAGLINE ---- */}
+        <section className="fade-in" style={{ paddingTop: "var(--space-xl)", paddingBottom: "var(--space-xl)" }}>
+          <h2 className="heading-tagline">What works,<br /><span className="heading-accent">No more, no less</span></h2>
         </section>
       </div>
 

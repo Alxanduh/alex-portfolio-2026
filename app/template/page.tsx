@@ -1,250 +1,169 @@
-import Link from "next/link";
-
-export default function StyleGuide() {
+export default function TemplatePage() {
   return (
     <main>
-      <div className="site-container">
-        {/* Header */}
-        <section style={{ paddingTop: 140, paddingBottom: 80 }}>
-          <h1 className="heading-display">Style guide</h1>
-        </section>
+      <div className="site-container" style={{ paddingTop: 248, paddingBottom: 120 }}>
+        <h1 className="heading-display" style={{ marginBottom: 16 }}>Style Guide</h1>
+        <p className="text-big" style={{ color: "#7e7e7e" }}>Unified design system — mapped from Home, About &amp; Project Figma exports</p>
+      </div>
 
-        {/* ======================== */}
-        {/* TEXT STYLES              */}
-        {/* ======================== */}
-        <section style={{ paddingBottom: 80 }}>
-          <div style={{ marginBottom: 48 }}>
-            <p className="label" style={{ marginBottom: 8 }}>Text styles</p>
-            <div className="divider" />
+      {/* HEADINGS */}
+      <div className="site-container" style={{ paddingBottom: 120 }}>
+        <div className="divider" style={{ marginBottom: 48 }} />
+        <p className="label" style={{ marginBottom: 32 }}>Headings (NHGD)</p>
+        <div style={{ display: "flex", flexDirection: "column", gap: 48 }}>
+          {[
+            { cls: "heading-tagline", spec: "224/224 w450", text: "Tagline", src: "Home" },
+            { cls: "heading-display-alt", spec: "132/124 w450", text: "Check out", src: "Project" },
+            { cls: "heading-display", spec: "128/128 w450", text: "Hero display", src: "Home" },
+            { cls: "heading-xl", spec: "96/96 w450", text: "Section heading", src: "All pages" },
+            { cls: "heading-lg", spec: "116/116 w450", text: "Footer email", src: "Footer" },
+            { cls: "heading-focus", spec: "64/72 w450", text: "Focus column", src: "About" },
+            { cls: "heading-md-lg", spec: "40/48 w450", text: "Related card title", src: "Project" },
+            { cls: "heading-md", spec: "32/40 w450", text: "Card title / caption", src: "Home, Project" },
+          ].map((h) => (
+            <div key={h.cls}>
+              <p className="text-small" style={{ marginBottom: 8 }}>.{h.cls} — NHGD {h.spec} — {h.src}</p>
+              <p className={h.cls}>{h.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* DENTON */}
+      <div className="site-container" style={{ paddingBottom: 120 }}>
+        <div className="divider" style={{ marginBottom: 48 }} />
+        <p className="label" style={{ marginBottom: 32 }}>Denton Accents</p>
+        <div style={{ display: "flex", flexDirection: "column", gap: 48 }}>
+          <div>
+            <p className="text-small" style={{ marginBottom: 8 }}>.heading-accent — inherits size, #7e7e7e — All pages</p>
+            <p className="heading-xl"><span className="heading-accent">Exhibitions</span></p>
           </div>
-
-          {/* Display */}
-          <div style={{ display: "grid", gridTemplateColumns: "200px 1fr", gap: 24, alignItems: "baseline", marginBottom: 48 }}>
-            <p className="label">Display — clamp(3.5rem, 8vw, 7rem)</p>
-            <p className="heading-display">Heading Display</p>
+          <div>
+            <p className="text-small" style={{ marginBottom: 8 }}>.heading-accent-light — inherits size, #fffff0 — Home hero</p>
+            <p className="heading-display"><span className="heading-accent-light">Digital experiences</span></p>
           </div>
-
-          {/* XL */}
-          <div style={{ display: "grid", gridTemplateColumns: "200px 1fr", gap: 24, alignItems: "baseline", marginBottom: 48 }}>
-            <p className="label">H1 XL — clamp(2.5rem, 5.5vw, 4.2rem)</p>
-            <p className="heading-xl">Heading XL</p>
-          </div>
-
-          {/* LG */}
-          <div style={{ display: "grid", gridTemplateColumns: "200px 1fr", gap: 24, alignItems: "baseline", marginBottom: 48 }}>
-            <p className="label">H2 LG — clamp(2rem, 4vw, 3rem)</p>
-            <p className="heading-lg">Heading LG</p>
-          </div>
-
-          {/* MD */}
-          <div style={{ display: "grid", gridTemplateColumns: "200px 1fr", gap: 24, alignItems: "baseline", marginBottom: 48 }}>
-            <p className="label">H3 MD — clamp(1.25rem, 2vw, 1.5rem)</p>
-            <p className="heading-md">Heading MD</p>
-          </div>
-
-          {/* SM */}
-          <div style={{ display: "grid", gridTemplateColumns: "200px 1fr", gap: 24, alignItems: "baseline", marginBottom: 48 }}>
-            <p className="label">H4 SM — 1.1rem</p>
-            <p className="heading-sm">Heading SM</p>
-          </div>
-
-          {/* Accent */}
-          <div style={{ display: "grid", gridTemplateColumns: "200px 1fr", gap: 24, alignItems: "baseline", marginBottom: 48 }}>
-            <p className="label">Accent — Denton Light Italic</p>
-            <p className="heading-xl"><span className="heading-accent">Accent Heading</span></p>
-          </div>
-
-          {/* Stat */}
-          <div style={{ display: "grid", gridTemplateColumns: "200px 1fr", gap: 24, alignItems: "baseline", marginBottom: 48 }}>
-            <p className="label">Stat Value — 2.2rem</p>
+          <div>
+            <p className="text-small" style={{ marginBottom: 8 }}>.stat-value — DT 88/88 w300 — Project highlights</p>
             <p className="stat-value">10%</p>
           </div>
-
-          <div className="divider" style={{ marginBottom: 40 }} />
-
-          {/* Body styles */}
-          <div style={{ display: "grid", gridTemplateColumns: "200px 1fr", gap: 24, alignItems: "baseline", marginBottom: 32 }}>
-            <p className="label">Text Big — 1.1rem/1.6</p>
-            <p className="text-big">Big text for introductions and callouts that need more visual weight than body copy.</p>
+          <div>
+            <p className="text-small" style={{ marginBottom: 8 }}>.heading-highlight — DT 80/80 w300 #7e7e7e — Project</p>
+            <p className="heading-highlight">Project highlights</p>
           </div>
+        </div>
+      </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "200px 1fr", gap: 24, alignItems: "baseline", marginBottom: 32 }}>
-            <p className="label">Text Body — 0.875rem/1.65</p>
-            <p className="text-body">Body text for paragraphs, descriptions, and general content. This is the workhorse of the typographic system.</p>
+      {/* BODY */}
+      <div className="site-container" style={{ paddingBottom: 120 }}>
+        <div className="divider" style={{ marginBottom: 48 }} />
+        <p className="label" style={{ marginBottom: 32 }}>Body Text (AG)</p>
+        <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
+          {[
+            { cls: "text-big", spec: "24/32 w400", use: "Bio, intro, stat titles" },
+            { cls: "text-list", spec: "24/48 w400", use: "Footer links, focus lists" },
+            { cls: "text-body", spec: "18/24 w400", use: "Card desc, general body" },
+            { cls: "text-body-tight", spec: "18/26 w400", use: "Meta values" },
+            { cls: "text-body-light", spec: "18/32 w300", use: "Image caption body" },
+            { cls: "text-body-thin", spec: "18/26 w300", use: "Stat card body" },
+            { cls: "text-small", spec: "14/21", use: "Descriptive / helper" },
+          ].map((t) => (
+            <div key={t.cls}>
+              <p className="text-small" style={{ marginBottom: 8 }}>.{t.cls} — AG {t.spec} — {t.use}</p>
+              <p className={t.cls}>{t.use}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* LABELS */}
+      <div className="site-container" style={{ paddingBottom: 120 }}>
+        <div className="divider" style={{ marginBottom: 48 }} />
+        <p className="label" style={{ marginBottom: 32 }}>Labels</p>
+        <div style={{ display: "flex", flexDirection: "column", gap: 32 }}>
+          {[
+            { cls: "label", spec: "16/24 w500", use: "Home card labels, intro label" },
+            { cls: "label-light", spec: "16/24 w400", use: "Project meta labels, related card labels" },
+            { cls: "label-thin", spec: "16/24 w300", use: "Image caption subtitles" },
+            { cls: "label-footer", spec: "24/32 w400 -0.04em", use: "Footer info bar" },
+            { cls: "nav-link", spec: "18/112% w400", use: "Navigation" },
+          ].map((l) => (
+            <div key={l.cls}>
+              <p className="text-small" style={{ marginBottom: 8 }}>.{l.cls} — AG {l.spec} — {l.use}</p>
+              <p className={l.cls} style={{ color: l.cls === "nav-link" ? "#fffff0" : undefined }}>{l.use}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* GRIDS */}
+      <div className="site-container" style={{ paddingBottom: 120 }}>
+        <div className="divider" style={{ marginBottom: 48 }} />
+        <p className="label" style={{ marginBottom: 32 }}>Grid Variants</p>
+        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+          {[
+            [".grid-2col", "var(--site-px) ≈ 96px gap", "Home project cards"],
+            [".grid-2col-tight", "64px gap", "Project 2-up images, related cards"],
+            [".grid-3col", "var(--site-px) ≈ 96px gap", "About focus columns"],
+            [".grid-4col", "32px gap", "About photo grid"],
+          ].map(([cls, gap, use]) => (
+            <div key={cls} style={{ display: "flex", justifyContent: "space-between" }}>
+              <p className="text-body">{cls}</p>
+              <p style={{ fontFamily: "monospace", fontSize: 14, color: "#7e7e7e" }}>{gap} — {use}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* COMPONENTS */}
+      <div className="site-container" style={{ paddingBottom: 120 }}>
+        <div className="divider" style={{ marginBottom: 48 }} />
+        <p className="label" style={{ marginBottom: 32 }}>Components</p>
+
+        <div style={{ display: "flex", gap: 24, flexWrap: "wrap", alignItems: "center", marginBottom: 48 }}>
+          <a className="btn btn-primary">Primary</a>
+          <a className="btn btn-secondary">Secondary</a>
+          <a className="btn btn-ghost">Ghost →</a>
+        </div>
+
+        <p className="text-small" style={{ marginBottom: 16 }}>Stat Card (Project page)</p>
+        <div className="stat-card" style={{ maxWidth: 447 }}>
+          <div className="divider" />
+          <div style={{ display: "flex", flexDirection: "column", gap: 88, paddingTop: 16 }}>
+            <p className="stat-value">10%</p>
+            <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+              <p className="text-big">A title goes here</p>
+              <p className="text-body-thin">Description body text goes here in the stat card</p>
+            </div>
           </div>
+        </div>
+      </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "200px 1fr", gap: 24, alignItems: "baseline", marginBottom: 32 }}>
-            <p className="label">Text Small — 0.78rem/1.5</p>
-            <p className="text-small">Small text for card descriptions, captions, metadata, and supplementary information.</p>
-          </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "200px 1fr", gap: 24, alignItems: "baseline", marginBottom: 32 }}>
-            <p className="label">Label — 0.7rem uppercase</p>
-            <p className="label">Label Text Example</p>
-          </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "200px 1fr", gap: 24, alignItems: "baseline", marginBottom: 32 }}>
-            <p className="label">Label SM — 0.65rem uppercase</p>
-            <p className="label-sm">Small Label Text Example</p>
-          </div>
-        </section>
-
-        {/* ======================== */}
-        {/* COLORS                   */}
-        {/* ======================== */}
-        <section style={{ paddingBottom: 80 }}>
-          <div style={{ marginBottom: 48 }}>
-            <p className="label" style={{ marginBottom: 8 }}>Colors</p>
-            <div className="divider" />
-          </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 24 }}>
-            {[
-              { name: "Dark (bg)", color: "#141414", border: true },
-              { name: "Light (fg)", color: "#fffff0", border: false },
-              { name: "Gray (muted)", color: "#7e7e7e", border: false },
-              { name: "Accent", color: "#c8ff00", border: false },
-            ].map((c) => (
-              <div key={c.name}>
-                <div
-                  style={{
-                    width: "100%",
-                    aspectRatio: "1/1",
-                    backgroundColor: c.color,
-                    borderRadius: 8,
-                    border: c.border ? "1px solid rgba(255,255,245,0.15)" : "none",
-                    marginBottom: 12,
-                  }}
-                />
-                <p className="label">{c.name}</p>
-                <p className="text-small" style={{ marginTop: 4 }}>{c.color}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* ======================== */}
-        {/* BUTTONS                  */}
-        {/* ======================== */}
-        <section style={{ paddingBottom: 80 }}>
-          <div style={{ marginBottom: 48 }}>
-            <p className="label" style={{ marginBottom: 8 }}>Buttons</p>
-            <div className="divider" />
-          </div>
-
-          <div style={{ display: "flex", gap: 16, alignItems: "center", marginBottom: 32, flexWrap: "wrap" }}>
-            <a href="#" className="btn btn-primary">Primary Button</a>
-            <a href="#" className="btn btn-secondary">Secondary Button</a>
-            <a href="#" className="btn btn-ghost">Ghost Button →</a>
-          </div>
-
-          <div style={{ display: "flex", gap: 16, alignItems: "center", flexWrap: "wrap" }}>
-            <a href="#" className="btn btn-primary btn-sm">Small Primary</a>
-            <a href="#" className="btn btn-secondary btn-sm">Small Secondary</a>
-            <a href="#" className="btn btn-primary btn-lg">Large Primary</a>
-          </div>
-        </section>
-
-        {/* ======================== */}
-        {/* LINKS                    */}
-        {/* ======================== */}
-        <section style={{ paddingBottom: 80 }}>
-          <div style={{ marginBottom: 48 }}>
-            <p className="label" style={{ marginBottom: 8 }}>Links</p>
-            <div className="divider" />
-          </div>
-
-          <div style={{ display: "flex", gap: 40, alignItems: "center" }}>
-            <a href="#" className="link text-body" style={{ color: "ivory" }}>Default Link</a>
-            <a href="#" className="link-muted text-body">Muted Link</a>
-          </div>
-        </section>
-
-        {/* ======================== */}
-        {/* DIVIDERS                 */}
-        {/* ======================== */}
-        <section style={{ paddingBottom: 80 }}>
-          <div style={{ marginBottom: 48 }}>
-            <p className="label" style={{ marginBottom: 8 }}>Dividers</p>
-            <div className="divider" />
-          </div>
-
-          <p className="label" style={{ marginBottom: 12 }}>Standard</p>
-          <div className="divider" style={{ marginBottom: 32 }} />
-
-          <p className="label" style={{ marginBottom: 12 }}>Subtle</p>
-          <div className="divider-subtle" />
-        </section>
-
-        {/* ======================== */}
-        {/* IMAGE PLACEHOLDERS       */}
-        {/* ======================== */}
-        <section style={{ paddingBottom: 80 }}>
-          <div style={{ marginBottom: 48 }}>
-            <p className="label" style={{ marginBottom: 8 }}>Image Placeholders</p>
-            <div className="divider" />
-          </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 24, alignItems: "end" }}>
-            {[
-              { name: "Portrait 4:5", ratio: "portrait" },
-              { name: "Landscape 16:9", ratio: "landscape" },
-              { name: "Wide 5:3", ratio: "wide" },
-              { name: "Photo 4:3", ratio: "photo" },
-              { name: "Square 1:1", ratio: "square" },
-            ].map((img) => (
-              <div key={img.name}>
-                <div className={`img-placeholder ratio-${img.ratio}`} style={{ marginBottom: 12 }} />
-                <p className="label">{img.name}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* ======================== */}
-        {/* FONTS                    */}
-        {/* ======================== */}
-        <section style={{ paddingBottom: 80 }}>
-          <div style={{ marginBottom: 48 }}>
-            <p className="label" style={{ marginBottom: 8 }}>Font Families</p>
-            <div className="divider" />
-          </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "200px 1fr", gap: 24, marginBottom: 40 }}>
-            <p className="label">Sans — Neue Haas Grotesk Display Pro</p>
-            <p className="font-sans" style={{ fontSize: "2rem", fontWeight: 400 }}>AaBbCcDd 0123456789</p>
-          </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "200px 1fr", gap: 24, marginBottom: 40 }}>
-            <p className="label">Body — Aktiv Grotesk</p>
-            <p className="font-body" style={{ fontSize: "2rem", fontWeight: 400 }}>AaBbCcDd 0123456789</p>
-          </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "200px 1fr", gap: 24, marginBottom: 40 }}>
-            <p className="label">Serif — Denton Light Italic</p>
-            <p className="font-serif" style={{ fontSize: "2rem", fontWeight: 300, fontStyle: "italic" }}>AaBbCcDd 0123456789</p>
-          </div>
-        </section>
-
-        {/* ======================== */}
-        {/* SPACING                  */}
-        {/* ======================== */}
-        <section style={{ paddingBottom: 120 }}>
-          <div style={{ marginBottom: 48 }}>
-            <p className="label" style={{ marginBottom: 8 }}>Layout</p>
-            <div className="divider" />
-          </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "200px 1fr", gap: 24, marginBottom: 24 }}>
-            <p className="label">Site Padding</p>
-            <p className="text-body">clamp(24px, 5vw, 80px) — scales with viewport, aligns nav + content + footer</p>
-          </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "200px 1fr", gap: 24, marginBottom: 24 }}>
-            <p className="label">Grid Gaps</p>
-            <p className="text-body">24px (tight), 40px (standard), 80px (section breaks)</p>
-          </div>
-        </section>
+      {/* SPACING */}
+      <div className="site-container" style={{ paddingBottom: 196 }}>
+        <div className="divider" style={{ marginBottom: 48 }} />
+        <p className="label" style={{ marginBottom: 32 }}>Spacing Tokens (from Figma)</p>
+        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+          {[
+            ["Site padding", "clamp(24px, 6.5vw, 124px)"],
+            ["Home card gap (grid-2col)", "var(--site-px) ≈ 96px"],
+            ["Project image gap (grid-2col-tight)", "64px"],
+            ["About photo gap (grid-4col)", "32px"],
+            ["Section spacing (major)", "196px"],
+            ["Section spacing (minor)", "96px"],
+            ["Content padding (images)", "64px / 32px"],
+            ["Nav top padding", "96px"],
+            ["Stat card internal gap", "88px (stat → text)"],
+            ["Stat card padding", "48px"],
+            ["Stripe gap", "32px (heights 4→46)"],
+            ["Footer bottom", "64px"],
+            ["Image border-radius", "12px"],
+          ].map(([l, v]) => (
+            <div key={l} style={{ display: "flex", justifyContent: "space-between" }}>
+              <p className="text-body">{l}</p>
+              <p style={{ fontFamily: "monospace", fontSize: 14, color: "#7e7e7e" }}>{v}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </main>
   );
