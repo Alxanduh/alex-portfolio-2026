@@ -34,28 +34,17 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 /* LAYOUT — Figma: 124px pad on 1920w frame     */
 /* ============================================ */
 :root {
-  --site-px: clamp(24px, 6.5vw, 124px);
+  --site-px: clamp(20px, 4vw, 80px);
 
-  /* Spacing tokens — desktop values */
-  --space-hero: 248px;      /* Project hero top (nav 152 + 96) */
-  --space-hero-divider: 56px; /* Hero text → divider */
-  --space-xl: 196px;        /* Major section gaps */
-  --space-lg: 96px;         /* Card rows, minor sections */
-  --space-md: 64px;         /* Content blocks, image gaps */
-  --space-sm: 32px;         /* Tight elements */
-  --space-xs: 16px;         /* Minimal gaps */
-}
-
-@media (max-width: 768px) {
-  :root {
-    --space-hero: 140px;
-    --space-hero-divider: 32px;
-    --space-xl: 80px;
-    --space-lg: 48px;
-    --space-md: 32px;
-    --space-sm: 24px;
-    --space-xs: 12px;
-  }
+  /* Spacing tokens — tighter fluid scaling
+     Roughly 60% of previous values for denser feel */
+  --space-hero: clamp(100px, 12vw, 200px);
+  --space-hero-divider: clamp(20px, 2.5vw, 40px);
+  --space-xl: clamp(56px, 9vw, 160px);
+  --space-lg: clamp(32px, 4vw, 64px);
+  --space-md: clamp(20px, 2.5vw, 40px);
+  --space-sm: clamp(12px, 1.5vw, 24px);
+  --space-xs: clamp(8px, 0.75vw, 12px);
 }
 .site-container { width: 100%; padding-left: var(--site-px); padding-right: var(--site-px); }
 
@@ -353,10 +342,10 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 /* About photo grid:  32px gap                  */
 /* Project related:   64px gap                  */
 /* ============================================ */
-.grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: var(--site-px); }
-.grid-2col-tight { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; }
-.grid-3col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--site-px); }
-.grid-4col { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 32px; }
+.grid-2col { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(16px, 2.5vw, 48px); }
+.grid-2col-tight { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(12px, 2vw, 32px); }
+.grid-3col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: clamp(16px, 2.5vw, 48px); }
+.grid-4col { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: clamp(8px, 1.5vw, 24px); }
 
 /* Footer columns — desktop: side by side, mobile: stacked */
 .footer-columns {
@@ -373,13 +362,18 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
   flex-wrap: wrap;
 }
 
+/* Tablet — stack 3-col, tighten stat cards */
+@media (max-width: 1024px) {
+  .grid-3col { grid-template-columns: 1fr; }
+  .stat-card { padding: 36px; }
+}
+
+/* Mobile — single column everything */
 @media (max-width: 768px) {
-  .grid-2col { grid-template-columns: 1fr; gap: var(--space-lg); }
-  .grid-2col-tight { grid-template-columns: 1fr; gap: var(--space-md); }
-  .grid-3col { grid-template-columns: 1fr; gap: var(--space-lg); }
-  .grid-4col { grid-template-columns: 1fr 1fr; gap: var(--space-xs); }
+  .grid-2col, .grid-2col-tight { grid-template-columns: 1fr; }
+  .grid-4col { grid-template-columns: 1fr 1fr; }
   .footer-columns { flex-direction: column; gap: var(--space-lg); }
-  .stat-card { padding: 32px; }
+  .stat-card { padding: 28px; }
   .project-meta { flex-direction: column; }
   .meta-columns { gap: var(--space-sm) !important; }
 }
@@ -426,7 +420,7 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marquee 140s linear infinite;
+  animation: marquee 50s linear infinite;
   will-change: transform;
 }
 .marquee-half {
