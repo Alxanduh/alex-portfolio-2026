@@ -477,9 +477,11 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 /* ============================================ */
 /* MARQUEE — DT 224/224 w300                    */
 /* Two identical halves, translateX(-50%) loop   */
+/* overflow:clip prevents scroll but doesn't     */
+/* clip italic glyph overhangs like hidden does  */
 /* ============================================ */
 .marquee-wrapper {
-  overflow: hidden;
+  overflow: clip;
   padding-top: var(--space-xl);
   width: 100%;
 }
@@ -500,7 +502,9 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
   font-size: clamp(5rem, 14vw, 14rem);
   line-height: 1.0;
   white-space: nowrap;
-  padding-right: 48px;
+  padding-left: 0.15em;
+  padding-right: 0.15em;
+  margin-left: -0.15em;
   flex-shrink: 0;
 }
 @keyframes marquee {

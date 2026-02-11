@@ -40,7 +40,7 @@ export default function Home() {
             />
             {" "}I&apos;m Alex—
             <br />
-            <span className="heading-accent-light">
+            <span className="heading-accent">
               Crafting brands and<br />digital experiences
             </span>
           </h1>

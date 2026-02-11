@@ -4,7 +4,7 @@ const stripeHeights = [4,6,8,10,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40,
 
 /* Marquee: 6 items per half ensures coverage on any viewport width.
    Two identical halves → translateX(-50%) loops seamlessly. */
-const marqueeColors = ["#7e7e7e", "#fffff0", "#7e7e7e", "#fffff0", "#7e7e7e", "#fffff0"];
+const marqueeColors = ["#7e7e7e", "#fffff0", "#7e7e7e", "#fffff0", "#7e7e7e", "#fffff0", "#7e7e7e", "#fffff0"];
 
 export default function Footer() {
   return (
