@@ -53,7 +53,7 @@ export default function About() {
         </section>
 
         {/* ---- WHEN I'M NOT ON THE COMPUTER ---- */}
-        <section style={{ paddingTop: "var(--space-xl)", paddingBottom: "var(--space-xl)" }}>
+        <section style={{ paddingTop: "var(--space-xl)" }}>
           <div className="fade-in" style={{ marginBottom: "var(--space-lg)" }}>
             <h2 className="heading-xl">
               When i&apos;m<br /><span className="heading-accent">Not on the computer</span>

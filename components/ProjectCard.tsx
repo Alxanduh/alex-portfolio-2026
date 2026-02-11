@@ -17,15 +17,14 @@ export default function ProjectCard({
   const ratioClass = layout === "solo"
     ? "ratio-responsive ratio-responsive-solo"
     : "ratio-responsive ratio-responsive-paired";
-  const titleClass = size === "large" ? "heading-md-lg" : "heading-md";
-  const labelClass = labelWeight === "light" ? "label-light" : "label";
+  const titleClass = size === "large" ? "card-title" : "card-title";
 
   return (
     <Link href={`/projects/${slug}`} className="block transition-opacity hover:opacity-85">
-      <div className="divider card-divider" style={{ marginBottom: 8 }} />
-      <p className={labelClass} style={{ marginBottom: 4 }}>{label}</p>
-      <p className={titleClass} style={{ marginBottom: 4 }}>{title}</p>
-      <p className="text-body" style={{ marginBottom: 32 }}>{description}</p>
+      <div className="divider card-divider" style={{ marginBottom: 4 }} />
+      <p className={titleClass}>{title}</p>
+      <p className="text-body-tight" style={{ color: "#7e7e7e" }}>{description}</p>
+      <p className="text-body-tight" style={{ color: "#7e7e7e", marginBottom: 32 }}>{label}</p>
       <div className={`img-placeholder ${ratioClass}`} />
     </Link>
   );

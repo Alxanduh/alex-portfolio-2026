@@ -84,7 +84,7 @@ export default function Home() {
         </section>
 
         {/* ---- TAGLINE ---- */}
-        <section className="fade-in" style={{ paddingTop: "var(--space-xl)", paddingBottom: "var(--space-xl)" }}>
+        <section className="fade-in" style={{ paddingTop: "var(--space-xl)" }}>
           <h2 className="heading-tagline">What works,<br /><span className="heading-accent">No more, no less</span></h2>
         </section>
       </div>

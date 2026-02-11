@@ -139,6 +139,16 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
   color: var(--color-fg);
 }
 
+/* NHGD 48/56 w450 — Home card titles (Medium weight) */
+.card-title {
+  font-family: var(--font-sans);
+  font-weight: 450;
+  font-size: clamp(1.5rem, 3vw, 3rem);
+  line-height: 1.17;
+  letter-spacing: 0;
+  color: var(--color-fg);
+}
+
 /* ---- DENTON ACCENTS ---- */
 
 /* Global fix: all serif italic text gets left padding to prevent clipping */
@@ -318,6 +328,12 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
   justify-content: space-between;
   align-items: center;
   padding-top: clamp(20px, 3vw, 48px);
+}
+footer {
+  padding-top: var(--space-xl);
+}
+.footer-nav-link {
+  line-height: 1.17;
 }
 .nav-logo {
   display: block;
@@ -525,6 +541,7 @@ body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; 
 .marquee-wrapper {
   overflow: clip;
   padding-top: var(--space-xl);
+  padding-bottom: var(--space-xl);
   width: 100%;
 }
 .marquee-track {

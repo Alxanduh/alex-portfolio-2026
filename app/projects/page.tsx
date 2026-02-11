@@ -24,7 +24,7 @@ export default function ArchivesPage() {
         <div className="divider fade-in fade-d1" style={{ marginTop: "var(--space-sm)" }} />
 
         {/* ---- MASONRY GRID ---- */}
-        <section style={{ paddingTop: "var(--space-lg)", paddingBottom: "var(--space-xl)" }}>
+        <section style={{ paddingTop: "var(--space-lg)" }}>
           <div className="masonry-grid fade-in fade-d2">
             {archiveImages.map((img, i) => (
               <div key={i} className="masonry-item">
