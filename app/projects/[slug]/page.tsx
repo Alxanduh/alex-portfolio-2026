@@ -67,7 +67,7 @@ export default async function ProjectPage({ params }: Props) {
 
       {/* ---- HIGHLIGHTS ---- */}
       {project.highlights.length > 0 && (
-        <div style={{ paddingTop: "var(--space-lg)", paddingBottom: "var(--space-lg)", paddingLeft: "var(--site-px)", overflow: "hidden" }}>
+        <div style={{ paddingTop: "var(--space-xl)", paddingBottom: "var(--space-lg)", paddingLeft: "var(--site-px)", overflow: "hidden" }}>
           <h2 className="heading-highlight fade-in" style={{ marginBottom: "var(--space-lg)" }}>Project highlights</h2>
           <DragScroll
             className="drag-scroll"
