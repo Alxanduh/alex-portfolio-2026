@@ -25,7 +25,7 @@ export default function Footer() {
             <div style={{ display: "flex", flexDirection: "column" }}>
               <Link href="/" className="text-list link">Home</Link>
               <Link href="/about" className="text-list link">About</Link>
-              <Link href="#" className="text-list link">Graveyard</Link>
+              <Link href="/projects" className="text-list link">Archives</Link>
             </div>
           </div>
 
