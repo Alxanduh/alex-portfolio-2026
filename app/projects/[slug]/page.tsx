@@ -2,8 +2,11 @@ import { notFound } from "next/navigation";
 import Footer from "@/components/Footer";
 import ProjectCard from "@/components/ProjectCard";
 import DragScroll from "@/components/DragScroll";
+import ParallaxHero from "@/components/ParallaxHero";
 import { getProjectBySlug, getRelatedProjects, getAllSlugs } from "@/lib/projects";
 import type { ProjectSection } from "@/lib/projects";
+
+const PLACEHOLDER_HERO = "https://alxandr.us/assets/img/mcgrath-architects/image-mcgrath-business-cards-a.png";
 
 export function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
@@ -19,11 +22,12 @@ export default async function ProjectPage({ params }: Props) {
   if (!project) notFound();
 
   const related = getRelatedProjects(project.related);
+  const heroSrc = project.heroImage || PLACEHOLDER_HERO;
 
   return (
     <main>
       {/* ---- HERO + META ---- */}
-      <div className="site-container">
+      <div className="site-container" style={{ position: "relative", zIndex: 2, background: "var(--color-bg)" }}>
         <section style={{ paddingTop: "var(--space-hero)" }}>
           <h1 className="heading-xl fade-in">
             {project.title}<br />
@@ -56,74 +60,75 @@ export default async function ProjectPage({ params }: Props) {
         </section>
       </div>
 
-      {/* ---- HERO IMAGE ---- */}
-      <div className="fade-in fade-d3" style={{ paddingTop: "var(--space-lg)" }}>
-        {project.heroImage ? (
-          <img src={project.heroImage} alt={project.title} style={{ width: "100%", display: "block", aspectRatio: "16/9", objectFit: "cover" }} />
-        ) : (
-          <div className="img-placeholder ratio-landscape" style={{ borderRadius: 0 }} />
-        )}
-      </div>
+      {/* ---- HERO IMAGE — fixed parallax ---- */}
+      <ParallaxHero src={heroSrc} alt={project.title} />
 
-      {/* ---- HIGHLIGHTS ---- */}
-      {project.highlights.length > 0 && (
-        <div style={{ paddingTop: "var(--space-xl)", paddingBottom: "var(--space-lg)", paddingLeft: "var(--site-px)", overflow: "hidden" }}>
-          <h2 className="heading-highlight fade-in" style={{ marginBottom: "var(--space-lg)" }}>Project highlights</h2>
-          <DragScroll
-            className="drag-scroll"
-            style={{ display: "flex", gap: "var(--space-sm)", overflowX: "auto", paddingRight: "var(--site-px)", paddingBottom: "var(--space-xs)" }}
-          >
-            {project.highlights.map((h, i) => (
-              <div key={i} className="stat-card fade-in" style={{
-                flex: "0 0 auto",
-                animationDelay: `${0.1 + i * 0.1}s`,
-              }}>
-                <div className="divider" />
-                <div className="stat-card-inner">
-                  <p className="stat-value">{h.stat}</p>
-                  <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-xs)" }}>
-                    <p className="text-big">{h.title}</p>
-                    <p className="text-body-thin">{h.body}</p>
+      {/* Spacer to account for fixed-position image */}
+      <div style={{ height: "100vh" }} />
+
+      {/* ---- CONTENT OVERLAY — scrolls up over the image ---- */}
+      <div className="parallax-content">
+
+        {/* ---- HIGHLIGHTS ---- */}
+        {project.highlights.length > 0 && (
+          <div style={{ paddingTop: "var(--space-xl)", paddingBottom: "var(--space-lg)", paddingLeft: "var(--site-px)", overflow: "hidden" }}>
+            <h2 className="heading-highlight fade-in" style={{ marginBottom: "var(--space-lg)" }}>Project highlights</h2>
+            <DragScroll
+              className="drag-scroll"
+              style={{ display: "flex", gap: "var(--space-sm)", overflowX: "auto", paddingRight: "var(--site-px)", paddingBottom: "var(--space-xs)" }}
+            >
+              {project.highlights.map((h, i) => (
+                <div key={i} className="stat-card fade-in" style={{
+                  flex: "0 0 auto",
+                  animationDelay: `${0.1 + i * 0.1}s`,
+                }}>
+                  <div className="divider" />
+                  <div className="stat-card-inner">
+                    <p className="stat-value">{h.stat}</p>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-xs)" }}>
+                      <p className="text-big">{h.title}</p>
+                      <p className="text-body-thin">{h.body}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </DragScroll>
-        </div>
-      )}
-
-      {/* ---- CONTENT SECTIONS ---- */}
-      <div className="site-container" style={{ display: "flex", flexDirection: "column", gap: "var(--space-md)" }}>
-        {project.sections.map((section, i) => (
-          <ContentSection key={i} section={section} />
-        ))}
-      </div>
-
-      {/* ---- RELATED PROJECTS ---- */}
-      {related.length > 0 && (
-        <div className="site-container">
-          <section style={{ paddingTop: "var(--space-xl)", paddingBottom: "var(--space-md)" }}>
-            <h2 className="heading-display-alt fade-in" style={{ marginBottom: "var(--space-md)" }}>
-              Check out<br /><span className="heading-accent">this stuff too</span>
-            </h2>
-            <div className="grid-2col-tight fade-in fade-d1">
-              {related.map((p) => (
-                <ProjectCard
-                  key={p.slug}
-                  slug={p.slug}
-                  label={p.label}
-                  title={p.title}
-                  description={p.description}
-                  size="large"
-                  labelWeight="light"
-                />
               ))}
-            </div>
-          </section>
-        </div>
-      )}
+            </DragScroll>
+          </div>
+        )}
 
-      <Footer />
+        {/* ---- CONTENT SECTIONS ---- */}
+        <div className="site-container" style={{ display: "flex", flexDirection: "column", gap: "var(--space-md)" }}>
+          {project.sections.map((section, i) => (
+            <ContentSection key={i} section={section} />
+          ))}
+        </div>
+
+        {/* ---- RELATED PROJECTS ---- */}
+        {related.length > 0 && (
+          <div className="site-container">
+            <section style={{ paddingTop: "var(--space-xl)", paddingBottom: "var(--space-md)" }}>
+              <h2 className="heading-display-alt fade-in" style={{ marginBottom: "var(--space-md)" }}>
+                Check out<br /><span className="heading-accent">this stuff too</span>
+              </h2>
+              <div className="grid-2col-tight fade-in fade-d1">
+                {related.map((p) => (
+                  <ProjectCard
+                    key={p.slug}
+                    slug={p.slug}
+                    label={p.label}
+                    title={p.title}
+                    description={p.description}
+                    size="large"
+                    labelWeight="light"
+                  />
+                ))}
+              </div>
+            </section>
+          </div>
+        )}
+
+        <Footer />
+      </div>
     </main>
   );
 }
