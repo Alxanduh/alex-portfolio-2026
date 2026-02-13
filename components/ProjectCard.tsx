@@ -5,27 +5,25 @@ interface ProjectCardProps {
   label?: string;
   title: string;
   description: string;
-  layout?: "paired" | "solo";
-  size?: "default" | "large";
-  labelWeight?: "default" | "light";
+  heroImage?: string;
+  index?: number;
 }
 
 export default function ProjectCard({
-  slug, label = "Branding • UI • UX", title, description,
-  layout = "paired", size = "default", labelWeight = "default",
+  slug, label = "Branding • UI • UX", title, description, heroImage, index = 0,
 }: ProjectCardProps) {
-  const ratioClass = layout === "solo"
-    ? "ratio-responsive ratio-responsive-solo"
-    : "ratio-responsive ratio-responsive-paired";
-  const titleClass = size === "large" ? "card-title" : "card-title";
-
   return (
-    <Link href={`/projects/${slug}`} className="block transition-opacity hover:opacity-85">
-      <div className="divider card-divider" style={{ marginBottom: 4 }} />
-      <p className={titleClass}>{title}</p>
-      <p className="text-body-tight" style={{ color: "#7e7e7e" }}>{description}</p>
-      <p className="text-body-tight" style={{ color: "#7e7e7e", marginBottom: 32 }}>{label}</p>
-      <div className={`img-placeholder ${ratioClass}`} />
+    <Link href={`/projects/${slug}`} className="card-link fade-in" style={{ animationDelay: `${0.1 + index * 0.05}s` }}>
+      {heroImage ? (
+        <img src={heroImage} alt={title} className="card-image-real" />
+      ) : (
+        <div className="card-image" />
+      )}
+      <div className="card-meta">
+        <p className="card-label">{label}</p>
+        <h3 className="card-title">{title}</h3>
+        <p className="card-desc">{description}</p>
+      </div>
     </Link>
   );
 }
