@@ -779,7 +779,7 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .hero-accent { min-height: 75dvh; }
+  .hero-accent { min-height: 64dvh; }
   .hero-nav { flex-wrap: wrap; gap: 16px; }
   .project-row-3,
   .project-row-2 {
@@ -793,6 +793,7 @@ footer {
   .content-text-offset .text-block { grid-column: 1; }
   .project-meta-grid { grid-template-columns: 1fr !important; }
   .accent-band { min-height: 80vw; }
+  .accent-heading span { white-space: normal !important; }
   .stat-card { min-width: 200px; max-width: 280px; }
   .footer-col { gap: 8px; }
   .footer-col-label { margin-bottom: 4px; }
