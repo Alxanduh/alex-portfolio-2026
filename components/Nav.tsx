@@ -3,7 +3,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const links = [
-  { href: "/", label: "Works" },
+  { href: "/", label: "Work" },
   { href: "/about", label: "About" },
   { href: "/projects", label: "Archives" },
 ];
@@ -12,7 +12,7 @@ export default function Nav() {
   const pathname = usePathname();
 
   const isActive = (href: string) => {
-    if (href === "/") return pathname.startsWith("/projects/");
+    if (href === "/") return pathname === "/" || pathname.startsWith("/projects/");
     if (href === "/projects") return pathname === "/projects";
     return pathname.startsWith(href);
   };

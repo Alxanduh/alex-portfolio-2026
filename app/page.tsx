@@ -86,12 +86,10 @@ export default function Home() {
       {/* ============================================ */}
       <section className="accent-band">
         <div className="accent-band-inner">
-          <div className="section-label-row" style={{ marginBottom: "auto" }}>
-            <p className="section-label-text">Studio<br />Schultz®<br />Portfolio<br />© 2026</p>
-            <p className="section-label-text">The<br />Philosophy</p>
-          </div>
+          <p className="accent-label">Our<br />Philosophy</p>
           <h2 className="accent-heading">
-            <span className="fw-500">What works,<br />no more, no less</span><span className="fw-700">™™™™</span>
+            <span style={{ display: "block", whiteSpace: "nowrap" }}>What works,</span>
+            <span style={{ display: "block", whiteSpace: "nowrap" }}>no more, no less<span className="fw-700">™</span></span>
           </h2>
         </div>
       </section>
