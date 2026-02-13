@@ -11,8 +11,8 @@ export default function Footer() {
       <div className="site-container">
         <div className="rule-solid" />
         <div style={{ display: "flex", justifyContent: "space-between", padding: "var(--space-xs) 0 0" }}>
-          <p className="footer-label">The Footer</p>
-          <p className="footer-coords">39.7548° N, 104.9723° W</p>
+          <p className="footer-label">The<br />Footer</p>
+          <p className="footer-coords">39.7548° N<br />104.9723° W</p>
         </div>
       </div>
 
@@ -50,8 +50,8 @@ export default function Footer() {
 
       {/* Bottom credits */}
       <div className="footer-bottom">
-        <p className="footer-bottom-text">© Alex Schultz</p>
-        <p className="footer-bottom-text">Proudly manufactured in CO, USA by Lola and Alex</p>
+        <p className="footer-bottom-text">Proudly MFG in  CO, USA</p>
+        <p className="footer-bottom-text">Schultz™®©</p>
       </div>
 
       {/* Stripes — full width, no radius, no padding */}

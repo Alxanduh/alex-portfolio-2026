@@ -248,8 +248,8 @@ export const projects: Project[] = [
     subtitle: "A collection of marks\nand identities",
     description: "A collection of marks and identities",
     label: "Branding • Identity",
-    homeLayout: "hidden",
-    homeOrder: 99,
+    homeLayout: "paired",
+    homeOrder: 6,
     meta: [
       { label: "Type", value: "Collection" },
       { label: "Services", value: "Logo, Identity" },

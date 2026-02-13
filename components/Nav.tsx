@@ -20,7 +20,7 @@ export default function Nav() {
   return (
     <nav className="nav-bar">
       <Link href="/" className="nav-wordmark link">
-        {"Studio\nSchultz®\nPortfolio\n© 2026"}
+        <span>Studio{"\n"}Schultz<span className="tm-super">™®©</span></span>
       </Link>
       <div className="nav-links">
         {links.map((link) => (

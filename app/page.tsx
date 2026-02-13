@@ -5,16 +5,6 @@ import { getHomeProjects } from "@/lib/projects";
 export default function Home() {
   const projects = getHomeProjects();
 
-  /* Pair projects for alternating wide/narrow rows */
-  const pairs: { left: (typeof projects)[0]; right?: (typeof projects)[0]; flip: boolean }[] = [];
-  for (let i = 0; i < projects.length; i += 2) {
-    pairs.push({
-      left: projects[i],
-      right: projects[i + 1],
-      flip: (i / 2) % 2 === 1, /* row 0: wide-narrow, row 1: narrow-wide, row 2: wide-narrow */
-    });
-  }
-
   return (
     <main>
       {/* ============================================ */}
@@ -22,7 +12,7 @@ export default function Home() {
       {/* ============================================ */}
       <section className="hero-accent">
         <h1 className="hero-title">
-          <span className="hero-title-light">Schultz</span><span className="hero-title-bold">®©™</span>
+          <span className="hero-title-light">Schultz</span><span className="hero-title-bold">™®©</span>
         </h1>
       </section>
 
@@ -67,17 +57,26 @@ export default function Home() {
           <h2 className="works-heading">Selected works</h2>
         </section>
 
-        {/* Project grid — alternating wide/narrow */}
+        {/* Project grid — mixed aspect ratios */}
         <div className="project-rows">
-          {pairs.map((pair, rowIdx) => (
-            <div
-              key={rowIdx}
-              className={`project-row ${pair.flip ? "project-row-flip" : ""}`}
-            >
-              <ProjectCard project={pair.left} />
-              {pair.right && <ProjectCard project={pair.right} />}
-            </div>
-          ))}
+          {/* Row 1: 3 × square */}
+          <div className="project-row-3">
+            {projects.slice(0, 3).map((p) => (
+              <ProjectCard key={p.slug} project={p} ratio="1-1" />
+            ))}
+          </div>
+          {/* Row 2: 1 × wide */}
+          <div className="project-row-1">
+            {projects.slice(3, 4).map((p) => (
+              <ProjectCard key={p.slug} project={p} ratio="16-9" />
+            ))}
+          </div>
+          {/* Row 3: 2 × tall */}
+          <div className="project-row-2">
+            {projects.slice(4, 6).map((p) => (
+              <ProjectCard key={p.slug} project={p} ratio="9-16" />
+            ))}
+          </div>
         </div>
       </div>
 
@@ -89,7 +88,7 @@ export default function Home() {
           <p className="accent-label">Our<br />Philosophy</p>
           <h2 className="accent-heading">
             <span style={{ display: "block", whiteSpace: "nowrap" }}>What works,</span>
-            <span style={{ display: "block", whiteSpace: "nowrap" }}>no more, no less<span className="fw-700">™</span></span>
+            <span style={{ display: "block", whiteSpace: "nowrap" }}>no more, no less<span className="fw-700">™</span><span className="accent-symbols">®©</span></span>
           </h2>
         </div>
       </section>
@@ -100,17 +99,18 @@ export default function Home() {
 }
 
 /* ---- Inline ProjectCard for home page ---- */
-function ProjectCard({ project }: { project: { slug: string; label: string; title: string; description: string; heroImage?: string } }) {
+function ProjectCard({ project, ratio = "1-1" }: { project: { slug: string; label: string; title: string; description: string; heroImage?: string }; ratio?: "1-1" | "16-9" | "9-16" }) {
+  const ratioClass = ratio === "16-9" ? "ratio-16-9" : ratio === "9-16" ? "ratio-9-16" : "";
   return (
     <Link href={`/projects/${project.slug}`} className="card-link">
       {project.heroImage ? (
         <img
           src={project.heroImage}
           alt={project.title}
-          className="card-image-real"
+          className={`card-image-real ${ratioClass}`}
         />
       ) : (
-        <div className="card-image" />
+        <div className={`card-image ${ratioClass}`} />
       )}
       <div className="card-meta">
         <p className="card-label">{project.label}</p>
