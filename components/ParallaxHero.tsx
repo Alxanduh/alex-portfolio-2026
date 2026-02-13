@@ -1,22 +1,33 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function ParallaxHero({ src, alt }: { src: string; alt: string }) {
   const imgRef = useRef<HTMLImageElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     const img = imgRef.current;
-    if (!img) return;
+    if (!img || isMobile) {
+      // Reset transform on mobile
+      if (img) img.style.transform = "none";
+      return;
+    }
 
     let ticking = false;
 
     const onScroll = () => {
       if (!ticking) {
         requestAnimationFrame(() => {
-          // Simple: scroll position drives the drift
           const scrollY = window.scrollY;
-          const drift = scrollY * 0.15; // image moves at 15% of scroll speed
+          const drift = scrollY * 0.15;
           img.style.transform = `translateY(-${drift}px)`;
           ticking = false;
         });
@@ -26,7 +37,7 @@ export default function ParallaxHero({ src, alt }: { src: string; alt: string })
 
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [isMobile]);
 
   return (
     <div className="parallax-hero">
@@ -36,10 +47,10 @@ export default function ParallaxHero({ src, alt }: { src: string; alt: string })
         alt={alt}
         style={{
           width: "100%",
-          height: "130%",
+          height: isMobile ? "100%" : "130%",
           display: "block",
           objectFit: "cover",
-          willChange: "transform",
+          willChange: isMobile ? "auto" : "transform",
         }}
       />
     </div>
