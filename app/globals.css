@@ -779,7 +779,7 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .hero-accent { min-height: 64dvh; }
+  .hero-accent { min-height: 70dvh; }
   .hero-nav { flex-wrap: wrap; gap: 16px; }
   .project-row-3,
   .project-row-2 {
