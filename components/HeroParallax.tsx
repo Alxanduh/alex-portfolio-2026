@@ -1,13 +1,24 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function HeroParallax({ children }: { children: React.ReactNode }) {
   const textRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth <= 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
 
   useEffect(() => {
     const el = textRef.current;
-    if (!el) return;
+    if (!el || isMobile) {
+      if (el) el.style.transform = "none";
+      return;
+    }
 
     let ticking = false;
 
@@ -15,8 +26,6 @@ export default function HeroParallax({ children }: { children: React.ReactNode }
       if (!ticking) {
         requestAnimationFrame(() => {
           const scrollY = window.scrollY;
-          // Text rises UP inside the fixed hero at 60% scroll speed
-          // It nearly keeps pace with the approaching content
           el.style.transform = `translateY(-${scrollY * 0.6}px)`;
           ticking = false;
         });
@@ -26,11 +35,11 @@ export default function HeroParallax({ children }: { children: React.ReactNode }
 
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [isMobile]);
 
   return (
     <section className="hero-accent hero-fixed">
-      <div ref={textRef} className="hero-drift" style={{ willChange: "transform" }}>
+      <div ref={textRef} className="hero-drift" style={{ willChange: isMobile ? "auto" : "transform" }}>
         {children}
       </div>
     </section>
