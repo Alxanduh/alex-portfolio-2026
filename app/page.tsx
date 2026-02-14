@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import HeroParallax from "@/components/HeroParallax";
 import { getHomeProjects } from "@/lib/projects";
 
 export default function Home() {
@@ -8,18 +9,23 @@ export default function Home() {
   return (
     <main>
       {/* ============================================ */}
-      {/* HERO BANNER — #ff4b2e                        */}
+      {/* HERO BANNER — fixed behind content           */}
       {/* ============================================ */}
-      <section className="hero-accent">
+      <HeroParallax>
         <h1 className="hero-title">
           <span className="hero-title-light">Schultz</span><span className="hero-title-bold">™®©</span>
         </h1>
-      </section>
+      </HeroParallax>
 
-      {/* ============================================ */}
-      {/* INTRO — "Quick Introduction" / Section 001   */}
-      {/* ============================================ */}
-      <div className="site-container" style={{ paddingTop: "var(--space-xl)" }}>
+      {/* Spacer to push content below the hero */}
+      <div className="hero-spacer" />
+
+      {/* Content scrolls up and over the hero */}
+      <div className="parallax-content">
+        {/* ============================================ */}
+        {/* INTRO — "Quick Introduction" / Section 001   */}
+        {/* ============================================ */}
+        <div className="site-container" style={{ paddingTop: "var(--space-xl)" }}>
         {/* Section labels first */}
         <section className="section-intro">
           <div className="section-label-row">
@@ -94,6 +100,7 @@ export default function Home() {
       </section>
 
       <Footer />
+      </div>{/* end parallax-content */}
     </main>
   );
 }
