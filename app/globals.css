@@ -678,6 +678,124 @@ footer {
   flex-shrink: 0;
 }
 
+/* Menu button — mobile only */
+.nav-hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  pointer-events: auto;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-fg);
+  padding: 0;
+}
+.hamburger-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.hamburger-line {
+  display: block;
+  width: 20px;
+  height: 1.5px;
+  background: var(--color-fg);
+}
+.hamburger-label {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1;
+  color: var(--color-fg);
+}
+
+/* Mobile wordmark size */
+@media (max-width: 768px) {
+  .nav-wordmark {
+    font-size: 16px !important;
+  }
+}
+
+/* Drawer overlay */
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 98;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+.drawer-overlay.drawer-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Drawer panel — slides left to right */
+.drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100dvh;
+  background: var(--color-bg);
+  z-index: 99;
+  transform: translateX(-100%);
+  transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+}
+.drawer.drawer-open {
+  transform: translateX(0);
+}
+
+/* Close button — top right */
+.drawer-close {
+  position: absolute;
+  top: 20px;
+  right: 16px;
+  background: none;
+  border: none;
+  color: var(--color-fg);
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Links — bottom left, large, stacked */
+.drawer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: env(safe-area-inset-bottom, 24px);
+}
+.drawer-link {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 1.15;
+  color: var(--color-fg);
+  display: block;
+}
+.drawer-link-muted {
+  color: var(--color-muted);
+  font-size: 20px;
+  margin-top: 24px;
+}
+
+/* Show/hide for mobile vs desktop */
+@media (max-width: 768px) {
+  .nav-desktop-only { display: none !important; }
+  .nav-hamburger { display: flex; }
+}
+@media (min-width: 769px) {
+  .drawer, .drawer-overlay { display: none !important; }
+}
+
 /* ============================================ */
 /* GRID, IMAGE, OFFSET (shared)                 */
 /* ============================================ */
@@ -788,7 +906,7 @@ footer {
 }
 
 @media (max-width: 768px) {
-  .hero-accent { min-height: 70dvh; padding-bottom: clamp(24px, 6vw, 48px); }
+  .hero-accent { min-height: 70dvh; padding-bottom: clamp(48px, 12vw, 96px); }
   .hero-spacer { height: 65dvh; }
   .hero-nav { flex-wrap: wrap; gap: 16px; }
   .project-row-3,
