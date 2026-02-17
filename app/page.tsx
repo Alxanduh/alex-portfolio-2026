@@ -88,31 +88,29 @@ export default function Home() {
   );
 }
 
-/* ---- Build pair-a / solo / pair-b / solo cycle (6 per cycle) ---- */
+/* ---- Build pair / solo alternating cycle (3 per cycle) ---- */
 type CardProject = { slug: string; label: string; title: string; description: string; heroImage?: string };
 
 function buildGrid(items: CardProject[]) {
-  // Sequence: pair-a(2), solo(1), pair-b(2), solo(1) = 6 projects
-  const sequence: ("pair-a" | "solo" | "pair-b")[] = ["pair-a", "solo", "pair-b", "solo"];
+  // Cycle: pair (2 cards, 50/50, 1:1) → solo (1 card, 16:9) = 3 projects
   const elements: React.ReactElement[] = [];
   let i = 0;
   let step = 0;
 
   while (i < items.length) {
-    const type = sequence[step % sequence.length];
+    const isPair = step % 2 === 0;
 
-    if (type === "solo" || i + 1 >= items.length) {
-      elements.push(<Card key={`s-${items[i].slug}`} project={items[i]} />);
-      i += 1;
-    } else {
-      const cls = type === "pair-a" ? "project-pair-a" : "project-pair-b";
+    if (isPair && i + 1 < items.length) {
       elements.push(
-        <div key={`p-${items[i].slug}`} className={cls}>
+        <div key={`p-${items[i].slug}`} className="project-pair">
           <Card project={items[i]} />
           <Card project={items[i + 1]} />
         </div>
       );
       i += 2;
+    } else {
+      elements.push(<Card key={`s-${items[i].slug}`} project={items[i]} />);
+      i += 1;
     }
     step++;
   }
