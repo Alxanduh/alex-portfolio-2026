@@ -88,43 +88,64 @@ export default function Home() {
   );
 }
 
-/* ---- Build repeating pair / solo grid from a flat project list ---- */
+/* ---- Build repeating pair-a / pair-b / solo grid ---- */
 type CardProject = { slug: string; label: string; title: string; description: string; heroImage?: string };
 
 function buildGrid(items: CardProject[]) {
   const elements: React.ReactElement[] = [];
   let i = 0;
-  let pairIndex = 0;
 
   while (i < items.length) {
-    // Need at least 3 items for a full pair+solo cycle
-    if (i + 2 < items.length) {
-      // Pair row (2 cards)
-      const cls = pairIndex % 2 === 0 ? "project-pair-a" : "project-pair-b";
+    // Full cycle: pair-a (2) + pair-b (2) + solo (1) = 5 projects
+    if (i + 4 < items.length) {
       elements.push(
-        <div key={`pair-${items[i].slug}`} className={cls}>
+        <div key={`pa-${items[i].slug}`} className="project-pair-a">
           <Card project={items[i]} />
           <Card project={items[i + 1]} />
         </div>
       );
-      // Solo row (1 full-width card)
       elements.push(
-        <Card key={`solo-${items[i + 2].slug}`} project={items[i + 2]} />
+        <div key={`pb-${items[i + 2].slug}`} className="project-pair-b">
+          <Card project={items[i + 2]} />
+          <Card project={items[i + 3]} />
+        </div>
       );
-      pairIndex++;
-      i += 3;
-    } else if (i + 1 < items.length) {
-      // 2 remaining — render as a pair
-      const cls = pairIndex % 2 === 0 ? "project-pair-a" : "project-pair-b";
       elements.push(
-        <div key={`pair-${items[i].slug}`} className={cls}>
+        <Card key={`solo-${items[i + 4].slug}`} project={items[i + 4]} />
+      );
+      i += 5;
+    } else if (i + 3 < items.length) {
+      // 4 remaining — two pair rows
+      elements.push(
+        <div key={`pa-${items[i].slug}`} className="project-pair-a">
+          <Card project={items[i]} />
+          <Card project={items[i + 1]} />
+        </div>
+      );
+      elements.push(
+        <div key={`pb-${items[i + 2].slug}`} className="project-pair-b">
+          <Card project={items[i + 2]} />
+          <Card project={items[i + 3]} />
+        </div>
+      );
+      i += 4;
+    } else if (i + 1 < items.length) {
+      // 2-3 remaining — one pair row, then solo if 3
+      elements.push(
+        <div key={`pa-${items[i].slug}`} className="project-pair-a">
           <Card project={items[i]} />
           <Card project={items[i + 1]} />
         </div>
       );
       i += 2;
+      if (i < items.length) {
+        elements.push(
+          <Card key={`solo-${items[i].slug}`} project={items[i]} />
+        );
+        i += 1;
+      }
     } else {
-      // 1 remaining — render solo
+      // 1 remaining — solo
       elements.push(
         <Card key={`solo-${items[i].slug}`} project={items[i]} />
       );

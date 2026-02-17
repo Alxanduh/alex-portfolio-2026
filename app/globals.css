@@ -275,7 +275,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* ============================================ */
-/* PROJECT GRID — Pair / Solo repeating pattern */
+/* PROJECT GRID — Pair / Pair / Solo cycle      */
 /* ============================================ */
 .project-rows {
   display: flex;
@@ -285,13 +285,19 @@ a { text-decoration: none; color: inherit; }
 }
 .project-pair-a {
   display: grid;
-  grid-template-columns: 5fr 7fr;
+  grid-template-columns: 45fr 55fr;
   gap: clamp(16px, 1.67vw, 32px);
 }
 .project-pair-b {
   display: grid;
-  grid-template-columns: 7fr 5fr;
+  grid-template-columns: 55fr 45fr;
   gap: clamp(16px, 1.67vw, 32px);
+}
+.project-pair-a .card-image,
+.project-pair-a .card-image-real,
+.project-pair-b .card-image,
+.project-pair-b .card-image-real {
+  aspect-ratio: 3 / 4;
 }
 
 .card-link {

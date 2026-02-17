@@ -61,7 +61,7 @@ public/fonts/               # BDO Grotesk OTF files (Regular, Medium, Bold, Extr
 
 All portfolio projects are defined in a single `projects.ts` file with typed interfaces (`Project`, `ProjectMeta`, `ProjectHighlight`, `ProjectSection`). Helper functions (`getHomeProjects`, `getProjectBySlug`, `getRelatedProjects`, `getAllSlugs`) drive the home page grid, dynamic routes, and related project links. To add a new project, add an entry to the `projects` array — it auto-appears everywhere.
 
-**Home page grid:** Projects auto-layout in a repeating pair/solo pattern: two cards in an unequal 2-col row (alternating 5fr/7fr and 7fr/5fr), then one full-width 16:9 card. Just set `showOnHome: true` and `homeOrder` — the cycle generates automatically.
+**Home page grid:** Projects auto-layout in a repeating cycle: pair-a (45/55 split, 3:4 portrait), pair-b (55/45 split, 3:4 portrait), then one full-width 16:9 solo card. 5 projects per cycle. Just set `showOnHome: true` and `homeOrder`.
 
 Section types for project detail pages:
 - `"full"` — 16:9 full-width image
