@@ -52,15 +52,6 @@
   font-display: swap;
 }
 
-/* Keep Denton available */
-@font-face {
-  font-family: "Denton";
-  src: url("/fonts/Denton-LightItalic.otf") format("opentype");
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-}
-
 /* ============================================ */
 /* BASE                                         */
 /* ============================================ */
@@ -595,6 +586,136 @@ footer {
 }
 
 /* ============================================ */
+/* BUTTONS                                      */
+/* ============================================ */
+.btn {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: clamp(0.8125rem, 1vw, 1rem);
+  line-height: 1;
+  letter-spacing: 0.02em;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: clamp(14px, 1.2vw, 18px) clamp(28px, 2.5vw, 40px);
+  transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease, opacity 0.25s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Primary — accent background */
+.btn-primary {
+  background: var(--color-accent);
+  color: var(--color-fg);
+}
+.btn-primary:hover {
+  opacity: 0.85;
+}
+
+/* Secondary — outlined */
+.btn-secondary {
+  background: transparent;
+  color: var(--color-fg);
+  border: 1px solid var(--color-fg);
+}
+.btn-secondary:hover {
+  background: var(--color-fg);
+  color: var(--color-bg);
+}
+
+/* Ghost — text only */
+.btn-ghost {
+  background: transparent;
+  color: var(--color-fg);
+  padding-left: 0;
+  padding-right: 0;
+  border-radius: 0;
+  position: relative;
+}
+.btn-ghost::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--color-fg);
+  transform: scaleX(1);
+  transform-origin: left;
+  transition: transform 0.3s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.btn-ghost:hover::after {
+  transform: scaleX(0);
+  transform-origin: right;
+}
+
+/* Small variant */
+.btn-sm {
+  font-size: clamp(0.6875rem, 0.8vw, 0.8125rem);
+  padding: clamp(10px, 0.8vw, 12px) clamp(20px, 1.8vw, 28px);
+}
+
+/* Large variant */
+.btn-lg {
+  font-size: clamp(0.875rem, 1.15vw, 1.125rem);
+  padding: clamp(18px, 1.5vw, 22px) clamp(36px, 3vw, 52px);
+}
+
+/* Disabled state */
+.btn:disabled,
+.btn[aria-disabled="true"] {
+  opacity: 0.35;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ============================================ */
+/* FORM INPUTS                                  */
+/* ============================================ */
+.input,
+.textarea {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: clamp(0.8125rem, 1vw, 1rem);
+  line-height: 1.55;
+  color: var(--color-fg);
+  background: transparent;
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-card);
+  padding: clamp(12px, 1vw, 16px) clamp(16px, 1.2vw, 20px);
+  width: 100%;
+  outline: none;
+  transition: border-color 0.25s ease;
+}
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--color-muted);
+}
+.input:focus,
+.textarea:focus {
+  border-color: var(--color-fg);
+}
+.input:hover:not(:focus),
+.textarea:hover:not(:focus) {
+  border-color: rgba(255, 255, 240, 0.4);
+}
+.textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Input with label wrapper */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ============================================ */
 /* NAV — fixed for non-home pages               */
 /* ============================================ */
 .nav-bar {
@@ -788,7 +909,7 @@ footer {
 .grid-2col {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: clamp(16px, 2.5vw, 48px);
+  gap: clamp(16px, 2vw, 32px);
 }
 .grid-3col {
   display: grid;
@@ -801,17 +922,22 @@ footer {
   gap: clamp(8px, 1.5vw, 24px);
 }
 .content-text-offset {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(16px, 2.5vw, 48px);
-  align-items: start;
+  display: flex;
+  justify-content: center;
+  padding: clamp(64px, 7.5vw, 120px) clamp(32px, 5vw, 88px);
 }
-.content-text-offset .text-block { grid-column: 2; }
+.content-text-offset-inner {
+  display: flex;
+  gap: clamp(32px, 5vw, 96px);
+  max-width: 1200px;
+  width: 100%;
+  align-items: baseline;
+}
 
 .img-placeholder {
   width: 100%;
   background: var(--color-muted);
-  border-radius: var(--radius-card);
+  border-radius: 12px;
 }
 .ratio-landscape { aspect-ratio: 16 / 9; }
 .ratio-square { aspect-ratio: 1 / 1; }
@@ -824,44 +950,160 @@ footer {
 .link:hover { opacity: 0.6; }
 
 /* ============================================ */
-/* STAT CARDS                                   */
+/* PROJECT PAGE — all project-specific styles   */
 /* ============================================ */
-.stat-card {
-  min-width: clamp(200px, 20vw, 300px);
-  max-width: clamp(280px, 30vw, 420px);
-  padding: clamp(20px, 3vw, 40px);
-  border: 1px solid var(--color-rule);
-  border-radius: var(--radius-card);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-}
 
-/* ============================================ */
-/* PROJECT HERO (title + subtitle + meta)       */
-/* ============================================ */
-.project-hero-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: var(--space-lg);
-}
-.project-subtitle {
-  font-family: "Denton", Georgia, serif;
-  font-weight: 300;
-  font-style: italic;
-  font-size: clamp(1.25rem, 2.5vw, 2.5rem);
-  line-height: 1.3;
+/* Title: 96px, weight 500 */
+.project-title {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: clamp(2.5rem, 6vw, 6rem);
+  line-height: 1;
   color: var(--color-fg);
   margin: 0;
-  white-space: pre-line;
-}
-.project-meta-stack {
-  display: flex;
-  gap: var(--space-md);
-  flex-shrink: 0;
 }
 
+/* Category label above title: 18px, weight 600, muted */
+.project-category {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: clamp(14px, 1vw, 18px);
+  line-height: 1.4;
+  color: var(--color-muted);
+  margin: 0;
+}
+
+/* Meta row below title rule */
+.project-meta-row {
+  display: flex;
+  gap: clamp(32px, 5vw, 96px);
+  align-items: flex-start;
+}
+.project-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.project-meta-label {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: clamp(14px, 1vw, 18px);
+  line-height: 1.4;
+  color: var(--color-muted);
+}
+.project-meta-value {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: clamp(14px, 1vw, 18px);
+  line-height: 1.4;
+  color: var(--color-fg);
+}
+
+/* Intro label (left column in intro block) */
+.project-intro-label {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: clamp(14px, 1vw, 18px);
+  line-height: 1.4;
+  color: var(--color-muted);
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* Body text used in intro + captions: 24px, weight 500 */
+.project-body {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: clamp(16px, 1.5vw, 24px);
+  line-height: calc(32 / 24);
+  color: var(--color-fg);
+  margin: 0;
+}
+
+/* Section heading: "Project highlights" — 64px, weight 500 */
+.project-section-heading {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 1.4;
+  color: var(--color-fg);
+  margin: 0;
+}
+
+/* ---- Stat cards (redesigned) ---- */
+.stat-card {
+  flex: 1 1 0;
+  min-width: 0;
+  border: 1px solid var(--color-muted);
+  border-radius: 12px;
+  padding: clamp(32px, 3.5vw, 56px) clamp(24px, 3vw, 48px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(40px, 5.5vw, 88px);
+}
+.stat-card-rule {
+  width: 100%;
+  height: 1px;
+  background: var(--color-fg);
+}
+.stat-card .stat-value {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: clamp(2.5rem, 5.5vw, 5.5rem);
+  line-height: 1;
+  color: var(--color-fg);
+  margin: 0;
+}
+.stat-card-title {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: clamp(16px, 1.5vw, 24px);
+  line-height: calc(32 / 24);
+  color: var(--color-fg);
+  margin: 0;
+}
+.stat-card-body {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: clamp(14px, 1vw, 16px);
+  line-height: 1.5;
+  color: var(--color-fg);
+  margin: 0;
+}
+.stat-card-grid {
+  display: flex;
+  gap: clamp(16px, 2vw, 32px);
+}
+
+/* "Check these too" related section */
+.project-related-label {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: clamp(14px, 1vw, 18px);
+  line-height: 1.4;
+  color: var(--color-muted);
+  margin: 0;
+}
+.project-related-heading {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: clamp(2.5rem, 6vw, 6rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--color-fg);
+  margin: 0;
+}
+
+/* Caption text block (centered, no label) */
+.project-caption-wrap {
+  display: flex;
+  justify-content: center;
+  padding: clamp(64px, 7.5vw, 120px) clamp(16px, 2vw, 32px);
+}
+.project-caption-inner {
+  max-width: 1200px;
+  width: 100%;
+}
 /* ============================================ */
 /* PARALLAX HERO                                */
 /* ============================================ */
@@ -892,6 +1134,84 @@ footer {
 }
 .masonry-item img { width: 100%; display: block; transition: opacity 0.3s; }
 .masonry-item:hover img { opacity: 0.85; }
+
+/* ============================================ */
+/* STYLE GUIDE — page-specific layout           */
+/* ============================================ */
+.sg-type-row {
+  display: grid;
+  grid-template-columns: clamp(140px, 16vw, 260px) 1fr;
+  gap: var(--space-md);
+  align-items: start;
+}
+.sg-type-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 4px;
+}
+.sg-type-sample {
+  min-width: 0;
+}
+.sg-spec {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: clamp(10px, 0.7vw, 12px);
+  line-height: 1.5;
+  color: var(--color-muted);
+  margin: 0;
+}
+.sg-color-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(12px, 1.2vw, 20px);
+}
+.sg-color-card {
+  aspect-ratio: 1 / 1.15;
+  border-radius: var(--radius-card);
+  padding: clamp(16px, 1.5vw, 24px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid var(--color-rule);
+}
+.sg-color-name {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: clamp(0.875rem, 1.1vw, 1.125rem);
+}
+.sg-color-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-family: var(--font-sans);
+  font-weight: 400;
+  font-size: clamp(10px, 0.7vw, 12px);
+  opacity: 0.7;
+}
+.sg-spacing-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: clamp(14px, 1.2vw, 20px) 0;
+}
+.sg-token-badge {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: clamp(0.6875rem, 0.8vw, 0.8125rem);
+  color: var(--color-fg);
+  background: rgba(255, 255, 240, 0.08);
+  padding: 4px 12px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .sg-type-row { grid-template-columns: 1fr; gap: var(--space-sm); }
+  .sg-color-grid { grid-template-columns: 1fr 1fr; }
+}
 
 /* ============================================ */
 /* FADE ANIMATIONS                              */
@@ -926,15 +1246,16 @@ footer {
   .grid-4col { grid-template-columns: 1fr 1fr; }
   .masonry-grid { columns: 2; column-gap: 12px; }
   .masonry-item { margin-bottom: 12px; }
-  .content-text-offset { grid-template-columns: 1fr; }
-  .content-text-offset .text-block { grid-column: 1; }
-  .project-hero-row { flex-direction: column; align-items: flex-start; gap: var(--space-md); }
-  .project-meta-stack { flex-direction: column; gap: var(--space-sm); }
-  .accent-band { min-height: 80vw; }
+  .content-text-offset { padding: clamp(40px, 6vw, 80px) var(--site-px); }
+  .content-text-offset-inner { flex-direction: column; gap: var(--space-sm); }
+  .project-meta-row { flex-wrap: wrap; gap: var(--space-md); }
+  .stat-card-grid { flex-direction: column; }
+  .stat-card { min-width: 0; }
+  .project-caption-wrap { padding: clamp(40px, 6vw, 80px) var(--site-px); }
   .stripe-rect { margin-top: 24px !important; }
   .accent-heading { font-size: 9.5vw; }
   .accent-heading span { white-space: nowrap !important; }
-  .stat-card { min-width: 200px; max-width: 280px; }
+  .accent-band { min-height: 80vw; }
   .footer-col { gap: 8px; }
   .footer-col-label { margin-bottom: 4px; }
   .footer-cols { padding-top: clamp(40px, 8vw, 96px); }

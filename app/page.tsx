@@ -30,7 +30,6 @@ export default function Home() {
         <section className="section-intro">
           <div className="section-label-row">
             <p className="section-label-text">Quick<br />Introduction</p>
-            <p className="section-label-text">Section<br />001</p>
           </div>
 
           {/* Rule after labels */}
@@ -57,7 +56,6 @@ export default function Home() {
         <section className="section-works">
           <div className="section-label-row">
             <p className="section-label-text">Selected<br />Works</p>
-            <p className="section-label-text">Section<br />002</p>
           </div>
           <div className="rule-solid" />
           <h2 className="works-heading">Selected works</h2>

@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 const links = [
   { href: "/", label: "Work" },
   { href: "/about", label: "About" },
-  { href: "/projects", label: "Archives" },
+  { href: "#", label: "Archives" },
 ];
 
 export default function Nav() {
@@ -21,8 +21,8 @@ export default function Nav() {
   }, [open]);
 
   const isActive = (href: string) => {
-    if (href === "/") return pathname === "/" || pathname.startsWith("/projects/");
-    if (href === "/projects") return pathname === "/projects";
+    if (href === "/") return pathname === "/";
+    if (href === "#") return false;
     return pathname.startsWith(href);
   };
 
