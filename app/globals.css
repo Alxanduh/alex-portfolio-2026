@@ -418,7 +418,7 @@ footer {
 .footer-coords {
   font-family: var(--font-sans);
   font-weight: 600;
-  font-size: clamp(9px, 0.78vw, 15px);
+  font-size: clamp(9.5px, 0.82vw, 15.5px);
   line-height: 1.4;
   color: var(--color-muted);
   text-align: right;
