@@ -30,20 +30,17 @@ export default async function ProjectPage({ params }: Props) {
       <div className="site-container" style={{ position: "relative", zIndex: 2, background: "var(--color-bg)" }}>
         <section style={{ paddingTop: "clamp(120px, 10vw, 180px)" }}>
           <h1 className="heading-display fade-in">{project.title}</h1>
-          <p className="text-big fade-in fade-d1" style={{ maxWidth: 640, marginTop: "var(--space-xs)" }}>
-            {project.description}
-          </p>
         </section>
 
-        <div className="rule-solid fade-in fade-d2" style={{ marginTop: "var(--space-md)" }} />
+        <div className="rule-solid fade-in fade-d1" style={{ marginTop: "var(--space-md)" }} />
 
-        <section className="fade-in fade-d2" style={{ paddingTop: "var(--space-sm)", paddingBottom: "var(--space-lg)" }}>
-          <div className="project-meta-grid" style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))",
-            gap: "var(--space-md)",
-            maxWidth: 600,
-          }}>
+        <section className="project-hero-row fade-in fade-d2" style={{ paddingTop: "var(--space-sm)", paddingBottom: "var(--space-lg)" }}>
+          <p className="project-subtitle">
+            {project.subtitle.split("\n").map((line, i, arr) => (
+              <span key={i}>{line}{i < arr.length - 1 && <br />}</span>
+            ))}
+          </p>
+          <div className="project-meta-stack">
             {project.meta.map((m, i) => (
               <div key={i}>
                 <span className="label" style={{ display: "block", marginBottom: 4 }}>{m.label}</span>
