@@ -475,10 +475,10 @@ footer {
 .marquee-text {
   font-family: var(--font-sans);
   font-weight: 500;
-  font-size: clamp(64px, 11.67vw, 224px);
+  font-size: clamp(48px, 19.5vw, 375px);
   line-height: 1;
   white-space: nowrap;
-  padding: 0 0.1em;
+  padding: 0;
   display: block;
 }
 @keyframes marquee {
