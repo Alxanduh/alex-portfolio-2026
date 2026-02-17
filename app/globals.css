@@ -894,7 +894,8 @@ footer {
   .hero-accent { min-height: 70dvh; padding-bottom: clamp(48px, 12vw, 96px); }
   .hero-spacer { height: 65dvh; }
   .hero-nav { flex-wrap: wrap; gap: 16px; }
-  .project-pair { grid-template-columns: 1fr; }
+  .project-pair { grid-template-columns: 1fr; gap: clamp(32px, 3.34vw, 64px); }
+  .project-rows { gap: clamp(32px, 3.34vw, 64px); }
   .grid-2col { grid-template-columns: 1fr; gap: var(--space-md); }
   .grid-4col { grid-template-columns: 1fr 1fr; }
   .masonry-grid { columns: 2; column-gap: 12px; }
