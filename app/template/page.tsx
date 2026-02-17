@@ -149,17 +149,11 @@ export default function StyleGuidePage() {
         <div className="rule" style={{ marginBottom: "var(--space-md)" }} />
         <p className="label" style={{ marginBottom: "var(--space-sm)" }}>Components</p>
 
-        {/* Pair Row (50/50) */}
-        <p style={{ fontSize: 12, color: "var(--color-muted)", marginBottom: 16 }}>Pair Row — 50/50 split (.project-pair) — 1:1 images</p>
+        {/* Pair Row (50/50, 4:3) */}
+        <p style={{ fontSize: 12, color: "var(--color-muted)", marginBottom: 16 }}>Pair Row — 50/50 split (.project-pair) — 4:3 images</p>
         <div className="project-pair" style={{ marginBottom: "var(--space-lg)" }}>
           <ProjectCard slug="amount" label="Branding • UI • UX" title="Amount" description="Reimagining digital lending experiences" />
           <ProjectCard slug="grow-therapy" label="Healthcare • UI • UX" title="Grow Therapy" description="Designing care that actually shows up" />
-        </div>
-
-        {/* Solo Row */}
-        <p style={{ fontSize: 12, color: "var(--color-muted)", marginBottom: 16 }}>Solo Row — full-width 16:9 card</p>
-        <div style={{ marginBottom: "var(--space-lg)" }}>
-          <ProjectCard slug="braintree" label="UI • UX • Motion" title="Braintree" description="Code as art at a leading online payments platform" />
         </div>
 
         {/* Stat Cards */}
@@ -206,7 +200,7 @@ export default function StyleGuidePage() {
         <p className="label" style={{ marginBottom: "var(--space-sm)" }}>Grid Variants</p>
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
           {[
-            { cls: ".project-pair", gap: "clamp(16px, 1.67vw, 32px)", use: "Home — pair 50/50, 1:1 square" },
+            { cls: ".project-pair", gap: "clamp(16px, 1.67vw, 32px)", use: "Home — pair 50/50, 4:3" },
             { cls: ".grid-2col", gap: "clamp(16px, 2.5vw, 48px)", use: "Project detail — 2-up images" },
             { cls: ".grid-3col", gap: "clamp(16px, 2.5vw, 48px)", use: "About — focus columns" },
             { cls: ".grid-4col", gap: "clamp(8px, 1.5vw, 24px)", use: "About — photo grid" },

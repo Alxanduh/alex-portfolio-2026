@@ -88,31 +88,28 @@ export default function Home() {
   );
 }
 
-/* ---- Build pair / solo alternating cycle (3 per cycle) ---- */
+/* ---- Build 2-up pair grid (all rows are 50/50, 4:3) ---- */
 type CardProject = { slug: string; label: string; title: string; description: string; heroImage?: string };
 
 function buildGrid(items: CardProject[]) {
-  // Cycle: pair (2 cards, 50/50, 1:1) → solo (1 card, 16:9) = 3 projects
   const elements: React.ReactElement[] = [];
-  let i = 0;
-  let step = 0;
 
-  while (i < items.length) {
-    const isPair = step % 2 === 0;
-
-    if (isPair && i + 1 < items.length) {
+  for (let i = 0; i < items.length; i += 2) {
+    if (i + 1 < items.length) {
       elements.push(
         <div key={`p-${items[i].slug}`} className="project-pair">
           <Card project={items[i]} />
           <Card project={items[i + 1]} />
         </div>
       );
-      i += 2;
     } else {
-      elements.push(<Card key={`s-${items[i].slug}`} project={items[i]} />);
-      i += 1;
+      // Odd project out — solo in a pair wrapper for consistent sizing
+      elements.push(
+        <div key={`p-${items[i].slug}`} className="project-pair">
+          <Card project={items[i]} />
+        </div>
+      );
     }
-    step++;
   }
   return elements;
 }

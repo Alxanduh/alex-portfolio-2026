@@ -275,7 +275,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* ============================================ */
-/* PROJECT GRID — Pair / Solo alternating        */
+/* PROJECT GRID — 2-up pairs, all rows           */
 /* ============================================ */
 .project-rows {
   display: flex;
@@ -288,10 +288,6 @@ a { text-decoration: none; color: inherit; }
   grid-template-columns: 1fr 1fr;
   gap: clamp(16px, 1.67vw, 32px);
 }
-.project-pair .card-image,
-.project-pair .card-image-real {
-  aspect-ratio: 1 / 1;
-}
 
 .card-link {
   display: flex;
@@ -303,13 +299,13 @@ a { text-decoration: none; color: inherit; }
 
 .card-image {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 4 / 3;
   background: var(--color-muted);
   border-radius: var(--radius-card);
 }
 .card-image-real {
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: var(--radius-card);
   display: block;
