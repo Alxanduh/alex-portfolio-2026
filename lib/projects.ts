@@ -56,7 +56,7 @@ export interface Project {
 
   // Card display
   label: string;             // e.g. "Branding • UI • UX"
-  homeLayout: "paired" | "solo" | "hidden";  // how it shows on home page
+  showOnHome: boolean;       // whether this project appears on home page
   homeOrder: number;         // sort order on home page
 
   // Project page meta
@@ -88,7 +88,7 @@ export const projects: Project[] = [
     subtitle: "Reimagining digital\nlending experiences",
     description: "Reimagining digital lending experiences",
     label: "Branding • UI • UX",
-    homeLayout: "paired",
+    showOnHome: true,
     homeOrder: 1,
     meta: [
       { label: "Industry", value: "Fintech" },
@@ -120,7 +120,7 @@ export const projects: Project[] = [
     subtitle: "Designing care that\nactually shows up",
     description: "Designing care that actually shows up",
     label: "Branding • UI • UX",
-    homeLayout: "paired",
+    showOnHome: true,
     homeOrder: 2,
     meta: [
       { label: "Industry", value: "Healthcare" },
@@ -152,7 +152,7 @@ export const projects: Project[] = [
     subtitle: "Code as art at a leading\nonline payments platform",
     description: "Code as art at a leading online payments platform",
     label: "UI • UX • Motion",
-    homeLayout: "solo",
+    showOnHome: true,
     homeOrder: 3,
     meta: [
       { label: "Industry", value: "Fintech" },
@@ -184,7 +184,7 @@ export const projects: Project[] = [
     subtitle: "Heritage meets craft\nin every detail",
     description: "Heritage meets craft in every detail",
     label: "Branding • Packaging",
-    homeLayout: "paired",
+    showOnHome: true,
     homeOrder: 4,
     meta: [
       { label: "Industry", value: "Beverage / CPG" },
@@ -216,7 +216,7 @@ export const projects: Project[] = [
     subtitle: "Travel planning without\nthe overwhelm",
     description: "Travel planning without the overwhelm",
     label: "Branding • UI • UX",
-    homeLayout: "paired",
+    showOnHome: true,
     homeOrder: 5,
     meta: [
       { label: "Industry", value: "Travel" },
@@ -248,7 +248,7 @@ export const projects: Project[] = [
     subtitle: "A collection of marks\nand identities",
     description: "A collection of marks and identities",
     label: "Branding • Identity",
-    homeLayout: "paired",
+    showOnHome: true,
     homeOrder: 6,
     meta: [
       { label: "Type", value: "Collection" },
@@ -279,7 +279,7 @@ export const projects: Project[] = [
 /** Get all projects visible on home page, sorted */
 export function getHomeProjects(): Project[] {
   return projects
-    .filter((p) => p.homeLayout !== "hidden")
+    .filter((p) => p.showOnHome)
     .sort((a, b) => a.homeOrder - b.homeOrder);
 }
 

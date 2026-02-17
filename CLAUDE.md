@@ -34,6 +34,8 @@ app/
 ├── globals.css             # All CSS: design tokens, components, animations (~900 lines)
 ├── about/
 │   └── page.tsx            # About page — bio, capabilities grid, photo gallery
+├── template/
+│   └── page.tsx            # Style guide — design system reference
 └── projects/
     ├── page.tsx            # Archive page — masonry image grid
     └── [slug]/
@@ -58,6 +60,8 @@ public/fonts/               # BDO Grotesk OTF files (Regular, Medium, Bold, Extr
 ### Project Data (`lib/projects.ts`)
 
 All portfolio projects are defined in a single `projects.ts` file with typed interfaces (`Project`, `ProjectMeta`, `ProjectHighlight`, `ProjectSection`). Helper functions (`getHomeProjects`, `getProjectBySlug`, `getRelatedProjects`, `getAllSlugs`) drive the home page grid, dynamic routes, and related project links. To add a new project, add an entry to the `projects` array — it auto-appears everywhere.
+
+**Home page grid:** Projects are automatically paired into 2-column rows with alternating asymmetric widths (7fr/5fr, then 5fr/7fr). All cards use 16:9 images. If there's an odd number of projects, the last one renders as a full-width 16:9 card. No manual row assignment needed — just set `showOnHome: true` and `homeOrder`.
 
 Section types for project detail pages:
 - `"full"` — 16:9 full-width image
@@ -102,7 +106,7 @@ Project images are hosted on an external CDN (`alxandr.us/assets/img/`), not in 
 ### Adding a new project
 
 1. Add a new object to the `projects` array in `lib/projects.ts` following the `Project` interface
-2. Set `homeLayout` to `"paired"`, `"solo"`, or `"hidden"` and assign `homeOrder`
+2. Set `showOnHome: true` and assign `homeOrder` (the grid auto-pairs into asymmetric 2-col rows)
 3. Add slugs to other projects' `related` arrays as needed
 4. The dynamic route `app/projects/[slug]/page.tsx` picks it up automatically
 

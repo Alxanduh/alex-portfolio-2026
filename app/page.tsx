@@ -63,26 +63,20 @@ export default function Home() {
           <h2 className="works-heading">Selected works</h2>
         </section>
 
-        {/* Project grid — mixed aspect ratios */}
+        {/* Project grid — auto-paired asymmetric 2-col rows */}
         <div className="project-rows">
-          {/* Row 1: 3 × square */}
-          <div className="project-row-3">
-            {projects.slice(0, 3).map((p) => (
-              <ProjectCard key={p.slug} project={p} ratio="1-1" />
-            ))}
-          </div>
-          {/* Row 2: 1 × wide */}
-          <div className="project-row-1">
-            {projects.slice(3, 4).map((p) => (
-              <ProjectCard key={p.slug} project={p} ratio="16-9" />
-            ))}
-          </div>
-          {/* Row 3: 2 × tall */}
-          <div className="project-row-2">
-            {projects.slice(4, 6).map((p) => (
-              <ProjectCard key={p.slug} project={p} ratio="9-16" />
-            ))}
-          </div>
+          {buildRows(projects).map((row, i) =>
+            row.length === 1 ? (
+              <div key={row[0].slug} className="project-row-wide">
+                <ProjectCard project={row[0]} />
+              </div>
+            ) : (
+              <div key={`${row[0].slug}-${row[1].slug}`} className={i % 2 === 0 ? "project-row-a" : "project-row-b"}>
+                <ProjectCard project={row[0]} />
+                <ProjectCard project={row[1]} />
+              </div>
+            )
+          )}
         </div>
       </div>
 
@@ -105,19 +99,27 @@ export default function Home() {
   );
 }
 
-/* ---- Inline ProjectCard for home page ---- */
-function ProjectCard({ project, ratio = "1-1" }: { project: { slug: string; label: string; title: string; description: string; heroImage?: string }; ratio?: "1-1" | "16-9" | "9-16" }) {
-  const ratioClass = ratio === "16-9" ? "ratio-16-9" : ratio === "9-16" ? "ratio-9-16" : "";
+/* ---- Pair projects into rows of 2; odd last project gets its own full-width row ---- */
+function buildRows(items: { slug: string }[]): { slug: string; label: string; title: string; description: string; heroImage?: string }[][] {
+  const rows: { slug: string; label: string; title: string; description: string; heroImage?: string }[][] = [];
+  for (let i = 0; i < items.length; i += 2) {
+    if (i + 1 < items.length) {
+      rows.push([items[i] as typeof rows[0][0], items[i + 1] as typeof rows[0][0]]);
+    } else {
+      rows.push([items[i] as typeof rows[0][0]]);
+    }
+  }
+  return rows;
+}
+
+/* ---- Inline ProjectCard for home page — always 16:9 ---- */
+function ProjectCard({ project }: { project: { slug: string; label: string; title: string; description: string; heroImage?: string } }) {
   return (
     <Link href={`/projects/${project.slug}`} className="card-link">
       {project.heroImage ? (
-        <img
-          src={project.heroImage}
-          alt={project.title}
-          className={`card-image-real ${ratioClass}`}
-        />
+        <img src={project.heroImage} alt={project.title} className="card-image-real" />
       ) : (
-        <div className={`card-image ${ratioClass}`} />
+        <div className="card-image" />
       )}
       <div className="card-meta">
         <p className="card-label">{project.label}</p>

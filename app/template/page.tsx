@@ -149,24 +149,23 @@ export default function StyleGuidePage() {
         <div className="rule" style={{ marginBottom: "var(--space-md)" }} />
         <p className="label" style={{ marginBottom: "var(--space-sm)" }}>Components</p>
 
-        {/* Project Cards — 3-col */}
-        <p style={{ fontSize: 12, color: "var(--color-muted)", marginBottom: 16 }}>Project Card — 3-column row (.project-row-3)</p>
-        <div className="project-row-3" style={{ marginBottom: "var(--space-lg)" }}>
+        {/* Project Cards — Row A (7fr / 5fr) */}
+        <p style={{ fontSize: 12, color: "var(--color-muted)", marginBottom: 16 }}>Project Card — Row A: asymmetric 7fr / 5fr (.project-row-a) — all 16:9</p>
+        <div className="project-row-a" style={{ marginBottom: "var(--space-lg)" }}>
           <ProjectCard slug="amount" label="Branding • UI • UX" title="Amount" description="Reimagining digital lending experiences" />
-          <ProjectCard slug="grow-therapy" label="Healthcare • UI • UX" title="Grow Therapy" description="Designing care that actually shows up" index={1} />
-          <ProjectCard slug="braintree" label="Fintech • Motion" title="Braintree" description="Code as art at a payments platform" index={2} />
+          <ProjectCard slug="grow-therapy" label="Healthcare • UI • UX" title="Grow Therapy" description="Designing care that actually shows up" />
         </div>
 
-        {/* Project Cards — 2-col */}
-        <p style={{ fontSize: 12, color: "var(--color-muted)", marginBottom: 16 }}>Project Card — 2-column row (.project-row-2)</p>
-        <div className="project-row-2" style={{ marginBottom: "var(--space-lg)" }}>
+        {/* Project Cards — Row B (5fr / 7fr) */}
+        <p style={{ fontSize: 12, color: "var(--color-muted)", marginBottom: 16 }}>Project Card — Row B: asymmetric 5fr / 7fr (.project-row-b) — all 16:9</p>
+        <div className="project-row-b" style={{ marginBottom: "var(--space-lg)" }}>
+          <ProjectCard slug="braintree" label="Fintech • Motion" title="Braintree" description="Code as art at a payments platform" />
           <ProjectCard slug="amount" label="Branding • UI • UX" title="Amount" description="Reimagining digital lending experiences" />
-          <ProjectCard slug="grow-therapy" label="Healthcare • UI • UX" title="Grow Therapy" description="Designing care that actually shows up" index={1} />
         </div>
 
-        {/* Project Card — Solo */}
-        <p style={{ fontSize: 12, color: "var(--color-muted)", marginBottom: 16 }}>Project Card — full width (.project-row-1)</p>
-        <div className="project-row-1" style={{ marginBottom: "var(--space-lg)" }}>
+        {/* Project Card — Full width (odd/solo) */}
+        <p style={{ fontSize: 12, color: "var(--color-muted)", marginBottom: 16 }}>Project Card — full width for odd/last project (.project-row-wide) — 16:9</p>
+        <div className="project-row-wide" style={{ marginBottom: "var(--space-lg)" }}>
           <ProjectCard slug="braintree" label="UI • UX • Motion" title="Braintree" description="Code as art at a leading online payments platform" />
         </div>
 
@@ -214,9 +213,9 @@ export default function StyleGuidePage() {
         <p className="label" style={{ marginBottom: "var(--space-sm)" }}>Grid Variants</p>
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
           {[
-            { cls: ".project-row-3", gap: "clamp(16px, 1.67vw, 32px)", use: "Home — 3-column card row" },
-            { cls: ".project-row-2", gap: "clamp(16px, 1.67vw, 32px)", use: "Home — 2-column card row" },
-            { cls: ".project-row-1", gap: "—", use: "Home — full-width card row" },
+            { cls: ".project-row-a", gap: "clamp(16px, 1.67vw, 32px)", use: "Home — asymmetric 7fr / 5fr" },
+            { cls: ".project-row-b", gap: "clamp(16px, 1.67vw, 32px)", use: "Home — asymmetric 5fr / 7fr" },
+            { cls: ".project-row-wide", gap: "—", use: "Home — full-width solo card" },
             { cls: ".grid-2col", gap: "clamp(16px, 2.5vw, 48px)", use: "Project detail — 2-up images" },
             { cls: ".grid-3col", gap: "clamp(16px, 2.5vw, 48px)", use: "About — focus columns" },
             { cls: ".grid-4col", gap: "clamp(8px, 1.5vw, 24px)", use: "About — photo grid" },
