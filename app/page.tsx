@@ -69,21 +69,26 @@ export default function Home() {
         </div>
       </div>
 
-      {/* ============================================ */}
-      {/* ACCENT BAND — Philosophy                     */}
-      {/* ============================================ */}
-      <section className="accent-band">
-        <div className="accent-band-inner">
-          <p className="accent-label">Our<br />Philosophy</p>
-          <h2 className="accent-heading">
-            <span style={{ display: "block", whiteSpace: "nowrap" }}>What works,</span>
-            <span style={{ display: "block", whiteSpace: "nowrap" }}>no more, no less<span className="fw-700">™</span><span className="accent-symbols">®©</span></span>
-          </h2>
-        </div>
-      </section>
-
-      <Footer />
       </div>{/* end parallax-content */}
+
+      {/* ============================================ */}
+      {/* ACCENT BAND — Philosophy (sticky reveal)     */}
+      {/* ============================================ */}
+      <div className="accent-band-wrapper">
+        <section className="accent-band">
+          <div className="accent-band-inner">
+            <p className="accent-label">Our<br />Philosophy</p>
+            <h2 className="accent-heading">
+              <span style={{ display: "block", whiteSpace: "nowrap" }}>What works,</span>
+              <span style={{ display: "block", whiteSpace: "nowrap" }}>no more, no less<span className="fw-700">™</span><span className="accent-symbols">®©</span></span>
+            </h2>
+          </div>
+        </section>
+        <div className="accent-spacer" />
+        <div className="footer-over">
+          <Footer />
+        </div>
+      </div>
     </main>
   );
 }
