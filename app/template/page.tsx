@@ -150,14 +150,14 @@ export default function StyleGuidePage() {
         <p className="label" style={{ marginBottom: "var(--space-sm)" }}>Components</p>
 
         {/* Pair Row A (45% / 55%) */}
-        <p style={{ fontSize: 12, color: "var(--color-muted)", marginBottom: 16 }}>Pair Row A — 45/55 split (.project-pair-a) — 3:4 portrait images</p>
+        <p style={{ fontSize: 12, color: "var(--color-muted)", marginBottom: 16 }}>Pair Row A — 45/55 split (.project-pair-a) — 1:1 images</p>
         <div className="project-pair-a" style={{ marginBottom: "var(--space-lg)" }}>
           <ProjectCard slug="amount" label="Branding • UI • UX" title="Amount" description="Reimagining digital lending experiences" />
           <ProjectCard slug="grow-therapy" label="Healthcare • UI • UX" title="Grow Therapy" description="Designing care that actually shows up" />
         </div>
 
         {/* Pair Row B (55% / 45%) */}
-        <p style={{ fontSize: 12, color: "var(--color-muted)", marginBottom: 16 }}>Pair Row B — 55/45 split (.project-pair-b) — 3:4 portrait images</p>
+        <p style={{ fontSize: 12, color: "var(--color-muted)", marginBottom: 16 }}>Pair Row B — 55/45 split (.project-pair-b) — 1:1 images</p>
         <div className="project-pair-b" style={{ marginBottom: "var(--space-lg)" }}>
           <ProjectCard slug="braintree" label="Fintech • Motion" title="Braintree" description="Code as art at a payments platform" />
           <ProjectCard slug="amount" label="Branding • UI • UX" title="Amount" description="Reimagining digital lending experiences" />
@@ -213,8 +213,8 @@ export default function StyleGuidePage() {
         <p className="label" style={{ marginBottom: "var(--space-sm)" }}>Grid Variants</p>
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
           {[
-            { cls: ".project-pair-a", gap: "clamp(16px, 1.67vw, 32px)", use: "Home — pair 45/55, 3:4 portrait" },
-            { cls: ".project-pair-b", gap: "clamp(16px, 1.67vw, 32px)", use: "Home — pair 55/45, 3:4 portrait" },
+            { cls: ".project-pair-a", gap: "clamp(16px, 1.67vw, 32px)", use: "Home — pair 45/55, 1:1 square" },
+            { cls: ".project-pair-b", gap: "clamp(16px, 1.67vw, 32px)", use: "Home — pair 55/45, 1:1 square" },
             { cls: ".grid-2col", gap: "clamp(16px, 2.5vw, 48px)", use: "Project detail — 2-up images" },
             { cls: ".grid-3col", gap: "clamp(16px, 2.5vw, 48px)", use: "About — focus columns" },
             { cls: ".grid-4col", gap: "clamp(8px, 1.5vw, 24px)", use: "About — photo grid" },

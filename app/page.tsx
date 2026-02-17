@@ -88,69 +88,33 @@ export default function Home() {
   );
 }
 
-/* ---- Build repeating pair-a / pair-b / solo grid ---- */
+/* ---- Build pair-a / solo / pair-b / solo cycle (6 per cycle) ---- */
 type CardProject = { slug: string; label: string; title: string; description: string; heroImage?: string };
 
 function buildGrid(items: CardProject[]) {
+  // Sequence: pair-a(2), solo(1), pair-b(2), solo(1) = 6 projects
+  const sequence: ("pair-a" | "solo" | "pair-b")[] = ["pair-a", "solo", "pair-b", "solo"];
   const elements: React.ReactElement[] = [];
   let i = 0;
+  let step = 0;
 
   while (i < items.length) {
-    // Full cycle: pair-a (2) + pair-b (2) + solo (1) = 5 projects
-    if (i + 4 < items.length) {
+    const type = sequence[step % sequence.length];
+
+    if (type === "solo" || i + 1 >= items.length) {
+      elements.push(<Card key={`s-${items[i].slug}`} project={items[i]} />);
+      i += 1;
+    } else {
+      const cls = type === "pair-a" ? "project-pair-a" : "project-pair-b";
       elements.push(
-        <div key={`pa-${items[i].slug}`} className="project-pair-a">
-          <Card project={items[i]} />
-          <Card project={items[i + 1]} />
-        </div>
-      );
-      elements.push(
-        <div key={`pb-${items[i + 2].slug}`} className="project-pair-b">
-          <Card project={items[i + 2]} />
-          <Card project={items[i + 3]} />
-        </div>
-      );
-      elements.push(
-        <Card key={`solo-${items[i + 4].slug}`} project={items[i + 4]} />
-      );
-      i += 5;
-    } else if (i + 3 < items.length) {
-      // 4 remaining — two pair rows
-      elements.push(
-        <div key={`pa-${items[i].slug}`} className="project-pair-a">
-          <Card project={items[i]} />
-          <Card project={items[i + 1]} />
-        </div>
-      );
-      elements.push(
-        <div key={`pb-${items[i + 2].slug}`} className="project-pair-b">
-          <Card project={items[i + 2]} />
-          <Card project={items[i + 3]} />
-        </div>
-      );
-      i += 4;
-    } else if (i + 1 < items.length) {
-      // 2-3 remaining — one pair row, then solo if 3
-      elements.push(
-        <div key={`pa-${items[i].slug}`} className="project-pair-a">
+        <div key={`p-${items[i].slug}`} className={cls}>
           <Card project={items[i]} />
           <Card project={items[i + 1]} />
         </div>
       );
       i += 2;
-      if (i < items.length) {
-        elements.push(
-          <Card key={`solo-${items[i].slug}`} project={items[i]} />
-        );
-        i += 1;
-      }
-    } else {
-      // 1 remaining — solo
-      elements.push(
-        <Card key={`solo-${items[i].slug}`} project={items[i]} />
-      );
-      i += 1;
     }
+    step++;
   }
   return elements;
 }

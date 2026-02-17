@@ -275,7 +275,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* ============================================ */
-/* PROJECT GRID — Pair / Pair / Solo cycle      */
+/* PROJECT GRID — Pair / Solo alternating        */
 /* ============================================ */
 .project-rows {
   display: flex;
@@ -297,7 +297,7 @@ a { text-decoration: none; color: inherit; }
 .project-pair-a .card-image-real,
 .project-pair-b .card-image,
 .project-pair-b .card-image-real {
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 1 / 1;
 }
 
 .card-link {
