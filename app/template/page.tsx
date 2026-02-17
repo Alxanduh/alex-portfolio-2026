@@ -7,7 +7,7 @@ export default function StyleGuidePage() {
       <div className="site-container" style={{ paddingTop: "clamp(140px, 12vw, 200px)", paddingBottom: "var(--space-xl)" }}>
         <h1 className="heading-display" style={{ marginBottom: "var(--space-xs)" }}>Style Guide</h1>
         <p className="text-big" style={{ color: "var(--color-muted)" }}>
-          Design system reference — typography, color, spacing &amp; components
+          Home page design system — typography, color, spacing &amp; components
         </p>
       </div>
 
@@ -40,91 +40,126 @@ export default function StyleGuidePage() {
         </div>
       </section>
 
-      {/* ============ HEADINGS ============ */}
+      {/* ============ TYPOGRAPHY — LARGE ============ */}
       <section className="site-container" style={{ paddingBottom: "var(--space-xl)" }}>
         <div className="rule" style={{ marginBottom: "var(--space-md)" }} />
-        <p className="label" style={{ marginBottom: "var(--space-sm)" }}>Headings — BDO Grotesk</p>
-        <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-md)" }}>
-          {[
-            { cls: "heading-display", label: ".heading-display — 800 — clamp(3.5rem, 12vw, 12rem)" },
-            { cls: "heading-xl", label: ".heading-xl — 700 — clamp(2rem, 5vw, 4.5rem)" },
-            { cls: "heading-lg", label: ".heading-lg — 700 — clamp(1.75rem, 4vw, 3.5rem)" },
-            { cls: "heading-md", label: ".heading-md — 700 — clamp(1.125rem, 1.5vw, 1.5rem)" },
-            { cls: "heading-sm", label: ".heading-sm — 700 — clamp(1rem, 1.25vw, 1.25rem)" },
-          ].map((h) => (
-            <div key={h.cls}>
-              <p style={{ fontSize: 12, color: "var(--color-muted)", marginBottom: 8 }}>{h.label}</p>
-              <p className={h.cls} style={{ margin: 0 }}>The quick brown fox</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ============ DENTON ACCENT ============ */}
-      <section className="site-container" style={{ paddingBottom: "var(--space-xl)" }}>
-        <div className="rule" style={{ marginBottom: "var(--space-md)" }} />
-        <p className="label" style={{ marginBottom: "var(--space-sm)" }}>Accent Font — Denton Light Italic</p>
-        <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-md)" }}>
+        <p className="label" style={{ marginBottom: "var(--space-sm)" }}>Typography — Large</p>
+        <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-lg)" }}>
           <div>
             <p style={{ fontSize: 12, color: "var(--color-muted)", marginBottom: 8 }}>
-              Denton used for accent / decorative text
+              .hero-title — 500 — clamp(48px, 19.5vw, 375px) — hero banner
             </p>
-            <p style={{
-              fontFamily: "Denton, serif",
-              fontWeight: 300,
-              fontStyle: "italic",
-              fontSize: "clamp(2rem, 5vw, 4.5rem)",
-              lineHeight: 1.1,
-              color: "var(--color-muted)",
-              margin: 0,
-            }}>
-              Digital experiences
+            <p className="hero-title" style={{ margin: 0, position: "relative" }}>
+              <span className="hero-title-light">Schultz</span><span className="hero-title-bold">™®©</span>
             </p>
           </div>
           <div>
             <p style={{ fontSize: 12, color: "var(--color-muted)", marginBottom: 8 }}>
-              .stat-value — 700 — clamp(1.75rem, 3.5vw, 3.5rem)
+              .intro-heading / .works-heading — 500 — clamp(48px, 8.54vw, 164px) — section headings
             </p>
-            <p className="stat-value" style={{ margin: 0 }}>10%</p>
+            <p className="intro-heading" style={{ margin: 0 }}>Studio Schultz</p>
+          </div>
+          <div>
+            <p style={{ fontSize: 12, color: "var(--color-muted)", marginBottom: 8 }}>
+              .accent-heading — 500 — clamp(36px, 10.5vw, 232px) — philosophy band
+            </p>
+            <p className="accent-heading" style={{ margin: 0 }}>What works</p>
+          </div>
+          <div>
+            <p style={{ fontSize: 12, color: "var(--color-muted)", marginBottom: 8 }}>
+              .footer-col-label — 500 — clamp(32px, 5vw, 96px) — footer column headings
+            </p>
+            <p className="footer-col-label" style={{ margin: 0 }}>Explore</p>
+          </div>
+          <div>
+            <p style={{ fontSize: 12, color: "var(--color-muted)", marginBottom: 8 }}>
+              .footer-col-link — 400 — clamp(32px, 5vw, 96px) — footer links
+            </p>
+            <p className="footer-col-link" style={{ margin: 0 }}>Works</p>
           </div>
         </div>
       </section>
 
-      {/* ============ BODY TEXT ============ */}
+      {/* ============ TYPOGRAPHY — BODY ============ */}
       <section className="site-container" style={{ paddingBottom: "var(--space-xl)" }}>
         <div className="rule" style={{ marginBottom: "var(--space-md)" }} />
-        <p className="label" style={{ marginBottom: "var(--space-sm)" }}>Body Text — BDO Grotesk</p>
+        <p className="label" style={{ marginBottom: "var(--space-sm)" }}>Typography — Body</p>
         <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-sm)" }}>
-          {[
-            { cls: "pull-quote", label: ".pull-quote — 500 — clamp(1.125rem, 2vw, 1.75rem)", sample: "Crafting meaningful digital experiences through design" },
-            { cls: "text-big", label: ".text-big — 400 — clamp(0.875rem, 1.25vw, 1.125rem)", sample: "Intro body text, bio, stat titles" },
-            { cls: "text-body-fg", label: ".text-body-fg — 400 — clamp(0.8125rem, 1vw, 1rem) — foreground", sample: "Body text in foreground color for primary content" },
-            { cls: "text-body", label: ".text-body — 400 — clamp(0.8125rem, 1vw, 1rem) — muted", sample: "Body text in muted color for descriptions" },
-          ].map((t) => (
-            <div key={t.cls}>
-              <p style={{ fontSize: 12, color: "var(--color-muted)", marginBottom: 8 }}>{t.label}</p>
-              <p className={t.cls} style={{ margin: 0 }}>{t.sample}</p>
-            </div>
-          ))}
+          <div>
+            <p style={{ fontSize: 12, color: "var(--color-muted)", marginBottom: 8 }}>
+              .intro-body-text — 500 — clamp(14px, 1.25vw, 24px) — intro paragraph
+            </p>
+            <p className="intro-body-text" style={{ margin: 0 }}>
+              Studio Schultz is an independent design studio run out of a second bedroom in Denver, CO.
+            </p>
+          </div>
+          <div>
+            <p style={{ fontSize: 12, color: "var(--color-muted)", marginBottom: 8 }}>
+              .marquee-text — 500 — clamp(40px, 16.5vw, 320px) — scrolling marquee
+            </p>
+            <p style={{ fontFamily: "var(--font-sans)", fontWeight: 500, fontSize: "clamp(40px, 8vw, 120px)", lineHeight: 1, letterSpacing: "-0.02em", margin: 0 }}>SCHULTZ.DESIGN</p>
+          </div>
         </div>
       </section>
 
-      {/* ============ LABELS ============ */}
+      {/* ============ TYPOGRAPHY — LABELS ============ */}
       <section className="site-container" style={{ paddingBottom: "var(--space-xl)" }}>
         <div className="rule" style={{ marginBottom: "var(--space-md)" }} />
-        <p className="label" style={{ marginBottom: "var(--space-sm)" }}>Labels</p>
+        <p className="label" style={{ marginBottom: "var(--space-sm)" }}>Typography — Labels</p>
         <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-sm)" }}>
-          {[
-            { cls: "label", label: ".label — 500 — uppercase — muted", sample: "Section Label" },
-            { cls: "label-fg", label: ".label-fg — 500 — uppercase — foreground", sample: "Section Label" },
-            { cls: "section-label-text", label: ".section-label-text — 600 — clamp(10px, 0.9375vw, 18px)", sample: "Quick Introduction" },
-            { cls: "card-label", label: ".card-label — 500 — muted", sample: "Branding • UI • UX" },
-          ].map((l) => (
-            <div key={l.cls}>
-              <p style={{ fontSize: 12, color: "var(--color-muted)", marginBottom: 8 }}>{l.label}</p>
-              <p className={l.cls} style={{ margin: 0 }}>{l.sample}</p>
+          <div>
+            <p style={{ fontSize: 12, color: "var(--color-muted)", marginBottom: 8 }}>
+              .section-label-text — 600 — clamp(10px, 0.9375vw, 18px) — above-rule section labels
+            </p>
+            <div className="section-label-row">
+              <p className="section-label-text" style={{ margin: 0 }}>Quick<br />Introduction</p>
+              <p className="section-label-text" style={{ margin: 0 }}>Section<br />001</p>
             </div>
-          ))}
+          </div>
+          <div>
+            <p style={{ fontSize: 12, color: "var(--color-muted)", marginBottom: 8 }}>
+              .footer-label — 600 — clamp(10px, 0.9375vw, 18px) — footer rule labels
+            </p>
+            <p className="footer-label" style={{ margin: 0 }}>The Footer</p>
+          </div>
+          <div>
+            <p style={{ fontSize: 12, color: "var(--color-muted)", marginBottom: 8 }}>
+              .footer-coords — 600 — clamp(9.5px, 0.82vw, 15.5px) — footer coordinates (optically sized)
+            </p>
+            <p className="footer-coords" style={{ margin: 0 }}>39.7548° N  104.9723° W</p>
+          </div>
+          <div>
+            <p style={{ fontSize: 12, color: "var(--color-muted)", marginBottom: 8 }}>
+              .footer-bottom-text — 600 — clamp(10px, 0.9375vw, 18px) — below marquee credits
+            </p>
+            <p className="footer-bottom-text" style={{ margin: 0 }}>Proudly MFG in CO, USA</p>
+          </div>
+        </div>
+      </section>
+
+      {/* ============ TYPOGRAPHY — CARD META ============ */}
+      <section className="site-container" style={{ paddingBottom: "var(--space-xl)" }}>
+        <div className="rule" style={{ marginBottom: "var(--space-md)" }} />
+        <p className="label" style={{ marginBottom: "var(--space-sm)" }}>Typography — Card Meta</p>
+        <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-sm)" }}>
+          <div>
+            <p style={{ fontSize: 12, color: "var(--color-muted)", marginBottom: 8 }}>
+              .card-label — 500 — clamp(10px, 0.625vw, 12px) — category tags
+            </p>
+            <p className="card-label" style={{ margin: 0 }}>Branding • UI • UX</p>
+          </div>
+          <div>
+            <p style={{ fontSize: 12, color: "var(--color-muted)", marginBottom: 8 }}>
+              .card-title — 500 — clamp(14px, 1.04vw, 20px) — project name
+            </p>
+            <p className="card-title" style={{ margin: 0 }}>Amount</p>
+          </div>
+          <div>
+            <p style={{ fontSize: 12, color: "var(--color-muted)", marginBottom: 8 }}>
+              .card-desc — 400 — clamp(11px, 0.73vw, 14px) — project description
+            </p>
+            <p className="card-desc" style={{ margin: 0 }}>Reimagining digital lending experiences</p>
+          </div>
         </div>
       </section>
 
@@ -149,67 +184,11 @@ export default function StyleGuidePage() {
         <div className="rule" style={{ marginBottom: "var(--space-md)" }} />
         <p className="label" style={{ marginBottom: "var(--space-sm)" }}>Components</p>
 
-        {/* Pair Row (50/50, 4:3) */}
-        <p style={{ fontSize: 12, color: "var(--color-muted)", marginBottom: 16 }}>Pair Row — 50/50 split (.project-pair) — 4:3 images</p>
+        {/* Project Pair */}
+        <p style={{ fontSize: 12, color: "var(--color-muted)", marginBottom: 16 }}>Project Pair — 50/50 split (.project-pair) — 4:3 images</p>
         <div className="project-pair" style={{ marginBottom: "var(--space-lg)" }}>
           <ProjectCard slug="amount" label="Branding • UI • UX" title="Amount" description="Reimagining digital lending experiences" />
           <ProjectCard slug="grow-therapy" label="Healthcare • UI • UX" title="Grow Therapy" description="Designing care that actually shows up" />
-        </div>
-
-        {/* Stat Cards */}
-        <p style={{ fontSize: 12, color: "var(--color-muted)", marginBottom: 16 }}>Stat Cards (.stat-card)</p>
-        <div style={{ display: "flex", gap: "var(--space-sm)", marginBottom: "var(--space-lg)" }}>
-          <div className="stat-card">
-            <p className="stat-value" style={{ margin: 0 }}>10%</p>
-            <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-xs)" }}>
-              <p className="text-big" style={{ margin: 0 }}>Booking completion</p>
-              <p className="text-body" style={{ margin: 0 }}>Stat card description text goes here</p>
-            </div>
-          </div>
-          <div className="stat-card">
-            <p className="stat-value" style={{ margin: 0 }}>3x</p>
-            <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-xs)" }}>
-              <p className="text-big" style={{ margin: 0 }}>Provider match rate</p>
-              <p className="text-body" style={{ margin: 0 }}>Another stat card description</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ============ IMAGE RATIOS ============ */}
-      <section className="site-container" style={{ paddingBottom: "var(--space-xl)" }}>
-        <div className="rule" style={{ marginBottom: "var(--space-md)" }} />
-        <p className="label" style={{ marginBottom: "var(--space-sm)" }}>Image Placeholders &amp; Aspect Ratios</p>
-        <div style={{ display: "flex", gap: "var(--space-sm)", flexWrap: "wrap" }}>
-          {[
-            { cls: "ratio-landscape", label: "16:9 Landscape" },
-            { cls: "ratio-square", label: "1:1 Square" },
-            { cls: "ratio-portrait", label: "4:5 Portrait" },
-          ].map((r) => (
-            <div key={r.cls} style={{ width: 200 }}>
-              <div className={`img-placeholder ${r.cls}`} style={{ marginBottom: 8 }} />
-              <p style={{ fontSize: 12, color: "var(--color-muted)", margin: 0 }}>.{r.cls} — {r.label}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ============ GRIDS ============ */}
-      <section className="site-container" style={{ paddingBottom: "var(--space-xl)" }}>
-        <div className="rule" style={{ marginBottom: "var(--space-md)" }} />
-        <p className="label" style={{ marginBottom: "var(--space-sm)" }}>Grid Variants</p>
-        <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-          {[
-            { cls: ".project-pair", gap: "clamp(16px, 1.67vw, 32px)", use: "Home — pair 50/50, 4:3" },
-            { cls: ".grid-2col", gap: "clamp(16px, 2.5vw, 48px)", use: "Project detail — 2-up images" },
-            { cls: ".grid-3col", gap: "clamp(16px, 2.5vw, 48px)", use: "About — focus columns" },
-            { cls: ".grid-4col", gap: "clamp(8px, 1.5vw, 24px)", use: "About — photo grid" },
-          ].map(({ cls, gap, use }) => (
-            <div key={cls} style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 8 }}>
-              <p className="text-body-fg" style={{ margin: 0 }}>{cls}</p>
-              <p style={{ fontFamily: "monospace", fontSize: 13, color: "var(--color-muted)", margin: 0 }}>{gap} — {use}</p>
-            </div>
-          ))}
         </div>
       </section>
 
@@ -241,8 +220,7 @@ export default function StyleGuidePage() {
         <p className="label" style={{ marginBottom: "var(--space-sm)" }}>Breakpoints</p>
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
           {[
-            { bp: "≤ 1024px (Tablet)", changes: "3-col → 1-col, intro stacks, footer stacks" },
-            { bp: "≤ 768px (Mobile)", changes: "2-col → 1-col, nav compact, card rows stack, masonry → 2-col" },
+            { bp: "≤ 768px (Mobile)", changes: "Pair rows stack to 1-col, nav compact" },
           ].map(({ bp, changes }) => (
             <div key={bp} style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 8 }}>
               <p className="text-body-fg" style={{ margin: 0 }}>{bp}</p>

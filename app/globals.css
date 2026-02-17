@@ -318,8 +318,8 @@ a { text-decoration: none; color: inherit; }
 .card-label {
   font-family: var(--font-sans);
   font-weight: 500;
-  font-size: clamp(12px, 0.73vw, 14px);
-  line-height: 1.57;
+  font-size: clamp(10px, 0.625vw, 12px);
+  line-height: 1.5;
   color: var(--color-muted);
   margin: 0;
   text-transform: capitalize;
@@ -327,7 +327,7 @@ a { text-decoration: none; color: inherit; }
 .card-title {
   font-family: var(--font-sans);
   font-weight: 500;
-  font-size: clamp(18px, 1.25vw, 24px);
+  font-size: clamp(14px, 1.04vw, 20px);
   line-height: 1.33;
   color: var(--color-fg);
   margin: 0;
@@ -335,10 +335,10 @@ a { text-decoration: none; color: inherit; }
 }
 .card-desc {
   font-family: var(--font-sans);
-  font-weight: 500;
-  font-size: clamp(13px, 0.833vw, 16px);
+  font-weight: 400;
+  font-size: clamp(11px, 0.73vw, 14px);
   line-height: 1.5;
-  color: var(--color-fg);
+  color: var(--color-muted);
   margin: 0;
 }
 
