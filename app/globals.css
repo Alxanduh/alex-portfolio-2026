@@ -605,7 +605,7 @@ footer {
   z-index: 50;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   padding: var(--space-sm) var(--site-px);
   pointer-events: none;
 }
@@ -622,7 +622,8 @@ footer {
 .nav-links {
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
+  top: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
   gap: clamp(24px, 3.33vw, 64px);
