@@ -149,9 +149,22 @@ export default function StyleGuidePage() {
         <div className="rule" style={{ marginBottom: "var(--space-md)" }} />
         <p className="label" style={{ marginBottom: "var(--space-sm)" }}>Components</p>
 
-        {/* Project Cards — Stacked */}
-        <p style={{ fontSize: 12, color: "var(--color-muted)", marginBottom: 16 }}>Project Card — stacked full-width (.project-rows) — 16:9 images</p>
-        <div className="project-rows" style={{ paddingBottom: 0, marginBottom: "var(--space-lg)" }}>
+        {/* Pair Row A (5fr / 7fr) */}
+        <p style={{ fontSize: 12, color: "var(--color-muted)", marginBottom: 16 }}>Pair Row A — 5fr / 7fr (.project-pair-a) — 16:9 images</p>
+        <div className="project-pair-a" style={{ marginBottom: "var(--space-lg)" }}>
+          <ProjectCard slug="amount" label="Branding • UI • UX" title="Amount" description="Reimagining digital lending experiences" />
+          <ProjectCard slug="grow-therapy" label="Healthcare • UI • UX" title="Grow Therapy" description="Designing care that actually shows up" />
+        </div>
+
+        {/* Solo Row */}
+        <p style={{ fontSize: 12, color: "var(--color-muted)", marginBottom: 16 }}>Solo Row — full-width 16:9 card</p>
+        <div style={{ marginBottom: "var(--space-lg)" }}>
+          <ProjectCard slug="braintree" label="UI • UX • Motion" title="Braintree" description="Code as art at a leading online payments platform" />
+        </div>
+
+        {/* Pair Row B (7fr / 5fr) */}
+        <p style={{ fontSize: 12, color: "var(--color-muted)", marginBottom: 16 }}>Pair Row B — 7fr / 5fr (.project-pair-b) — 16:9 images</p>
+        <div className="project-pair-b" style={{ marginBottom: "var(--space-lg)" }}>
           <ProjectCard slug="amount" label="Branding • UI • UX" title="Amount" description="Reimagining digital lending experiences" />
           <ProjectCard slug="grow-therapy" label="Healthcare • UI • UX" title="Grow Therapy" description="Designing care that actually shows up" />
         </div>
@@ -200,7 +213,8 @@ export default function StyleGuidePage() {
         <p className="label" style={{ marginBottom: "var(--space-sm)" }}>Grid Variants</p>
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
           {[
-            { cls: ".project-rows", gap: "clamp(16px, 1.67vw, 32px)", use: "Home — stacked full-width cards" },
+            { cls: ".project-pair-a", gap: "clamp(16px, 1.67vw, 32px)", use: "Home — pair row 5fr / 7fr" },
+            { cls: ".project-pair-b", gap: "clamp(16px, 1.67vw, 32px)", use: "Home — pair row 7fr / 5fr" },
             { cls: ".grid-2col", gap: "clamp(16px, 2.5vw, 48px)", use: "Project detail — 2-up images" },
             { cls: ".grid-3col", gap: "clamp(16px, 2.5vw, 48px)", use: "About — focus columns" },
             { cls: ".grid-4col", gap: "clamp(8px, 1.5vw, 24px)", use: "About — photo grid" },

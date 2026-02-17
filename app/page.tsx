@@ -63,11 +63,9 @@ export default function Home() {
           <h2 className="works-heading">Selected works</h2>
         </section>
 
-        {/* Project grid — stacked full-width cards */}
+        {/* Project grid — pair / solo repeating pattern */}
         <div className="project-rows">
-          {projects.map((p) => (
-            <ProjectCard key={p.slug} project={p} />
-          ))}
+          {buildGrid(projects)}
         </div>
       </div>
 
@@ -90,8 +88,53 @@ export default function Home() {
   );
 }
 
-/* ---- Inline ProjectCard for home page — always 16:9 ---- */
-function ProjectCard({ project }: { project: { slug: string; label: string; title: string; description: string; heroImage?: string } }) {
+/* ---- Build repeating pair / solo grid from a flat project list ---- */
+type CardProject = { slug: string; label: string; title: string; description: string; heroImage?: string };
+
+function buildGrid(items: CardProject[]) {
+  const elements: React.ReactElement[] = [];
+  let i = 0;
+  let pairIndex = 0;
+
+  while (i < items.length) {
+    // Need at least 3 items for a full pair+solo cycle
+    if (i + 2 < items.length) {
+      // Pair row (2 cards)
+      const cls = pairIndex % 2 === 0 ? "project-pair-a" : "project-pair-b";
+      elements.push(
+        <div key={`pair-${items[i].slug}`} className={cls}>
+          <Card project={items[i]} />
+          <Card project={items[i + 1]} />
+        </div>
+      );
+      // Solo row (1 full-width card)
+      elements.push(
+        <Card key={`solo-${items[i + 2].slug}`} project={items[i + 2]} />
+      );
+      pairIndex++;
+      i += 3;
+    } else if (i + 1 < items.length) {
+      // 2 remaining — render as a pair
+      const cls = pairIndex % 2 === 0 ? "project-pair-a" : "project-pair-b";
+      elements.push(
+        <div key={`pair-${items[i].slug}`} className={cls}>
+          <Card project={items[i]} />
+          <Card project={items[i + 1]} />
+        </div>
+      );
+      i += 2;
+    } else {
+      // 1 remaining — render solo
+      elements.push(
+        <Card key={`solo-${items[i].slug}`} project={items[i]} />
+      );
+      i += 1;
+    }
+  }
+  return elements;
+}
+
+function Card({ project }: { project: CardProject }) {
   return (
     <Link href={`/projects/${project.slug}`} className="card-link">
       {project.heroImage ? (

@@ -61,7 +61,7 @@ public/fonts/               # BDO Grotesk OTF files (Regular, Medium, Bold, Extr
 
 All portfolio projects are defined in a single `projects.ts` file with typed interfaces (`Project`, `ProjectMeta`, `ProjectHighlight`, `ProjectSection`). Helper functions (`getHomeProjects`, `getProjectBySlug`, `getRelatedProjects`, `getAllSlugs`) drive the home page grid, dynamic routes, and related project links. To add a new project, add an entry to the `projects` array — it auto-appears everywhere.
 
-**Home page grid:** Projects are stacked vertically as full-width cards, each with a 16:9 image. Just set `showOnHome: true` and `homeOrder` — cards render automatically in order.
+**Home page grid:** Projects auto-layout in a repeating pair/solo pattern: two cards in an unequal 2-col row (alternating 5fr/7fr and 7fr/5fr), then one full-width 16:9 card. Just set `showOnHome: true` and `homeOrder` — the cycle generates automatically.
 
 Section types for project detail pages:
 - `"full"` — 16:9 full-width image
@@ -106,7 +106,7 @@ Project images are hosted on an external CDN (`alxandr.us/assets/img/`), not in 
 ### Adding a new project
 
 1. Add a new object to the `projects` array in `lib/projects.ts` following the `Project` interface
-2. Set `showOnHome: true` and assign `homeOrder` (cards stack vertically, full-width)
+2. Set `showOnHome: true` and assign `homeOrder` (auto-cycles pair/solo rows)
 3. Add slugs to other projects' `related` arrays as needed
 4. The dynamic route `app/projects/[slug]/page.tsx` picks it up automatically
 
