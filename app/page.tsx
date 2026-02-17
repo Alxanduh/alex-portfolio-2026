@@ -63,20 +63,11 @@ export default function Home() {
           <h2 className="works-heading">Selected works</h2>
         </section>
 
-        {/* Project grid — auto-paired asymmetric 2-col rows */}
+        {/* Project grid — stacked full-width cards */}
         <div className="project-rows">
-          {buildRows(projects).map((row, i) =>
-            row.length === 1 ? (
-              <div key={row[0].slug} className="project-row-wide">
-                <ProjectCard project={row[0]} />
-              </div>
-            ) : (
-              <div key={`${row[0].slug}-${row[1].slug}`} className={i % 2 === 0 ? "project-row-a" : "project-row-b"}>
-                <ProjectCard project={row[0]} />
-                <ProjectCard project={row[1]} />
-              </div>
-            )
-          )}
+          {projects.map((p) => (
+            <ProjectCard key={p.slug} project={p} />
+          ))}
         </div>
       </div>
 
@@ -97,19 +88,6 @@ export default function Home() {
       </div>{/* end parallax-content */}
     </main>
   );
-}
-
-/* ---- Pair projects into rows of 2; odd last project gets its own full-width row ---- */
-function buildRows(items: { slug: string }[]): { slug: string; label: string; title: string; description: string; heroImage?: string }[][] {
-  const rows: { slug: string; label: string; title: string; description: string; heroImage?: string }[][] = [];
-  for (let i = 0; i < items.length; i += 2) {
-    if (i + 1 < items.length) {
-      rows.push([items[i] as typeof rows[0][0], items[i + 1] as typeof rows[0][0]]);
-    } else {
-      rows.push([items[i] as typeof rows[0][0]]);
-    }
-  }
-  return rows;
 }
 
 /* ---- Inline ProjectCard for home page — always 16:9 ---- */

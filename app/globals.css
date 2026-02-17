@@ -275,28 +275,13 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* ============================================ */
-/* PROJECT GRID — Asymmetric 2-col rows         */
+/* PROJECT GRID — Stacked full-width cards      */
 /* ============================================ */
 .project-rows {
   display: flex;
   flex-direction: column;
   gap: clamp(16px, 1.67vw, 32px);
   padding-bottom: clamp(96px, 13.33vw, 256px);
-}
-.project-row-wide {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: clamp(16px, 1.67vw, 32px);
-}
-.project-row-a {
-  display: grid;
-  grid-template-columns: 7fr 5fr;
-  gap: clamp(16px, 1.67vw, 32px);
-}
-.project-row-b {
-  display: grid;
-  grid-template-columns: 5fr 7fr;
-  gap: clamp(16px, 1.67vw, 32px);
 }
 
 .card-link {
@@ -904,10 +889,6 @@ footer {
   .hero-accent { min-height: 70dvh; padding-bottom: clamp(48px, 12vw, 96px); }
   .hero-spacer { height: 65dvh; }
   .hero-nav { flex-wrap: wrap; gap: 16px; }
-  .project-row-a,
-  .project-row-b {
-    grid-template-columns: 1fr;
-  }
   .grid-2col { grid-template-columns: 1fr; gap: var(--space-md); }
   .grid-4col { grid-template-columns: 1fr 1fr; }
   .masonry-grid { columns: 2; column-gap: 12px; }
