@@ -470,13 +470,13 @@ footer {
   display: flex;
   gap: 0;
   width: max-content;
-  animation: marquee 50s linear infinite;
+  animation: marquee 90s linear infinite;
 }
 .marquee-half { display: flex; gap: 0; }
 .marquee-text {
   font-family: var(--font-sans);
   font-weight: 500;
-  font-size: clamp(48px, 19.5vw, 375px);
+  font-size: clamp(40px, 16.5vw, 320px);
   line-height: 1;
   letter-spacing: -0.02em;
   white-space: nowrap;
