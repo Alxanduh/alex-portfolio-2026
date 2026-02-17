@@ -39,10 +39,9 @@ export default function Footer() {
         <div className="marquee-track">
           {[0, 1].map((half) => (
             <div key={half} className="marquee-half" aria-hidden={half === 1 ? "true" : undefined}>
-              <span className="marquee-text" style={{ color: "var(--color-muted)" }}>SCHULTZ.DESIGN</span>
-              <span className="marquee-text" style={{ color: "var(--color-fg)" }}>SCHULTZ.DESIGN</span>
-              <span className="marquee-text" style={{ color: "var(--color-muted)" }}>SCHULTZ.DESIGN</span>
-              <span className="marquee-text" style={{ color: "var(--color-fg)" }}>SCHULTZ.DESIGN</span>
+              {["var(--color-muted)", "var(--color-fg)", "var(--color-muted)", "var(--color-fg)"].map((c, i) => (
+                <span key={i} className="marquee-text" style={{ color: c }}>SCHULTZ.DESIGN</span>
+              ))}
             </div>
           ))}
         </div>

@@ -468,18 +468,20 @@ footer {
 }
 .marquee-track {
   display: flex;
+  gap: 0;
   width: max-content;
   animation: marquee 50s linear infinite;
 }
-.marquee-half { display: flex; }
+.marquee-half { display: flex; gap: 0; }
 .marquee-text {
   font-family: var(--font-sans);
   font-weight: 500;
   font-size: clamp(48px, 19.5vw, 375px);
   line-height: 1;
+  letter-spacing: -0.02em;
   white-space: nowrap;
   padding: 0;
-  margin-right: -0.05em;
+  margin: 0;
   display: block;
 }
 @keyframes marquee {
