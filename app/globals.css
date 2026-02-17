@@ -491,8 +491,8 @@ footer {
 .footer-bottom-text {
   font-family: var(--font-sans);
   font-weight: 600;
-  font-size: clamp(14px, 1.25vw, 24px);
-  line-height: 1.33;
+  font-size: clamp(10px, 0.9375vw, 18px);
+  line-height: 1.4;
   color: var(--color-muted);
 }
 
