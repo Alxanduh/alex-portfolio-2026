@@ -255,10 +255,10 @@ export default function StyleGuidePage() {
 
         <div className="sg-color-grid" style={{ marginTop: "var(--space-lg)" }}>
           {[
-            { name: "Off White", var: "--color-fg", hex: "#FFFFF0", fg: "#222222" },
-            { name: "Swiss Accent", var: "--color-accent", hex: "#FF4B2E", fg: "#FFFFF0" },
-            { name: "Smoky Black", var: "--color-bg", hex: "#222222", fg: "#FFFFF0" },
-            { name: "Dark Gray", var: "--color-muted", hex: "#888888", fg: "#222222" },
+            { name: "Off White", var: "--color-fg", hex: "#FFFFF0", fg: "#141414" },
+            { name: "Swiss Accent", var: "--color-accent", hex: "#F24A2E", fg: "#FFFFF0" },
+            { name: "Smoky Black", var: "--color-bg", hex: "#141414", fg: "#FFFFF0" },
+            { name: "Dark Gray", var: "--color-muted", hex: "#888888", fg: "#141414" },
           ].map((c) => (
             <div key={c.name} className="sg-color-card" style={{ background: c.hex, color: c.fg }}>
               <span className="sg-color-name">{c.name}</span>

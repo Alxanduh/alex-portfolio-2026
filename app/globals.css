@@ -3,10 +3,10 @@
 /* BDO Grotesk · Swiss · Bold Accent            */
 /* ============================================ */
 :root {
-  --color-bg: #222222;
+  --color-bg: #141414;
   --color-fg: #fffff0;
   --color-muted: #888888;
-  --color-accent: #ff4b2e;
+  --color-accent: #F24A2E;
   --color-rule: rgba(255, 255, 240, 0.2);
 
   --font-sans: "BDO Grotesk", sans-serif;
