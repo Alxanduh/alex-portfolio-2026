@@ -197,17 +197,17 @@ export default function AboutPage() {
             <div className={styles.offdutyGrid}>
               <div className={styles.polaroid}>
                 <div className={styles.polaroidMedia}>
-                  <video autoPlay muted loop playsInline className={styles.offdutyVideo} src="/videos/driving.mov" />
-                </div>
-              </div>
-              <div className={styles.polaroid}>
-                <div className={styles.polaroidMedia}>
                   <video autoPlay muted loop playsInline className={styles.offdutyVideo} src="/videos/lola-bandw.mov" />
                 </div>
               </div>
               <div className={styles.polaroid}>
                 <div className={styles.polaroidMedia}>
                   <video autoPlay muted loop playsInline className={styles.offdutyVideo} src="/videos/san-juan-valley.mov" />
+                </div>
+              </div>
+              <div className={styles.polaroid}>
+                <div className={styles.polaroidMedia}>
+                  <video autoPlay muted loop playsInline className={styles.offdutyVideo} src="/videos/driving.mov" />
                 </div>
               </div>
               <div className={styles.polaroid}>
