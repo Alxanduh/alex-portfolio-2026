@@ -188,8 +188,8 @@
     padding-right: 0;
   }
 
-  /* Double card gap on mobile for touch targets */
+  /* Card gap on mobile — section-m = 48px at this breakpoint */
   .projectGrid {
-    row-gap: var(--space-section-xl);
+    row-gap: var(--space-section-m);
   }
 }

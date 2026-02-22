@@ -85,7 +85,7 @@ export default function CaseStudyHero({ project }: CaseStudyHeroProps) {
       if (!ticking) {
         requestAnimationFrame(() => {
           const scrollY = window.scrollY;
-          img.style.transform = `translateY(-${scrollY * 0.15}px)`;
+          img.style.transform = `translateY(-${scrollY * 0.20}px)`;
           ticking = false;
         });
         ticking = true;

@@ -106,6 +106,7 @@
 
   /* — Spacing: Internal (inside sections) — */
   --space-block: 64px;
+  --space-stack-l: 48px;
   --space-stack: 32px;
   --space-tight: 24px;
   --space-micro: 8px;     /* Base grid unit — label/value gaps, small internal spacing */
@@ -584,6 +585,7 @@ ul, ol {
 
     /* Spacing: Internal — tighten */
     --space-block: 48px;
+    --space-stack-l: 40px;
     --space-tight: 20px;
     /* --space-stack stays 32px (matches grid gap) */
     /* --space-micro stays 8px */
@@ -658,6 +660,7 @@ ul, ol {
 
     /* Spacing: Internal */
     --space-block: 32px;
+    --space-stack-l: 32px;
     --space-stack: 24px;
     --space-tight: 16px;
 
