@@ -66,4 +66,10 @@
   .wide .imageWrap {
     aspect-ratio: 4 / 3;
   }
+
+  .meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-micro);
+  }
 }

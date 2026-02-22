@@ -63,12 +63,16 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: var(--space-section-s);
-  border-top: var(--border-subtle);
-  padding-top: var(--space-stack);
+  gap: var(--space-tight);
 }
 
-.metricDescription {
+.metricDivider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-text-primary);
+}
+
+.metricContent {
   display: flex;
   flex-direction: column;
   gap: var(--space-stack);

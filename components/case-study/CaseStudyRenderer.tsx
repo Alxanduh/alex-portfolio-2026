@@ -94,11 +94,11 @@ export default function CaseStudyRenderer({ modules }: CaseStudyRendererProps) {
                     <div className={styles.metrics}>
                       {mod.items.map((item) => (
                         <div key={item.label} className={styles.metricItem}>
-                          <span className="title-l">{item.label}</span>
-                          <div className={styles.metricDescription}>
-                            <span className="title-s">{item.value}</span>
+                          <div className={styles.metricDivider} />
+                          <div className={styles.metricContent}>
+                            <span className="title-l">{item.label}</span>
                             {item.description && (
-                              <p className="body-m text-secondary">
+                              <p className="body-s text-secondary">
                                 {item.description}
                               </p>
                             )}
