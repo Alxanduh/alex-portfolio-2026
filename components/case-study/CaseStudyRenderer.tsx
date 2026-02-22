@@ -89,7 +89,7 @@ export default function CaseStudyRenderer({ modules }: CaseStudyRendererProps) {
           case "metrics":
             return (
               <FadeIn key={key}>
-                <section className="section--s">
+                <section className={styles.sectionMetricsWrap}>
                   <div className="container">
                     <div className={styles.metrics}>
                       {mod.items.map((item) => (
@@ -209,14 +209,9 @@ export default function CaseStudyRenderer({ modules }: CaseStudyRendererProps) {
           case "section-heading":
             return (
               <FadeIn key={key}>
-                <section className="section--m">
+                <section className={styles.sectionHeadingWrap}>
                   <div className="container">
                     <div className={styles.sectionHeading}>
-                      {mod.label && (
-                        <p className={`label-m text-secondary ${styles.sectionHeadingLabel}`}>
-                          {mod.label}
-                        </p>
-                      )}
                       <h2 className="headline-s">{mod.heading}</h2>
                     </div>
                   </div>

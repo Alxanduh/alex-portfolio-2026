@@ -52,7 +52,13 @@
   gap: var(--space-micro);
 }
 
-/* Module: metrics — 3 columns with system gap
+/* Module: metrics */
+.sectionMetricsWrap {
+  padding-top: var(--space-section-m);
+  padding-bottom: var(--space-section-m);
+}
+
+/* Metrics — 3 columns with system gap
    Each card has a top border and internal spacing */
 .metrics {
   display: flex;
@@ -137,8 +143,12 @@
 }
 
 /* Module: section-heading */
+.sectionHeadingWrap {
+  padding-top: var(--space-section-m);
+  /* No bottom padding — metrics controls the 120px gap */
+}
+
 .sectionHeading {
-  padding-bottom: var(--space-stack);
 }
 
 .sectionHeadingLabel {
