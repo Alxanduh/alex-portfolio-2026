@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import type { CaseStudy } from "@/content";
 import FadeIn from "@/components/motion/FadeIn";
@@ -13,13 +13,25 @@ interface CaseStudyHeroProps {
 /**
  * Hero section for case study pages.
  *
- * Sticky text area with parallax drift — as you scroll,
- * the text drifts upward and fades while the image section
- * scrolls over it naturally.
+ * Two parallax layers:
+ * 1. Sticky text — drifts up + fades via GSAP ScrollTrigger
+ * 2. Hero image — oversized (130% height), drifts up at 0.15x
+ *    scroll speed via rAF for a subtle depth effect
  */
 export default function CaseStudyHero({ project }: CaseStudyHeroProps) {
   const textRef = useRef<HTMLDivElement>(null);
+  const imgRef = useRef<HTMLImageElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
 
+  // Mobile check
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth <= 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+
+  // Text parallax — GSAP drift + fade
   useEffect(() => {
     const prefersReduced = window.matchMedia(
       "(prefers-reduced-motion: reduce)"
@@ -54,6 +66,36 @@ export default function CaseStudyHero({ project }: CaseStudyHeroProps) {
     return () => ctx?.revert();
   }, []);
 
+  // Image parallax — subtle upward drift at 15% scroll speed
+  useEffect(() => {
+    const img = imgRef.current;
+    if (!img || isMobile) {
+      if (img) img.style.transform = "none";
+      return;
+    }
+
+    const prefersReduced = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (prefersReduced) return;
+
+    let ticking = false;
+
+    const onScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          img.style.transform = `translateY(-${scrollY * 0.15}px)`;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [isMobile]);
+
   return (
     <section className={styles.hero}>
       {/* Sticky text — drifts up + fades as you scroll */}
@@ -85,16 +127,21 @@ export default function CaseStudyHero({ project }: CaseStudyHeroProps) {
         </div>
       </div>
 
-      {/* Hero image — scrolls over the sticky text */}
+      {/* Hero image — parallax drift */}
       <div className={styles.imageSection}>
         <div className={styles.heroImageWrap}>
-          <Image
+          <img
+            ref={imgRef}
             src={project.heroImage}
             alt={project.title}
-            fill
-            sizes="100vw"
-            priority
             className={styles.heroImage}
+            style={{
+              width: "100%",
+              height: isMobile ? "100%" : "130%",
+              display: "block",
+              objectFit: "cover",
+              willChange: isMobile ? "auto" : "transform",
+            }}
           />
         </div>
       </div>

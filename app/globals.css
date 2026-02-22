@@ -236,8 +236,10 @@ html {
   text-rendering: optimizeLegibility;
 }
 
-html {
-  overflow-x: hidden;
+html,
+body {
+  overflow-x: hidden; /* Fallback for older browsers */
+  overflow-x: clip;   /* Doesn't break position: sticky on iOS Safari */
 }
 
 body {

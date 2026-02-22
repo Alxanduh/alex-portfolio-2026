@@ -20,15 +20,17 @@ import styles from "./page.module.css";
  */
 
 const GRID_PATTERN: [number, boolean][] = [
-  [8, false],
-  [4, false],
+  [7, false],
+  [5, false],
   [12, true],
-  [4, false],
-  [8, false],
+  [5, false],
+  [7, false],
   [12, true],
 ];
 
 const SPAN_CLASS: Record<number, string> = {
+  5: styles.span5,
+  7: styles.span7,
   4: styles.span4,
   6: styles.span6,
   8: styles.span8,

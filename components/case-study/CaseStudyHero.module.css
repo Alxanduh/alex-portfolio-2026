@@ -26,6 +26,8 @@
 
 .title {
   padding-bottom: var(--space-stack);
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .divider {

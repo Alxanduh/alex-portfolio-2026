@@ -116,7 +116,9 @@
 /* Span utilities — grid-column placement only. */
 .span12 { grid-column: span 12; }
 .span8  { grid-column: span 8; }
+.span7  { grid-column: span 7; }
 .span6  { grid-column: span 6; }
+.span5  { grid-column: span 5; }
 .span4  { grid-column: span 4; }
 
 
@@ -160,7 +162,9 @@
 
   .span12,
   .span8,
+  .span7,
   .span6,
+  .span5,
   .span4 {
     grid-column: span 1;
   }
