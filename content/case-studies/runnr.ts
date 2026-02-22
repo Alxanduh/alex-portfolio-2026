@@ -98,10 +98,6 @@ const runnr: CaseStudy = {
       type: "text-block",
       body: "This project underscored the importance of a strong and consistent visual identity in fostering trust in community-driven markets.\n\nBlack River sought to refresh their brand to reflect their growth and adaptability. We developed a bold new identity, a refined color scheme, and updated marketing materials to ensure consistency across all touchpoints.\n\nThe design emphasized reliability and efficiency, key attributes valued by their community.",
     },
-    {
-      type: "text-block",
-      body: "This project underscored the importance of a strong and consistent visual identity in fostering trust in community-driven markets.\n\nWe developed a bold new identity, a refined color scheme, and updated marketing materials to ensure consistency across all touchpoints.\n\nIt's a design of structured reliability and efficiency that carries the brand effortlessly across every channel.",
-    },
   ],
 };
 

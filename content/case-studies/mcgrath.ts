@@ -98,10 +98,6 @@ const mcgrath: CaseStudy = {
       type: "text-block",
       body: "This project underscored the importance of a strong and consistent visual identity in fostering trust in B2B markets.\n\nMcGrath Architects sought to refresh their brand to reflect their growth and adaptability in the logistics industry. We developed a bold new logo, a refined color scheme, and updated marketing materials to ensure consistency across all touchpoints.\n\nThe design emphasized reliability and efficiency, key attributes valued by their clients. Objectives included increasing brand recognition, improving client retention, and supporting Axis Logistics' expansion efforts",
     },
-    {
-      type: "text-block",
-      body: "This project underscored the importance of a strong and consistent visual identity in fostering trust in B2B markets.\n\nMcGrath Architects sought to refresh their brand to reflect their growth and adaptability in the logistics industry. We developed a bold new logo, a refined color scheme, and updated marketing materials to ensure consistency across all touchpoints.\n\nIt's a design of structured reliability and efficiency that carries the firm's brand effortlessly across every channel, delivering quality that matters.",
-    },
   ],
 };
 

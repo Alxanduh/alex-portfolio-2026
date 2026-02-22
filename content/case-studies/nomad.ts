@@ -98,10 +98,6 @@ const nomad: CaseStudy = {
       type: "text-block",
       body: "This project underscored the importance of a strong and consistent visual identity in fostering trust in editorial markets.\n\nSimple Trips sought to refresh their brand to reflect their growth and adaptability. We developed a bold new identity, a refined typographic system, and updated layouts to ensure consistency across print and digital.\n\nThe design emphasized readability and craft, key attributes valued by their audience.",
     },
-    {
-      type: "text-block",
-      body: "This project underscored the importance of a strong and consistent visual identity in fostering trust across digital and print.\n\nWe developed a bold editorial system, a refined typographic hierarchy, and updated templates to ensure consistency across all formats.\n\nIt's a design of structured reliability and craft that carries the brand effortlessly across every channel.",
-    },
   ],
 };
 

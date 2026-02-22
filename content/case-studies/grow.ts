@@ -98,10 +98,6 @@ const grow: CaseStudy = {
       type: "text-block",
       body: "The system uses a deliberately constrained color palette — mostly monochrome with a single accent per sub-brand. This forces clarity and ensures that when color does appear, it carries weight.\n\nTypography follows the same logic: one family, strict hierarchy, no exceptions. The result is a brand that feels both unified and adaptable — each sub-brand distinct but unmistakably part of the same family.\n\nThe design emphasized reliability and efficiency, key attributes valued by their clients. Objectives included increasing brand recognition, improving client retention, and supporting expansion efforts.",
     },
-    {
-      type: "text-block",
-      body: "This project underscored the importance of a strong and consistent visual identity in fostering trust across a complex portfolio structure.\n\nGrow sought to refresh their brand to reflect their growth and adaptability in the climate-tech industry. We developed a bold system, a refined color scheme, and updated marketing materials to ensure consistency across all touchpoints.\n\nIt's a design of structured reliability and efficiency that carries the brand effortlessly across every channel.",
-    },
   ],
 };
 

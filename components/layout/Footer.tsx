@@ -102,7 +102,7 @@ export default function Footer() {
         <div className={styles.bottomMeta}>
           <span className="label-m text-secondary">© Alex Schultz</span>
           <span className="label-m text-secondary">
-            Proudly manufactured in CO, USA
+            Proudly MFG. in CO, USA
           </span>
         </div>
       </div>
