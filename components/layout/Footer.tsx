@@ -29,11 +29,23 @@ export default function Footer() {
       const track = marqueeRef.current;
       if (!track) return;
 
+      // Measure the width of the first half (one full set)
+      const items = track.children;
+      const halfCount = items.length / 2;
+      let halfWidth = 0;
+      for (let i = 0; i < halfCount; i++) {
+        halfWidth += (items[i] as HTMLElement).offsetWidth;
+      }
+
+      // Rate-based: pixels per second for consistent speed
+      const pxPerSecond = 80;
+      const duration = halfWidth / pxPerSecond;
+
       ctx = gsap.context(() => {
         gsap.to(track, {
-          xPercent: -50,
+          x: -halfWidth,
           repeat: -1,
-          duration: 20,
+          duration,
           ease: "none",
         });
       });
@@ -89,7 +101,7 @@ export default function Footer() {
       {/* ———— Marquee — full width, no container ———— */}
       <div className={styles.marquee}>
         <div className={styles.marqueeTrack} ref={marqueeRef}>
-          {[...Array(6)].map((_, i) => (
+          {[...Array(12)].map((_, i) => (
             <span key={i} className={`display-m ${styles.marqueeText}`}>
               SCHULTZ.DESIGN
             </span>

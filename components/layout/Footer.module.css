@@ -85,7 +85,7 @@
 
 .marqueeText {
   flex-shrink: 0;
-  padding-right: var(--space-stack);
+  padding-right: 0.08em;
 }
 
 /* Alternating color: odd = secondary, even = primary */
