@@ -71,4 +71,8 @@
     flex-wrap: wrap;
     gap: var(--space-stack);
   }
+
+  .heroImageWrap {
+    aspect-ratio: 4 / 3;
+  }
 }

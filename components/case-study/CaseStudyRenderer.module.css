@@ -169,4 +169,15 @@
   .metrics {
     flex-direction: column;
   }
+
+  /* Full-width images: 16:9 → 4:3 on mobile for more presence */
+  .mediaFull {
+    aspect-ratio: 4 / 3;
+  }
+
+  /* Tighter gap between media on mobile */
+  .sectionTight {
+    padding-top: calc(var(--space-stack) / 2);
+    padding-bottom: calc(var(--space-stack) / 2);
+  }
 }

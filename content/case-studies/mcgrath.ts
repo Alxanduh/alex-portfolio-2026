@@ -31,11 +31,6 @@ const mcgrath: CaseStudy = {
       body: "The process aimed to find the confidence of a well-typeset masthead. Quiet, assured, built to last. A brand, at its strongest, is a decision that doesn't need to explain itself.\n\nA brand, at its strongest, is a decision that has found its resolve to stand the growth, and questions that arrive in a competitive market.\n\nThe design emphasizes reliability and efficiency, key factors needed to build trust and credibility as they expand to new markets and projects that matter to the public's experience of built space.",
     },
     {
-      type: "media-full",
-      image: "/images/mcgrath/cover.jpg",
-      alt: "McGrath Architects environmental design",
-    },
-    {
       type: "section-heading",
       label: "Approach",
       heading: "Project highlights",
@@ -64,15 +59,16 @@ const mcgrath: CaseStudy = {
       ],
     },
     {
+      type: "media-full",
+      image: "/images/mcgrath/cover.jpg",
+      alt: "McGrath Architects environmental design",
+    },
+    {
       type: "media-2up",
       images: [
         { src: "/images/mcgrath/cover.jpg", alt: "McGrath collateral" },
         { src: "/images/mcgrath/cover.jpg", alt: "McGrath signage" },
       ],
-    },
-    {
-      type: "text-block",
-      body: "This project underscored the importance of a strong and consistent visual identity in fostering trust in B2B markets.\n\nMcGrath Architects sought to refresh their brand to reflect their growth and adaptability in the logistics industry. We developed a bold new logo, a refined color scheme, and updated marketing materials to ensure consistency across all touchpoints.\n\nThe design emphasized reliability and efficiency, key attributes valued by their clients. Objectives included increasing brand recognition, improving client retention, and supporting Axis Logistics' expansion efforts",
     },
     {
       type: "media-full",
@@ -94,13 +90,17 @@ const mcgrath: CaseStudy = {
       ],
     },
     {
-      type: "text-block",
-      body: "This project underscored the importance of a strong and consistent visual identity in fostering trust in B2B markets.\n\nMcGrath Architects sought to refresh their brand to reflect their growth and adaptability in the logistics industry. We developed a bold new logo, a refined color scheme, and updated marketing materials to ensure consistency across all touchpoints.\n\nIt's a design of structured reliability and efficiency that carries the firm's brand effortlessly across every channel, delivering quality that matters.",
-    },
-    {
       type: "media-full",
       image: "/images/mcgrath/cover.jpg",
       alt: "McGrath brand system overview",
+    },
+    {
+      type: "text-block",
+      body: "This project underscored the importance of a strong and consistent visual identity in fostering trust in B2B markets.\n\nMcGrath Architects sought to refresh their brand to reflect their growth and adaptability in the logistics industry. We developed a bold new logo, a refined color scheme, and updated marketing materials to ensure consistency across all touchpoints.\n\nThe design emphasized reliability and efficiency, key attributes valued by their clients. Objectives included increasing brand recognition, improving client retention, and supporting Axis Logistics' expansion efforts",
+    },
+    {
+      type: "text-block",
+      body: "This project underscored the importance of a strong and consistent visual identity in fostering trust in B2B markets.\n\nMcGrath Architects sought to refresh their brand to reflect their growth and adaptability in the logistics industry. We developed a bold new logo, a refined color scheme, and updated marketing materials to ensure consistency across all touchpoints.\n\nIt's a design of structured reliability and efficiency that carries the firm's brand effortlessly across every channel, delivering quality that matters.",
     },
   ],
 };

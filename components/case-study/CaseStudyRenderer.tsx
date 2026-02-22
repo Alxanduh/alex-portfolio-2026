@@ -7,29 +7,25 @@ interface CaseStudyRendererProps {
   modules: CaseStudyModule[];
 }
 
-/** Media module types that should collapse spacing when adjacent */
+/** Media module types that always use tight spacing between each other */
 const MEDIA_TYPES = new Set(["media-full", "media-2up", "media-3up"]);
 
 /**
  * Renders typed content modules into visual blocks.
  *
  * Spacing logic:
- * - Consecutive media modules use tight spacing (32px / --space-stack)
+ * - Media modules use tight spacing (16px each side = 32px gap)
  * - Text, metrics, headings etc. use section-s (96px) or section-m (120px)
  */
 export default function CaseStudyRenderer({ modules }: CaseStudyRendererProps) {
   return (
-    <div className="block">
+    <div>
       {modules.map((mod, index) => {
         const key = `${mod.type}-${index}`;
-        const prevType = index > 0 ? modules[index - 1].type : null;
-        const isMediaAfterMedia =
-          MEDIA_TYPES.has(mod.type) && prevType !== null && MEDIA_TYPES.has(prevType);
+        const isMedia = MEDIA_TYPES.has(mod.type);
 
-        // Tight spacing for consecutive media, normal otherwise
-        const mediaSectionClass = isMediaAfterMedia
-          ? styles.sectionTight
-          : "section--s";
+        // Media always tight, text/headings get full spacing
+        const mediaSectionClass = isMedia ? styles.sectionTight : "section--s";
 
         switch (mod.type) {
           case "intro":

@@ -31,11 +31,6 @@ const grow: CaseStudy = {
       body: "Grow needed a brand that could flex across portfolio companies without losing its own identity. We built a system — not a logo — that acts as a container for growth. The visual language scales from pitch decks to product interfaces while maintaining the rigor of a single, confident voice.\n\nA brand, at its strongest, is a decision that has found its resolve to stand the growth, and questions that arrive in a competitive market.\n\nThe design emphasizes reliability and efficiency, key factors needed to build trust and credibility as they expand to new markets.",
     },
     {
-      type: "media-full",
-      image: "/images/grow/cover.jpg",
-      alt: "Grow Therapy brand system overview",
-    },
-    {
       type: "section-heading",
       label: "Approach",
       heading: "Project highlights",
@@ -64,15 +59,16 @@ const grow: CaseStudy = {
       ],
     },
     {
+      type: "media-full",
+      image: "/images/grow/cover.jpg",
+      alt: "Grow Therapy brand system overview",
+    },
+    {
       type: "media-2up",
       images: [
         { src: "/images/grow/cover.jpg", alt: "Grow brand elements" },
         { src: "/images/grow/cover.jpg", alt: "Grow interface design" },
       ],
-    },
-    {
-      type: "text-block",
-      body: "The system uses a deliberately constrained color palette — mostly monochrome with a single accent per sub-brand. This forces clarity and ensures that when color does appear, it carries weight.\n\nTypography follows the same logic: one family, strict hierarchy, no exceptions. The result is a brand that feels both unified and adaptable — each sub-brand distinct but unmistakably part of the same family.\n\nThe design emphasized reliability and efficiency, key attributes valued by their clients. Objectives included increasing brand recognition, improving client retention, and supporting expansion efforts.",
     },
     {
       type: "media-full",
@@ -94,13 +90,17 @@ const grow: CaseStudy = {
       ],
     },
     {
-      type: "text-block",
-      body: "This project underscored the importance of a strong and consistent visual identity in fostering trust across a complex portfolio structure.\n\nGrow sought to refresh their brand to reflect their growth and adaptability in the climate-tech industry. We developed a bold system, a refined color scheme, and updated marketing materials to ensure consistency across all touchpoints.\n\nIt's a design of structured reliability and efficiency that carries the brand effortlessly across every channel.",
-    },
-    {
       type: "media-full",
       image: "/images/grow/cover.jpg",
       alt: "Grow brand system final overview",
+    },
+    {
+      type: "text-block",
+      body: "The system uses a deliberately constrained color palette — mostly monochrome with a single accent per sub-brand. This forces clarity and ensures that when color does appear, it carries weight.\n\nTypography follows the same logic: one family, strict hierarchy, no exceptions. The result is a brand that feels both unified and adaptable — each sub-brand distinct but unmistakably part of the same family.\n\nThe design emphasized reliability and efficiency, key attributes valued by their clients. Objectives included increasing brand recognition, improving client retention, and supporting expansion efforts.",
+    },
+    {
+      type: "text-block",
+      body: "This project underscored the importance of a strong and consistent visual identity in fostering trust across a complex portfolio structure.\n\nGrow sought to refresh their brand to reflect their growth and adaptability in the climate-tech industry. We developed a bold system, a refined color scheme, and updated marketing materials to ensure consistency across all touchpoints.\n\nIt's a design of structured reliability and efficiency that carries the brand effortlessly across every channel.",
     },
   ],
 };

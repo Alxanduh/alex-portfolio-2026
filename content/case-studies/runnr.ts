@@ -31,11 +31,6 @@ const runnr: CaseStudy = {
       body: "The brand needed to feel like it was already moving. We built a visual system rooted in kinetic energy — type that leans forward, color that pulses, and layout that breathes.\n\nA brand, at its strongest, is a decision that has found its resolve to stand the growth, and questions that arrive in a competitive market.\n\nThe design emphasizes reliability and efficiency, key factors needed to build trust and credibility as they expand to new markets.",
     },
     {
-      type: "media-full",
-      image: "/images/runnr/cover.jpg",
-      alt: "Black River Barbershop brand overview",
-    },
-    {
       type: "section-heading",
       label: "Approach",
       heading: "Project highlights",
@@ -64,15 +59,16 @@ const runnr: CaseStudy = {
       ],
     },
     {
+      type: "media-full",
+      image: "/images/runnr/cover.jpg",
+      alt: "Black River Barbershop brand overview",
+    },
+    {
       type: "media-2up",
       images: [
         { src: "/images/runnr/cover.jpg", alt: "Black River detail" },
         { src: "/images/runnr/cover.jpg", alt: "Black River detail" },
       ],
-    },
-    {
-      type: "text-block",
-      body: "This project underscored the importance of a strong and consistent visual identity in fostering trust in community-driven markets.\n\nBlack River sought to refresh their brand to reflect their growth and adaptability. We developed a bold new identity, a refined color scheme, and updated marketing materials to ensure consistency across all touchpoints.\n\nThe design emphasized reliability and efficiency, key attributes valued by their community.",
     },
     {
       type: "media-full",
@@ -94,13 +90,17 @@ const runnr: CaseStudy = {
       ],
     },
     {
-      type: "text-block",
-      body: "This project underscored the importance of a strong and consistent visual identity in fostering trust in community-driven markets.\n\nWe developed a bold new identity, a refined color scheme, and updated marketing materials to ensure consistency across all touchpoints.\n\nIt's a design of structured reliability and efficiency that carries the brand effortlessly across every channel.",
-    },
-    {
       type: "media-full",
       image: "/images/runnr/cover.jpg",
       alt: "Black River brand system final overview",
+    },
+    {
+      type: "text-block",
+      body: "This project underscored the importance of a strong and consistent visual identity in fostering trust in community-driven markets.\n\nBlack River sought to refresh their brand to reflect their growth and adaptability. We developed a bold new identity, a refined color scheme, and updated marketing materials to ensure consistency across all touchpoints.\n\nThe design emphasized reliability and efficiency, key attributes valued by their community.",
+    },
+    {
+      type: "text-block",
+      body: "This project underscored the importance of a strong and consistent visual identity in fostering trust in community-driven markets.\n\nWe developed a bold new identity, a refined color scheme, and updated marketing materials to ensure consistency across all touchpoints.\n\nIt's a design of structured reliability and efficiency that carries the brand effortlessly across every channel.",
     },
   ],
 };

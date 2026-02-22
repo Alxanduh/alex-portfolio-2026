@@ -31,11 +31,6 @@ const atlas: CaseStudy = {
       body: "Logofolio needed a brand that honored its industrial roots while projecting modern confidence. We distilled the identity down to its essentials — bold geometry, a restrained palette, and type that commands.\n\nA brand, at its strongest, is a decision that has found its resolve to stand the growth, and questions that arrive in a competitive market.\n\nThe design emphasizes reliability and efficiency, key factors needed to build trust and credibility as they expand to new markets.",
     },
     {
-      type: "media-full",
-      image: "/images/atlas/cover.jpg",
-      alt: "Logofolio brand system overview",
-    },
-    {
       type: "section-heading",
       label: "Approach",
       heading: "Project highlights",
@@ -64,15 +59,16 @@ const atlas: CaseStudy = {
       ],
     },
     {
+      type: "media-full",
+      image: "/images/atlas/cover.jpg",
+      alt: "Logofolio brand system overview",
+    },
+    {
       type: "media-2up",
       images: [
         { src: "/images/atlas/cover.jpg", alt: "Logofolio detail" },
         { src: "/images/atlas/cover.jpg", alt: "Logofolio detail" },
       ],
-    },
-    {
-      type: "text-block",
-      body: "This project underscored the importance of a strong and consistent visual identity in fostering trust in industrial markets.\n\nLogofolio sought to refresh their brand to reflect their growth and adaptability. We developed a bold new identity, a refined color scheme, and updated packaging to ensure consistency across all touchpoints.\n\nThe design emphasized reliability and efficiency, key attributes valued by their partners.",
     },
     {
       type: "media-full",
@@ -94,13 +90,17 @@ const atlas: CaseStudy = {
       ],
     },
     {
-      type: "text-block",
-      body: "This project underscored the importance of a strong and consistent visual identity in fostering trust in B2B markets.\n\nWe developed a bold new logo, a refined color scheme, and updated marketing materials to ensure consistency across all touchpoints.\n\nIt's a design of structured reliability and efficiency that carries the brand effortlessly across every channel.",
-    },
-    {
       type: "media-full",
       image: "/images/atlas/cover.jpg",
       alt: "Logofolio brand final overview",
+    },
+    {
+      type: "text-block",
+      body: "This project underscored the importance of a strong and consistent visual identity in fostering trust in industrial markets.\n\nLogofolio sought to refresh their brand to reflect their growth and adaptability. We developed a bold new identity, a refined color scheme, and updated packaging to ensure consistency across all touchpoints.\n\nThe design emphasized reliability and efficiency, key attributes valued by their partners.",
+    },
+    {
+      type: "text-block",
+      body: "This project underscored the importance of a strong and consistent visual identity in fostering trust in B2B markets.\n\nWe developed a bold new logo, a refined color scheme, and updated marketing materials to ensure consistency across all touchpoints.\n\nIt's a design of structured reliability and efficiency that carries the brand effortlessly across every channel.",
     },
   ],
 };
