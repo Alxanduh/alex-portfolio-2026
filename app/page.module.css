@@ -172,15 +172,15 @@
 
 @media (max-width: 767px) {
   .hero {
-    height: 70vh;
+    height: 60vh;
   }
 
   .content {
-    margin-top: 70vh;
+    margin-top: 60vh;
   }
 
   .ctaSection {
-    min-height: 70vh;
+    min-height: 60vh;
   }
 
   .introGrid {
