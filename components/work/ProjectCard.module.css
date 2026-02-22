@@ -1,24 +1,23 @@
 .card {
   display: block;
   position: relative;
-  overflow: hidden;
 }
 
 .imageWrap {
   position: relative;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  background-color: var(--color-text-secondary);
+  background-color: var(--color-surface-primary);
   border-radius: var(--radius-s);
 }
 
 .image {
   object-fit: cover;
-  transition: transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .card:hover .image {
-  transform: scale(1.06);
+  transform: scale(1.05);
 }
 
 .overlay {
