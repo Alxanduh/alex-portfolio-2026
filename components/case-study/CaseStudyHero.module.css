@@ -67,6 +67,10 @@
 }
 
 @media (max-width: 767px) {
+  .stickyWrap {
+    padding-top: calc(var(--space-section-xl) + var(--space-section-s));
+  }
+
   .metaRow {
     flex-wrap: wrap;
     gap: var(--space-stack);
