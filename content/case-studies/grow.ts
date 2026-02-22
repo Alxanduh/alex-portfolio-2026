@@ -31,6 +31,11 @@ const grow: CaseStudy = {
       body: "Grow needed a brand that could flex across portfolio companies without losing its own identity. We built a system — not a logo — that acts as a container for growth. The visual language scales from pitch decks to product interfaces while maintaining the rigor of a single, confident voice.\n\nA brand, at its strongest, is a decision that has found its resolve to stand the growth, and questions that arrive in a competitive market.\n\nThe design emphasizes reliability and efficiency, key factors needed to build trust and credibility as they expand to new markets.",
     },
     {
+      type: "media-full",
+      image: "/images/grow/cover.jpg",
+      alt: "Grow Therapy brand system overview",
+    },
+    {
       type: "section-heading",
       label: "Approach",
       heading: "Project highlights",
@@ -57,11 +62,6 @@ const grow: CaseStudy = {
             "Brand clarity contributed to a successful fundraising round within three months of launch.",
         },
       ],
-    },
-    {
-      type: "media-full",
-      image: "/images/grow/cover.jpg",
-      alt: "Grow Therapy brand system overview",
     },
     {
       type: "media-2up",

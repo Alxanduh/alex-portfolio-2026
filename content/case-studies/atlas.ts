@@ -31,6 +31,11 @@ const atlas: CaseStudy = {
       body: "Logofolio needed a brand that honored its industrial roots while projecting modern confidence. We distilled the identity down to its essentials — bold geometry, a restrained palette, and type that commands.\n\nA brand, at its strongest, is a decision that has found its resolve to stand the growth, and questions that arrive in a competitive market.\n\nThe design emphasizes reliability and efficiency, key factors needed to build trust and credibility as they expand to new markets.",
     },
     {
+      type: "media-full",
+      image: "/images/atlas/cover.jpg",
+      alt: "Logofolio brand system overview",
+    },
+    {
       type: "section-heading",
       label: "Approach",
       heading: "Project highlights",
@@ -57,11 +62,6 @@ const atlas: CaseStudy = {
             "Post-rebrand surveys showed a significant shift in how trade partners perceived the brand's quality tier.",
         },
       ],
-    },
-    {
-      type: "media-full",
-      image: "/images/atlas/cover.jpg",
-      alt: "Logofolio brand system overview",
     },
     {
       type: "media-2up",

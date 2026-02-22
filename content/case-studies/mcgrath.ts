@@ -31,6 +31,11 @@ const mcgrath: CaseStudy = {
       body: "The process aimed to find the confidence of a well-typeset masthead. Quiet, assured, built to last. A brand, at its strongest, is a decision that doesn't need to explain itself.\n\nA brand, at its strongest, is a decision that has found its resolve to stand the growth, and questions that arrive in a competitive market.\n\nThe design emphasizes reliability and efficiency, key factors needed to build trust and credibility as they expand to new markets and projects that matter to the public's experience of built space.",
     },
     {
+      type: "media-full",
+      image: "/images/mcgrath/cover.jpg",
+      alt: "McGrath Architects environmental design",
+    },
+    {
       type: "section-heading",
       label: "Approach",
       heading: "Project highlights",
@@ -57,11 +62,6 @@ const mcgrath: CaseStudy = {
             "By unlocking high differentiation, the client enjoyed outsized market share gains relative to spend. Broadened the clients relevance, opening new markets",
         },
       ],
-    },
-    {
-      type: "media-full",
-      image: "/images/mcgrath/cover.jpg",
-      alt: "McGrath Architects environmental design",
     },
     {
       type: "media-2up",

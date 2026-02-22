@@ -31,6 +31,11 @@ const nomad: CaseStudy = {
       body: "Simple Trips needed a digital home that honored the editorial craft of print while embracing the possibilities of the web. We built a reading experience that breathes — generous whitespace, considered typography, and imagery that earns its place.\n\nA brand, at its strongest, is a decision that has found its resolve to stand the growth, and questions that arrive in a competitive market.\n\nThe design emphasizes reliability and efficiency, key factors needed to build trust and credibility as they expand to new markets.",
     },
     {
+      type: "media-full",
+      image: "/images/nomad/cover.jpg",
+      alt: "Simple Trips editorial overview",
+    },
+    {
       type: "section-heading",
       label: "Approach",
       heading: "Project highlights",
@@ -57,11 +62,6 @@ const nomad: CaseStudy = {
             "A single design system that bridges the print publication and digital platform seamlessly.",
         },
       ],
-    },
-    {
-      type: "media-full",
-      image: "/images/nomad/cover.jpg",
-      alt: "Simple Trips editorial overview",
     },
     {
       type: "media-2up",

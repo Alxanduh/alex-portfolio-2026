@@ -31,6 +31,11 @@ const apex: CaseStudy = {
       body: "Braintree needed a brand that communicated trust without sacrificing personality. The solution was a system built on mathematical precision — every ratio, every spacing decision, every color relationship is intentional.\n\nA brand, at its strongest, is a decision that has found its resolve to stand the growth, and questions that arrive in a competitive market.\n\nThe design emphasizes reliability and efficiency, key factors needed to build trust and credibility as they expand to new markets.",
     },
     {
+      type: "media-full",
+      image: "/images/apex/cover.jpg",
+      alt: "Braintree brand system overview",
+    },
+    {
       type: "section-heading",
       label: "Approach",
       heading: "Project highlights",
@@ -57,11 +62,6 @@ const apex: CaseStudy = {
             "Redesigned dashboards saw a threefold increase in daily active usage across account managers.",
         },
       ],
-    },
-    {
-      type: "media-full",
-      image: "/images/apex/cover.jpg",
-      alt: "Braintree brand system overview",
     },
     {
       type: "media-2up",

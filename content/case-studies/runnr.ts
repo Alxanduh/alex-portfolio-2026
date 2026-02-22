@@ -31,6 +31,11 @@ const runnr: CaseStudy = {
       body: "The brand needed to feel like it was already moving. We built a visual system rooted in kinetic energy — type that leans forward, color that pulses, and layout that breathes.\n\nA brand, at its strongest, is a decision that has found its resolve to stand the growth, and questions that arrive in a competitive market.\n\nThe design emphasizes reliability and efficiency, key factors needed to build trust and credibility as they expand to new markets.",
     },
     {
+      type: "media-full",
+      image: "/images/runnr/cover.jpg",
+      alt: "Black River Barbershop brand overview",
+    },
+    {
       type: "section-heading",
       label: "Approach",
       heading: "Project highlights",
@@ -57,11 +62,6 @@ const runnr: CaseStudy = {
             "Full cross-platform launch with a unified design system powering both native applications.",
         },
       ],
-    },
-    {
-      type: "media-full",
-      image: "/images/runnr/cover.jpg",
-      alt: "Black River Barbershop brand overview",
     },
     {
       type: "media-2up",
