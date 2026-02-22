@@ -5,6 +5,12 @@
    No hardcoded px values except 1px hairline borders.
    ============================================================ */
 
+/* Tight spacing for consecutive media modules (32px gap instead of 192px) */
+.sectionTight {
+  padding-top: calc(var(--space-stack) / 2);
+  padding-bottom: calc(var(--space-stack) / 2);
+}
+
 /* Module: intro — centered at content-wide (1200px)
    Auto-width label left, flexible body right.
    Gap uses section-s (96px) matching the Figma. */

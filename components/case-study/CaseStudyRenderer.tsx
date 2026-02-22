@@ -7,26 +7,29 @@ interface CaseStudyRendererProps {
   modules: CaseStudyModule[];
 }
 
+/** Media module types that should collapse spacing when adjacent */
+const MEDIA_TYPES = new Set(["media-full", "media-2up", "media-3up"]);
+
 /**
  * Renders typed content modules into visual blocks.
  *
- * Typography mapping (verified against Figma exports):
- * - Intro/text-block label: label-l (24/30 demibold)
- * - Intro/text-block body:  body-l  (24/32 medium)
- * - Metric title:           title-l (40/48 medium)
- * - Metric value:           title-s (24/32 medium)
- * - Metric description:     body-m  (18/26 medium)
- * - Section heading:        headline-s (64/72 medium)
- * - Section label:          label-m (18/24 demibold)
- * - Quote text:             title-l (40/48 medium)
- * - Quote attribution:      label-m (18/24 demibold)
- * - Caption:                label-m (18/24 demibold)
+ * Spacing logic:
+ * - Consecutive media modules use tight spacing (32px / --space-stack)
+ * - Text, metrics, headings etc. use section-s (96px) or section-m (120px)
  */
 export default function CaseStudyRenderer({ modules }: CaseStudyRendererProps) {
   return (
     <div className="block">
       {modules.map((mod, index) => {
         const key = `${mod.type}-${index}`;
+        const prevType = index > 0 ? modules[index - 1].type : null;
+        const isMediaAfterMedia =
+          MEDIA_TYPES.has(mod.type) && prevType !== null && MEDIA_TYPES.has(prevType);
+
+        // Tight spacing for consecutive media, normal otherwise
+        const mediaSectionClass = isMediaAfterMedia
+          ? styles.sectionTight
+          : "section--s";
 
         switch (mod.type) {
           case "intro":
@@ -115,7 +118,7 @@ export default function CaseStudyRenderer({ modules }: CaseStudyRendererProps) {
           case "media-full":
             return (
               <FadeIn key={key}>
-                <section className="section--s">
+                <section className={mediaSectionClass}>
                   <div className="container">
                     <div className={styles.mediaFull}>
                       <Image
@@ -139,7 +142,7 @@ export default function CaseStudyRenderer({ modules }: CaseStudyRendererProps) {
           case "media-2up":
             return (
               <FadeIn key={key}>
-                <section className="section--s">
+                <section className={mediaSectionClass}>
                   <div className="container">
                     <div className={styles.media2up}>
                       {mod.images.map((img) => (
@@ -162,7 +165,7 @@ export default function CaseStudyRenderer({ modules }: CaseStudyRendererProps) {
           case "media-3up":
             return (
               <FadeIn key={key}>
-                <section className="section--s">
+                <section className={mediaSectionClass}>
                   <div className="container">
                     <div className={styles.media3up}>
                       {mod.images.map((img) => (
