@@ -1,0 +1,191 @@
+/* Style Guide — dev reference page
+   This page is allowed inline styles for dynamic demos.
+   No tokens are created here. */
+
+.header {
+  padding-top: var(--space-section-l);
+  padding-bottom: var(--space-section-m);
+}
+
+.guideSection {
+  padding-top: var(--space-section-m);
+  padding-bottom: var(--space-section-m);
+  border-top: var(--border-subtle);
+}
+
+/* Colors */
+.swatchGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-stack);
+  padding-top: var(--space-block);
+}
+
+.swatch {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-micro);
+}
+
+.swatchBlock {
+  aspect-ratio: 1;
+  border-radius: var(--radius-s);
+  border: var(--border-subtle);
+}
+
+/* Opacity */
+.opacityRow {
+  display: flex;
+  gap: var(--space-block);
+  padding-top: var(--space-block);
+}
+
+.opacityItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-micro);
+}
+
+.opacityDemo {
+  width: var(--space-section-s);
+  aspect-ratio: 1;
+  border-radius: var(--radius-s);
+  background-color: var(--color-text-primary);
+}
+
+/* Spacing */
+.spacingList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-tight);
+  padding-top: var(--space-block);
+}
+
+.spacingItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-stack);
+}
+
+.spacingBar {
+  height: var(--space-stack);
+  background-color: var(--color-accent-primary);
+  border-radius: var(--radius-s);
+  flex-shrink: 0;
+}
+
+/* Typography */
+.typeList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-block);
+  padding-top: var(--space-block);
+}
+
+.typeSample {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-micro);
+  padding-bottom: var(--space-stack);
+  border-bottom: var(--border-subtle);
+  overflow: hidden;
+}
+
+/* Breakpoints */
+.breakpointList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-stack);
+  padding-top: var(--space-block);
+}
+
+.breakpointItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-micro);
+  padding: var(--space-stack);
+  border: var(--border-subtle);
+  border-radius: var(--radius-s);
+}
+
+/* Span demo */
+.spanDemo {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-stack);
+  padding-top: var(--space-block);
+}
+
+.spanItem12 {
+  grid-column: span 12;
+  padding: var(--space-tight);
+  background-color: var(--color-text-secondary);
+  border: var(--border-subtle);
+  border-radius: var(--radius-s);
+}
+
+.spanItem8 {
+  grid-column: span 8;
+  padding: var(--space-tight);
+  background-color: var(--color-text-secondary);
+  border: var(--border-subtle);
+  border-radius: var(--radius-s);
+}
+
+.spanItem6 {
+  grid-column: span 6;
+  padding: var(--space-tight);
+  background-color: var(--color-text-secondary);
+  border: var(--border-subtle);
+  border-radius: var(--radius-s);
+}
+
+.spanItem4 {
+  grid-column: span 4;
+  padding: var(--space-tight);
+  background-color: var(--color-text-secondary);
+  border: var(--border-subtle);
+  border-radius: var(--radius-s);
+}
+
+/* Card preview */
+.cardPreviewGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-block);
+  padding-top: var(--space-block);
+}
+
+.cardPreviewGrid > div {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-micro);
+}
+
+/* Responsive */
+@media (max-width: 1279px) {
+  .swatchGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .swatchGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .opacityRow {
+    flex-direction: column;
+  }
+
+  .spanDemo {
+    grid-template-columns: 1fr;
+  }
+
+  .spanItem12,
+  .spanItem8,
+  .spanItem6,
+  .spanItem4 {
+    grid-column: span 1;
+  }
+}

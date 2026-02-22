@@ -1,0 +1,661 @@
+/* ============================================================
+   STUDIO SCHULTZ — DESIGN SYSTEM
+   globals.css
+   
+   This file is the single source of truth for:
+   1. Font loading (@font-face)
+   2. Design tokens (CSS custom properties)
+   3. Typography classes
+   4. Layout primitives
+   5. Base reset
+   
+   RULE: No other file may use raw px/rem values for spacing,
+   font-size, line-height, or letter-spacing. Everything
+   references these tokens.
+   ============================================================ */
+
+
+/* ————————————————————————————————————————————————————————————
+   1. FONT LOADING
+   BDO Grotesk — 7 weights loaded locally from /public/fonts/
+   ———————————————————————————————————————————————————————————— */
+
+@font-face {
+  font-family: "BDO Grotesk";
+  src: url("/fonts/BDOGrotesk-Light.otf") format("opentype");
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "BDO Grotesk";
+  src: url("/fonts/BDOGrotesk-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "BDO Grotesk";
+  src: url("/fonts/BDOGrotesk-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "BDO Grotesk";
+  src: url("/fonts/BDOGrotesk-DemiBold.otf") format("opentype");
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "BDO Grotesk";
+  src: url("/fonts/BDOGrotesk-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "BDO Grotesk";
+  src: url("/fonts/BDOGrotesk-ExtraBold.otf") format("opentype");
+  font-weight: 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "BDO Grotesk";
+  src: url("/fonts/BDOGrotesk-Black.otf") format("opentype");
+  font-weight: 900;
+  font-display: swap;
+}
+
+
+/* ————————————————————————————————————————————————————————————
+   2. DESIGN TOKENS
+   All values defined here as CSS custom properties.
+   ———————————————————————————————————————————————————————————— */
+
+:root {
+  /* — Font Family — */
+  --font-family: "BDO Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+
+  /* — Font Weights — */
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-demibold: 600;
+  --weight-bold: 700;
+  --weight-extrabold: 800;
+  --weight-black: 900;
+
+  /* — Colors: Surface — */
+  --color-surface-primary: #141414;    /* Mat Board */
+
+  /* — Colors: Text — */
+  --color-text-primary: #FFFFF0;       /* Crayon */
+  --color-text-secondary: #888888;     /* Felt */
+
+  /* — Colors: Accent — */
+  --color-accent-primary: #F24A2E;     /* Swiss */
+
+  /* — Spacing: Section (between major sections) — */
+  --space-section-xl: 256px;
+  --space-section-l: 192px;
+  --space-section-m: 120px;
+  --space-section-s: 96px;
+
+  /* — Spacing: Internal (inside sections) — */
+  --space-block: 64px;
+  --space-stack: 32px;
+  --space-tight: 24px;
+  --space-micro: 8px;     /* Base grid unit — label/value gaps, small internal spacing */
+
+  /* — Layout — */
+  --layout-max-width: 1920px;
+  --layout-gutter: 32px;
+  --layout-content-max: 960px;
+  --layout-content-wide: 1200px;
+
+  /* — Opacity — */
+  --opacity-hover: 0.7;
+  --opacity-disabled: 0.35;
+
+  /* — Borders & Radius — */
+  --border-subtle: 1px solid var(--color-text-primary);
+  --border-visible: 1px solid var(--color-text-secondary);
+  --radius-s: 4px;
+
+  /* — Typography Scale — */
+  /* Display */
+  --display-l-size: 332px;
+  --display-l-line: 340px;
+  --display-l-weight: var(--weight-medium);
+  --display-l-tracking: -0.02em;
+
+  --display-m-size: 192px;
+  --display-m-line: 200px;
+  --display-m-weight: var(--weight-medium);
+  --display-m-tracking: -0.02em;
+
+  --display-s-size: 164px;
+  --display-s-line: 172px;
+  --display-s-weight: var(--weight-medium);
+  --display-s-tracking: -0.02em;
+
+  /* Headline */
+  --headline-l-size: 96px;
+  --headline-l-line: 104px;
+  --headline-l-weight: var(--weight-medium);
+  --headline-l-tracking: -0.02em;
+
+  --headline-m-size: 72px;
+  --headline-m-line: 80px;
+  --headline-m-weight: var(--weight-medium);
+  --headline-m-tracking: 0em;
+
+  --headline-s-size: 64px;
+  --headline-s-line: 72px;
+  --headline-s-weight: var(--weight-medium);
+  --headline-s-tracking: 0em;
+
+  /* Title */
+  --title-l-size: 40px;
+  --title-l-line: 48px;
+  --title-l-weight: var(--weight-medium);
+  --title-l-tracking: 0em;
+
+  --title-m-size: 32px;
+  --title-m-line: 40px;
+  --title-m-weight: var(--weight-medium);
+  --title-m-tracking: 0em;
+
+  --title-s-size: 24px;
+  --title-s-line: 32px;
+  --title-s-weight: var(--weight-medium);
+  --title-s-tracking: 0em;
+
+  /* Label */
+  --label-l-size: 24px;
+  --label-l-line: 30px;
+  --label-l-weight: var(--weight-demibold);
+  --label-l-tracking: 0em;
+
+  --label-m-size: 18px;
+  --label-m-line: 24px;
+  --label-m-weight: var(--weight-demibold);
+  --label-m-tracking: 0em;
+
+  --label-s-size: 14px;
+  --label-s-line: 20px;
+  --label-s-weight: var(--weight-demibold);
+  --label-s-tracking: 0em;
+
+  /* Body */
+  --body-l-size: 24px;
+  --body-l-line: 32px;
+  --body-l-weight: var(--weight-medium);
+  --body-l-tracking: 0em;
+
+  --body-m-size: 18px;
+  --body-m-line: 26px;
+  --body-m-weight: var(--weight-medium);
+  --body-m-tracking: 0em;
+
+  --body-s-size: 16px;
+  --body-s-line: 24px;
+  --body-s-weight: var(--weight-medium);
+  --body-s-tracking: 0em;
+
+  /* Navigation */
+  --nav-primary-size: 18px;
+  --nav-primary-line: 26px;
+  --nav-primary-weight: var(--weight-demibold);
+  --nav-primary-tracking: 0em;
+
+  /* — Transitions — */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-base: 0.3s;
+}
+
+
+/* ————————————————————————————————————————————————————————————
+   3. BASE RESET
+   ———————————————————————————————————————————————————————————— */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-family);
+  font-weight: var(--weight-medium);
+  background-color: var(--color-surface-primary);
+  color: var(--color-text-primary);
+  line-height: 1.5;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+
+/* ————————————————————————————————————————————————————————————
+   4. TYPOGRAPHY CLASSES
+   Role-based — apply these to elements. Never write raw
+   font-size/line-height/weight in component CSS.
+   ———————————————————————————————————————————————————————————— */
+
+/* Display */
+.display-l {
+  font-size: var(--display-l-size);
+  line-height: var(--display-l-line);
+  font-weight: var(--display-l-weight);
+  letter-spacing: var(--display-l-tracking);
+}
+
+.display-m {
+  font-size: var(--display-m-size);
+  line-height: var(--display-m-line);
+  font-weight: var(--display-m-weight);
+  letter-spacing: var(--display-m-tracking);
+}
+
+.display-s {
+  font-size: var(--display-s-size);
+  line-height: var(--display-s-line);
+  font-weight: var(--display-s-weight);
+  letter-spacing: var(--display-s-tracking);
+}
+
+/* Headline */
+.headline-l {
+  font-size: var(--headline-l-size);
+  line-height: var(--headline-l-line);
+  font-weight: var(--headline-l-weight);
+  letter-spacing: var(--headline-l-tracking);
+}
+
+.headline-m {
+  font-size: var(--headline-m-size);
+  line-height: var(--headline-m-line);
+  font-weight: var(--headline-m-weight);
+  letter-spacing: var(--headline-m-tracking);
+}
+
+.headline-s {
+  font-size: var(--headline-s-size);
+  line-height: var(--headline-s-line);
+  font-weight: var(--headline-s-weight);
+  letter-spacing: var(--headline-s-tracking);
+}
+
+/* Title */
+.title-l {
+  font-size: var(--title-l-size);
+  line-height: var(--title-l-line);
+  font-weight: var(--title-l-weight);
+  letter-spacing: var(--title-l-tracking);
+}
+
+.title-m {
+  font-size: var(--title-m-size);
+  line-height: var(--title-m-line);
+  font-weight: var(--title-m-weight);
+  letter-spacing: var(--title-m-tracking);
+}
+
+.title-s {
+  font-size: var(--title-s-size);
+  line-height: var(--title-s-line);
+  font-weight: var(--title-s-weight);
+  letter-spacing: var(--title-s-tracking);
+}
+
+/* Label */
+.label-l {
+  font-size: var(--label-l-size);
+  line-height: var(--label-l-line);
+  font-weight: var(--label-l-weight);
+  letter-spacing: var(--label-l-tracking);
+}
+
+.label-m {
+  font-size: var(--label-m-size);
+  line-height: var(--label-m-line);
+  font-weight: var(--label-m-weight);
+  letter-spacing: var(--label-m-tracking);
+}
+
+.label-s {
+  font-size: var(--label-s-size);
+  line-height: var(--label-s-line);
+  font-weight: var(--label-s-weight);
+  letter-spacing: var(--label-s-tracking);
+}
+
+/* Body */
+.body-l {
+  font-size: var(--body-l-size);
+  line-height: var(--body-l-line);
+  font-weight: var(--body-l-weight);
+  letter-spacing: var(--body-l-tracking);
+}
+
+.body-m {
+  font-size: var(--body-m-size);
+  line-height: var(--body-m-line);
+  font-weight: var(--body-m-weight);
+  letter-spacing: var(--body-m-tracking);
+}
+
+.body-s {
+  font-size: var(--body-s-size);
+  line-height: var(--body-s-line);
+  font-weight: var(--body-s-weight);
+  letter-spacing: var(--body-s-tracking);
+}
+
+/* Navigation */
+.nav-primary {
+  font-size: var(--nav-primary-size);
+  line-height: var(--nav-primary-line);
+  font-weight: var(--nav-primary-weight);
+  letter-spacing: var(--nav-primary-tracking);
+}
+
+
+/* ————————————————————————————————————————————————————————————
+   5. LAYOUT PRIMITIVES
+   Each primitive has ONE job. Don't mix responsibilities.
+   
+   .container → horizontal constraints (max-width + gutters)
+   .section   → vertical spacing between major sections
+   .stack     → vertical flow inside sections (32px gap)
+   .block     → larger internal grouping (64px gap)
+   ———————————————————————————————————————————————————————————— */
+
+.container {
+  max-width: var(--layout-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--layout-gutter);
+  padding-right: var(--layout-gutter);
+}
+
+/* Section spacing — use data attributes or modifier classes 
+   to choose the size. Default is section-m. */
+.section {
+  padding-top: var(--space-section-m);
+  padding-bottom: var(--space-section-m);
+}
+
+.section--xl {
+  padding-top: var(--space-section-xl);
+  padding-bottom: var(--space-section-xl);
+}
+
+.section--l {
+  padding-top: var(--space-section-l);
+  padding-bottom: var(--space-section-l);
+}
+
+.section--m {
+  padding-top: var(--space-section-m);
+  padding-bottom: var(--space-section-m);
+}
+
+.section--s {
+  padding-top: var(--space-section-s);
+  padding-bottom: var(--space-section-s);
+}
+
+/* Stack: vertical flow with --space-stack (32px) between items */
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-stack);
+}
+
+/* Block: vertical flow with --space-block (64px) between items */
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-block);
+}
+
+/* Tight: vertical flow with --space-tight (24px) between items */
+.tight {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-tight);
+}
+
+
+/* ————————————————————————————————————————————————————————————
+   6. UTILITY — KEPT MINIMAL
+   Only essential, system-aligned helpers.
+   ———————————————————————————————————————————————————————————— */
+
+.text-secondary {
+  color: var(--color-text-secondary);
+}
+
+.text-accent {
+  color: var(--color-accent-primary);
+}
+
+/* Readable text width constraints */
+.readable {
+  max-width: var(--layout-content-max);
+}
+
+.readable-wide {
+  max-width: var(--layout-content-wide);
+}
+
+/* Screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+/* ————————————————————————————————————————————————————————————
+   7. RESPONSIVE SCALING
+   
+   Token overrides only — every component that references
+   these variables scales automatically. No component CSS
+   needs to know about breakpoints.
+   
+   Breakpoints:
+     Desktop (default)  →  1280px+  (24" monitors / baseline)
+     Tablet             →  768px – 1279px
+     Mobile             →  < 768px
+   
+   Strategy:
+   - Display sizes scale aggressively (they're enormous)
+   - Headline/title scale moderately
+   - Body/label/nav hold steady (readability)
+   - Section spacing compresses proportionally
+   - Gutters tighten on smaller viewports
+   ———————————————————————————————————————————————————————————— */
+
+/* ——— TABLET (768px – 1279px) ——— */
+@media (max-width: 1279px) {
+  :root {
+    /* Typography: Display — ~50% of desktop */
+    --display-l-size: 148px;
+    --display-l-line: 156px;
+
+    --display-m-size: 96px;
+    --display-m-line: 104px;
+
+    --display-s-size: 80px;
+    --display-s-line: 88px;
+
+    /* Typography: Headline — ~65% of desktop */
+    --headline-l-size: 64px;
+    --headline-l-line: 72px;
+
+    --headline-m-size: 48px;
+    --headline-m-line: 56px;
+
+    --headline-s-size: 40px;
+    --headline-s-line: 48px;
+
+    /* Typography: Title — slight reduction */
+    --title-l-size: 32px;
+    --title-l-line: 40px;
+
+    --title-m-size: 28px;
+    --title-m-line: 36px;
+
+    --title-s-size: 22px;
+    --title-s-line: 30px;
+
+    /* Typography: Body — hold steady for readability */
+    --body-l-size: 20px;
+    --body-l-line: 28px;
+
+    /* Label, body-m, body-s, nav: unchanged — already readable */
+
+    /* Spacing: Section — ~50% of desktop */
+    --space-section-xl: 128px;
+    --space-section-l: 96px;
+    --space-section-m: 64px;
+    --space-section-s: 48px;
+
+    /* Spacing: Internal — tighten */
+    --space-block: 48px;
+    --space-tight: 20px;
+    /* --space-stack stays 32px (matches grid gap) */
+    /* --space-micro stays 8px */
+
+    /* Layout: Gutters tighten */
+    --layout-gutter: 24px;
+  }
+}
+
+/* ——— MOBILE (< 768px) ——— */
+@media (max-width: 767px) {
+  :root {
+    /* Typography: Display — ~25% of desktop, still dramatic */
+    --display-l-size: 72px;
+    --display-l-line: 76px;
+
+    --display-m-size: 48px;
+    --display-m-line: 54px;
+
+    --display-s-size: 44px;
+    --display-s-line: 50px;
+
+    /* Typography: Headline — ~40% of desktop */
+    --headline-l-size: 40px;
+    --headline-l-line: 46px;
+
+    --headline-m-size: 32px;
+    --headline-m-line: 38px;
+
+    --headline-s-size: 28px;
+    --headline-s-line: 34px;
+
+    /* Typography: Title */
+    --title-l-size: 28px;
+    --title-l-line: 34px;
+
+    --title-m-size: 24px;
+    --title-m-line: 30px;
+
+    --title-s-size: 20px;
+    --title-s-line: 26px;
+
+    /* Typography: Body — slight reduction, still readable */
+    --body-l-size: 18px;
+    --body-l-line: 26px;
+
+    --body-m-size: 16px;
+    --body-m-line: 24px;
+
+    --body-s-size: 15px;
+    --body-s-line: 22px;
+
+    /* Typography: Label */
+    --label-l-size: 20px;
+    --label-l-line: 26px;
+
+    --label-m-size: 16px;
+    --label-m-line: 22px;
+
+    --label-s-size: 13px;
+    --label-s-line: 18px;
+
+    /* Typography: Navigation */
+    --nav-primary-size: 16px;
+    --nav-primary-line: 22px;
+
+    /* Spacing: Section — ~30% of desktop */
+    --space-section-xl: 96px;
+    --space-section-l: 64px;
+    --space-section-m: 48px;
+    --space-section-s: 32px;
+
+    /* Spacing: Internal */
+    --space-block: 32px;
+    --space-stack: 24px;
+    --space-tight: 16px;
+
+    /* Layout: Gutters */
+    --layout-gutter: 16px;
+  }
+}

@@ -1,0 +1,80 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding-top: var(--space-stack);
+  padding-bottom: var(--space-stack);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  flex-direction: column;
+}
+
+.logoName {
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+
+.logo:hover .logoName {
+  opacity: var(--opacity-hover);
+}
+
+.nav {
+  display: flex;
+  gap: var(--space-stack);
+}
+
+.navLink {
+  position: relative;
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+
+.navLink:hover {
+  opacity: var(--opacity-hover);
+}
+
+.navLink::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-text-primary);
+  transition: width var(--duration-base) var(--ease-out);
+}
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+/* Disabled nav link (Archives placeholder) */
+.navLinkDisabled {
+  opacity: var(--opacity-disabled);
+  cursor: default;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+
+.icon:hover {
+  opacity: var(--opacity-hover);
+}
+
+
+.superscript {
+  font-size: 0.5em;
+  vertical-align: super;
+  line-height: 0;
+}

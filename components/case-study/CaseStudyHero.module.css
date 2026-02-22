@@ -1,0 +1,72 @@
+/* ============================================================
+   CASE STUDY HERO
+   Sticky text with parallax drift.
+   Image scrolls over the text naturally.
+   ============================================================ */
+
+.hero {
+  position: relative;
+}
+
+.stickyWrap {
+  position: sticky;
+  top: 0;
+  z-index: 0;
+  padding-top: var(--space-section-l);
+  padding-bottom: var(--space-section-s);
+}
+
+.textInner {
+  will-change: transform, opacity;
+}
+
+.eyebrow {
+  padding-bottom: var(--space-tight);
+}
+
+.title {
+  padding-bottom: var(--space-stack);
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-text-primary);
+}
+
+.metaRow {
+  display: flex;
+  gap: var(--space-section-s);
+  align-items: flex-start;
+  padding-top: var(--space-stack);
+}
+
+.metaPair {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-micro);
+}
+
+.imageSection {
+  position: relative;
+  z-index: 1;
+  background-color: var(--color-surface-primary);
+}
+
+.heroImageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.heroImage {
+  object-fit: cover;
+}
+
+@media (max-width: 767px) {
+  .metaRow {
+    flex-wrap: wrap;
+    gap: var(--space-stack);
+  }
+}

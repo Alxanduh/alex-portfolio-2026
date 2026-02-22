@@ -1,0 +1,191 @@
+/* ============================================================
+   HOME PAGE — page.module.css
+   All spacing from system variables.
+   All typography from global classes in TSX.
+   ============================================================ */
+
+
+/* ———— HERO ————
+   Fixed behind content so the dark sections slide up over it.
+   Title at the very bottom, descenders clipped by overflow.
+   Content wrapper (below) sits on top with z-index: 1. */
+.hero {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  background-color: var(--color-accent-primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding-left: var(--layout-gutter);
+  padding-right: var(--layout-gutter);
+  overflow: hidden;
+  z-index: 0;
+}
+
+.heroTitle {
+  /* display-l gives weight, line-height, tracking.
+     Override font-size with vw so text always fits one line.
+     17.3vw = 332px at 1920px viewport (the design target). */
+  font-size: 17.3vw;
+  line-height: 0.9;
+  white-space: nowrap;
+  text-align: left;
+}
+
+/* ™®© rendered as superscript — smaller, raised.
+   Matches Figma where symbols sit at cap-height
+   and are ~40% of the parent font-size. */
+.superscript {
+  font-size: 0.4em;
+  vertical-align: super;
+  line-height: 0;
+}
+
+/* Pushes content below the fixed hero and provides the dark bg
+   that slides over it as user scrolls. */
+.content {
+  position: relative;
+  z-index: 1;
+  margin-top: 100vh;
+  background-color: var(--color-surface-primary);
+}
+
+
+/* ———— INTRO ————
+   256px (section-xl) above label. Strict two-column grid.
+   No bottom padding — the work section below owns its top space. */
+.introSection {
+  padding-top: var(--space-section-xl);
+}
+
+.introLabel {
+  padding-bottom: var(--space-tight);
+}
+
+.introDivider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-text-primary);
+}
+
+.introGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-block);
+  align-items: start;
+  padding-top: var(--space-stack);
+  padding-right: var(--space-section-s);
+}
+
+
+/* ———— SELECTED PROJECTS ————
+   256px (section-xl) above "The work" label.
+   12-column grid with 32px column gap, 120px (section-m) row gap.
+   256px (section-xl) below last card row. */
+.workSection {
+  padding-top: var(--space-section-xl);
+  padding-bottom: var(--space-section-xl);
+}
+
+.workLabel {
+  padding-bottom: var(--space-tight);
+}
+
+.workDivider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-text-primary);
+  margin-bottom: var(--space-stack);
+}
+
+.workHeading {
+  padding-bottom: var(--space-section-m);
+}
+
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: var(--space-stack);
+  row-gap: var(--space-section-m);
+}
+
+/* Span utilities — grid-column placement only. */
+.span12 { grid-column: span 12; }
+.span8  { grid-column: span 8; }
+.span6  { grid-column: span 6; }
+.span4  { grid-column: span 4; }
+
+
+/* ———— CTA (Red manifesto) ————
+   Padding matches gutter (32px) all sides per Figma.
+   space-between pushes label to top, headline to bottom. */
+.ctaSection {
+  background-color: var(--color-accent-primary);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.ctaInner {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+  padding: var(--layout-gutter);
+}
+
+.ctaLabel {
+  padding-bottom: var(--space-block);
+}
+
+/* display-m gives weight, line-height, tracking.
+   Override font-size with vw so it wraps to 2 lines like the design.
+   10vw = 192px at 1920px viewport. */
+.ctaText {
+  font-size: 10vw;
+  line-height: 1.04;
+}
+
+
+/* ———— RESPONSIVE LAYOUT ———— */
+
+@media (max-width: 1279px) {
+  .projectGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .span12,
+  .span8,
+  .span6,
+  .span4 {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    height: 70vh;
+  }
+
+  .content {
+    margin-top: 70vh;
+  }
+
+  .ctaSection {
+    min-height: 70vh;
+  }
+
+  .introGrid {
+    grid-template-columns: 1fr;
+    padding-right: 0;
+  }
+
+  /* Double card gap on mobile for touch targets */
+  .projectGrid {
+    row-gap: var(--space-section-xl);
+  }
+}

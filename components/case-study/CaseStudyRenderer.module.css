@@ -1,0 +1,166 @@
+/* ============================================================
+   CASE STUDY MODULE STYLES
+   All spacing uses system variables.
+   All typography uses predefined classes in TSX.
+   No hardcoded px values except 1px hairline borders.
+   ============================================================ */
+
+/* Module: intro — centered at content-wide (1200px)
+   Auto-width label left, flexible body right.
+   Gap uses section-s (96px) matching the Figma. */
+.introWrap {
+  max-width: var(--layout-content-wide);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-section-s);
+  align-items: start;
+}
+
+/* Text blocks without a heading — centered, full content-wide */
+.textBlockCentered {
+  max-width: var(--layout-content-wide);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Text blocks with heading use same 2-col as intro */
+.textBlock {
+  max-width: var(--layout-content-wide);
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-section-s);
+  align-items: start;
+}
+
+/* Paragraph stack within intro/text-block body */
+.bodyStack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-micro);
+}
+
+/* Module: metrics — 3 columns with system gap
+   Each card has a top border and internal spacing */
+.metrics {
+  display: flex;
+  gap: var(--space-block);
+}
+
+.metricItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-section-s);
+  border-top: var(--border-subtle);
+  padding-top: var(--space-stack);
+}
+
+.metricDescription {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-stack);
+}
+
+/* Module: media-full */
+.mediaFull {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: var(--radius-s);
+  background-color: var(--color-text-secondary);
+}
+
+.mediaFullImage {
+  object-fit: cover;
+}
+
+.mediaCaption {
+  padding-top: var(--space-tight);
+}
+
+/* Module: media-2up */
+.media2up {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-stack);
+}
+
+.mediaItem {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: var(--radius-s);
+  background-color: var(--color-text-secondary);
+}
+
+.mediaItemImage {
+  object-fit: cover;
+}
+
+/* Module: media-3up */
+.media3up {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--space-stack);
+}
+
+/* Module: quote */
+.quote {
+  max-width: var(--layout-content-wide);
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: var(--space-block);
+  padding-bottom: var(--space-block);
+  border-top: var(--border-subtle);
+}
+
+.quoteAttribution {
+  padding-top: var(--space-stack);
+}
+
+/* Module: section-heading */
+.sectionHeading {
+  padding-bottom: var(--space-stack);
+}
+
+.sectionHeadingLabel {
+  padding-bottom: var(--space-tight);
+}
+
+
+/* ———— RESPONSIVE LAYOUT ———— */
+
+/* Tablet */
+@media (max-width: 1279px) {
+  .media3up {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .intro,
+  .textBlock {
+    grid-template-columns: 1fr;
+  }
+
+  .media2up {
+    grid-template-columns: 1fr;
+  }
+
+  .media3up {
+    grid-template-columns: 1fr;
+  }
+
+  .metrics {
+    flex-direction: column;
+  }
+}

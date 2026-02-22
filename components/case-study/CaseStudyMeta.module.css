@@ -1,0 +1,25 @@
+.meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--space-block);
+  padding-top: var(--space-block);
+  padding-bottom: var(--space-block);
+  border-top: var(--border-subtle);
+  border-bottom: var(--border-subtle);
+}
+
+.metaGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-tight);
+}
+
+.metaLabel {
+  color: var(--color-text-secondary);
+}
+
+.toolList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-tight);
+}

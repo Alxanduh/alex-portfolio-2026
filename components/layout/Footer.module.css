@@ -1,0 +1,152 @@
+/* ============================================================
+   FOOTER — Figma-matched
+   Upper content in container, marquee + lines full-bleed.
+   ============================================================ */
+
+.footer {
+  position: relative;
+  z-index: 1;
+  background-color: var(--color-surface-primary);
+}
+
+/* Figma: padding 256px 32px 256px 32px on footer content wrapper.
+   The container handles the 32px sides; we add section-xl top/bottom. */
+.footerContent {
+  padding-top: var(--space-section-xl);
+  padding-bottom: var(--space-section-xl);
+}
+
+/* Divider at top of footer content */
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-text-primary);
+}
+
+/* Gap between divider and content: 24px (tight) to meta,
+   then 120px (section-m) from meta to columns.
+   Figma: frame-226 gap:24, frame-95 gap:120. */
+.contentInner {
+  padding-top: var(--space-tight);
+}
+
+/* Meta row: "The Footer" left, coordinates right */
+.metaRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Two-column links — section-m gap above */
+.columns {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: var(--space-section-m);
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-stack);
+}
+
+.link {
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+
+.link:hover {
+  opacity: var(--opacity-hover);
+}
+
+.linkDisabled {
+  opacity: var(--opacity-disabled);
+  cursor: default;
+}
+
+.linkGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-stack);
+}
+
+/* ———— Marquee — full width, outside container ———— */
+.marquee {
+  overflow: hidden;
+  padding-top: var(--space-tight);
+  padding-bottom: var(--space-tight);
+}
+
+.marqueeTrack {
+  display: flex;
+  white-space: nowrap;
+  will-change: transform;
+}
+
+.marqueeText {
+  flex-shrink: 0;
+  padding-right: var(--space-stack);
+}
+
+/* Alternating color: odd = secondary, even = primary */
+.marqueeText:nth-child(odd) {
+  color: var(--color-text-secondary);
+}
+
+.marqueeText:nth-child(even) {
+  color: var(--color-text-primary);
+}
+
+/* Bottom meta: credits row */
+.bottomMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: var(--space-stack);
+}
+
+/* ———— Line pattern — full width, growing bars ————
+   23 bars, 32px gap between, heights 4→46px (exact Figma values).
+   120px (section-m) padding above first bar. */
+.linePattern {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-stack);
+  padding-top: var(--space-section-m);
+}
+
+.lineBar {
+  width: 100%;
+  background-color: var(--color-text-primary);
+}
+
+/* ———— Peace hand — centered, 96px (section-s) padding ———— */
+.peaceHand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: var(--space-section-s);
+  padding-bottom: var(--space-section-s);
+}
+
+
+/* ———— RESPONSIVE ———— */
+
+@media (max-width: 1279px) {
+  .columns {
+    gap: var(--space-block);
+  }
+}
+
+@media (max-width: 767px) {
+  .columns {
+    flex-direction: column;
+    gap: var(--space-section-m);
+  }
+
+  .bottomMeta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-micro);
+  }
+}

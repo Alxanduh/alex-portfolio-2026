@@ -1,0 +1,29 @@
+.section {
+  padding-top: var(--space-section-xl);
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-stack);
+  padding-bottom: var(--space-section-m);
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-text-primary);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-stack);
+}
+
+/* ———— RESPONSIVE LAYOUT ———— */
+@media (max-width: 767px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

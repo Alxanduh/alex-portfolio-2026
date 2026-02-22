@@ -1,0 +1,240 @@
+/* ============================================================
+   ABOUT PAGE — page.module.css
+   All spacing from system variables.
+   All typography from global classes in TSX.
+   ============================================================ */
+
+/* Hero */
+.hero {
+  padding-top: var(--space-section-l);
+  padding-bottom: var(--space-section-m);
+}
+
+.heroTitle {
+  text-align: center;
+}
+
+/* ————————————————————————————————————————
+   Staggered photo grid — two photos offset vertically.
+   Second column is pushed down by section-xl to match Figma.
+   ———————————————————————————————————————— */
+.photoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-stack);
+  align-items: start;
+}
+
+.photoCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-stack);
+}
+
+.photoColOffset {
+  padding-top: var(--space-section-xl);
+}
+
+.photoItem {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius-s);
+  background-color: var(--color-text-secondary);
+  max-width: 100%;
+}
+
+.photoImage {
+  object-fit: cover;
+}
+
+/* Video fills the photo container, same as an image would */
+.photoVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photoCaption {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Bio — large text with color split */
+.bio {
+  max-width: var(--layout-content-wide);
+}
+
+/* ————————————————————————————————————————
+   Fields of Practice section header
+   ———————————————————————————————————————— */
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-stack);
+  padding-bottom: var(--space-section-m);
+}
+
+.sectionHeaderLabel {
+  padding-bottom: var(--space-tight);
+}
+
+.sectionDivider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-text-primary);
+}
+
+/* ————————————————————————————————————————
+   Disciplines — 50/50 split: heading left, items right
+   Matches Figma's 904px + 48px gap + 904px layout.
+   ———————————————————————————————————————— */
+.fieldsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-stack);
+  align-items: start;
+}
+
+.disciplineList {
+  display: flex;
+  flex-direction: column;
+}
+
+.disciplineItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-stack);
+  padding-top: var(--space-stack);
+  padding-bottom: var(--space-stack);
+  border-top: var(--border-subtle);
+}
+
+/* ————————————————————————————————————————
+   Capabilities — 6 groups in 2 rows of 3
+   Each group has a top border divider.
+   ———————————————————————————————————————— */
+.capGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-block);
+  row-gap: var(--space-section-s);
+}
+
+.capGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-tight);
+}
+
+.capGroupTitle {
+  padding-bottom: var(--space-tight);
+  border-top: var(--border-subtle);
+  padding-top: var(--space-stack);
+}
+
+/* ————————————————————————————————————————
+   "When we're not at the computer" — 2×2 photo grid
+   Matches Figma: 4 photos in 2 rows of 2.
+   Cards have light background and rounded corners.
+   ———————————————————————————————————————— */
+.offdutyGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-stack);
+}
+
+/* Polaroid card — cream frame with thick bottom border,
+   matching the Figma export (32px padding, 120px bottom tab).
+   Uses system tokens: text-primary for bg, radius-s for corners,
+   stack for padding, section-m for the bottom tab. */
+.polaroid {
+  background-color: var(--color-text-primary);
+  border-radius: var(--radius-s);
+  padding: var(--space-stack);
+  padding-bottom: var(--space-section-m);
+}
+
+.polaroidMedia {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius-s);
+}
+
+.offdutyVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ————————————————————————————————————————
+   Client Appreciation — horizontal scrolling cards
+   Matches Figma: bordered square cards at 640px.
+   Using system spacing for card padding.
+   ———————————————————————————————————————— */
+.testimonialRow {
+  display: flex;
+  gap: var(--space-stack);
+  overflow-x: auto;
+  padding-left: var(--layout-gutter);
+}
+
+.testimonialCard {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--space-stack);
+  border: var(--border-visible);
+  border-radius: var(--radius-s);
+  /* Card width = 1/3 viewport (640px at 1920px).
+     Testimonials scroll horizontally, so this is viewport-relative by design. */
+  width: calc((var(--layout-max-width) + 2 * var(--layout-gutter)) / 3);
+  aspect-ratio: 1;
+}
+
+.testimonialAuthor {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-micro);
+}
+
+
+/* ———— RESPONSIVE LAYOUT ———— */
+
+/* Tablet */
+@media (max-width: 1279px) {
+  .capGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .testimonialCard {
+    width: calc((100vw - 3 * var(--layout-gutter)) / 2);
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .photoGrid,
+  .fieldsGrid,
+  .offdutyGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .photoColOffset {
+    padding-top: 0;
+  }
+
+  .capGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonialCard {
+    width: calc(100vw - 2 * var(--layout-gutter));
+  }
+}
