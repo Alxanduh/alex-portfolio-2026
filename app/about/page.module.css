@@ -253,8 +253,8 @@
   }
 
   .polaroid {
-    padding: var(--space-micro);
-    padding-bottom: var(--space-block);
+    padding: var(--space-tight);
+    padding-bottom: var(--space-section-l);
   }
 
   .testimonialCard {
