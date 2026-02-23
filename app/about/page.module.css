@@ -77,7 +77,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-stack);
-  padding-bottom: var(--space-section-m);
+  padding-bottom: var(--space-section-l);
 }
 
 .sectionHeaderLabel {
@@ -91,27 +91,25 @@
 }
 
 /* ————————————————————————————————————————
-   Disciplines — 50/50 split: heading left, items right
-   Matches Figma's 904px + 48px gap + 904px layout.
+   Disciplines — full-width heading, then 2×2 grid
+   Matches Figma: heading above, items in 2-col grid
+   with 96px row/column gaps.
    ———————————————————————————————————————— */
-.fieldsGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-stack);
-  align-items: start;
+.disciplinesHeading {
+  padding-bottom: var(--space-section-m);
 }
 
-.disciplineList {
-  display: flex;
-  flex-direction: column;
+.disciplineGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-section-s);
 }
 
 .disciplineItem {
   display: flex;
   flex-direction: column;
-  gap: var(--space-stack);
-  padding-top: var(--space-stack);
-  padding-bottom: var(--space-stack);
+  gap: var(--space-tight);
+  padding-top: var(--space-tight);
   border-top: var(--border-subtle);
 }
 
@@ -119,23 +117,27 @@
    Capabilities — 6 groups in 2 rows of 3
    Each group has a top border divider.
    ———————————————————————————————————————— */
+.capHeading {
+  padding-bottom: var(--space-section-m);
+}
+
 .capGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-block);
+  column-gap: var(--space-section-m);
   row-gap: var(--space-section-s);
 }
 
 .capGroup {
   display: flex;
   flex-direction: column;
-  gap: var(--space-tight);
+  gap: var(--space-micro);
 }
 
 .capGroupTitle {
-  padding-bottom: var(--space-tight);
-  border-top: var(--border-subtle);
   padding-top: var(--space-stack);
+  padding-bottom: var(--space-stack);
+  border-top: var(--border-subtle);
 }
 
 /* ————————————————————————————————————————
@@ -230,7 +232,7 @@
 /* Mobile */
 @media (max-width: 767px) {
   .photoGrid,
-  .fieldsGrid,
+  .disciplineGrid,
   .offdutyGrid {
     grid-template-columns: 1fr;
   }

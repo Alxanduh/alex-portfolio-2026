@@ -105,33 +105,31 @@ export default function AboutPage() {
           </FadeIn>
 
           <FadeIn delay={0.1}>
-            <div className={styles.fieldsGrid}>
-              <h3 className="headline-m">Disciplines</h3>
-              <div className={styles.disciplineList}>
-                <div className={styles.disciplineItem}>
-                  <span className="title-l">Brand Strategy</span>
-                  <p className="title-s text-secondary">
-                    Capture hearts, spark curiosity, and leave a lasting impression
-                  </p>
-                </div>
-                <div className={styles.disciplineItem}>
-                  <span className="title-l">Design &amp; Illustration</span>
-                  <p className="title-s text-secondary">
-                    Diverse skillsets able to tackle any design challenge
-                  </p>
-                </div>
-                <div className={styles.disciplineItem}>
-                  <span className="title-l">Creative Direction</span>
-                  <p className="title-s text-secondary">
-                    Your creative ally with extensive experience
-                  </p>
-                </div>
-                <div className={styles.disciplineItem}>
-                  <span className="title-l">UI &amp; UX</span>
-                  <p className="title-s text-secondary">
-                    A critical eye on the consumer web &amp; product experience
-                  </p>
-                </div>
+            <h3 className={`headline-s ${styles.disciplinesHeading}`}>Disciplines</h3>
+            <div className={styles.disciplineGrid}>
+              <div className={styles.disciplineItem}>
+                <span className="title-m">Brand Strategy</span>
+                <p className="body-s text-secondary">
+                  Capture hearts, spark curiosity, and leave a lasting impression
+                </p>
+              </div>
+              <div className={styles.disciplineItem}>
+                <span className="title-m">Design &amp; Illustration</span>
+                <p className="body-s text-secondary">
+                  Diverse skillsets able to tackle any design challenge
+                </p>
+              </div>
+              <div className={styles.disciplineItem}>
+                <span className="title-m">Creative Direction</span>
+                <p className="body-s text-secondary">
+                  Your creative ally with extensive experience
+                </p>
+              </div>
+              <div className={styles.disciplineItem}>
+                <span className="title-m">UI &amp; UX</span>
+                <p className="body-s text-secondary">
+                  A critical eye on the consumer web &amp; product experience
+                </p>
               </div>
             </div>
           </FadeIn>
@@ -142,25 +140,25 @@ export default function AboutPage() {
       <section className="section--m">
         <div className="container">
           <FadeIn>
-            <h2 className="headline-m">Capabilities</h2>
+            <h2 className={`headline-s ${styles.capHeading}`}>Capabilities</h2>
           </FadeIn>
 
           <FadeIn delay={0.1}>
             <div className={styles.capGrid}>
               {[
-                { title: "Branding", items: ["Brand Strategy", "Visual Identity System", "Voice & Tone", "Brand Guidelines", "Subbrands", "Programs", "Events"] },
+                { title: "Scaled systems", items: ["Brand Strategy", "Visual Identity System", "Voice & Tone", "Brand Guidelines", "Subbrands", "Programs", "Events"] },
                 { title: "Sales & Marketing", items: ["Brand Strategy", "Visual Identity System", "Voice & Tone", "Brand Guidelines", "Subbrands", "Programs", "Events"] },
                 { title: "Digital & web", items: ["Brand Strategy", "Visual Identity System", "Voice & Tone", "Brand Guidelines", "Subbrands", "Programs", "Events"] },
-                { title: "Social Media", items: ["Brand Strategy", "Visual Identity System", "Voice & Tone", "Brand Guidelines", "Subbrands", "Programs", "Events"] },
+                { title: "Social media", items: ["Brand Strategy", "Visual Identity System", "Voice & Tone", "Brand Guidelines", "Subbrands", "Programs", "Events"] },
                 { title: "OOH (Out of Home)", items: ["Brand Strategy", "Visual Identity System", "Voice & Tone", "Brand Guidelines", "Subbrands", "Programs", "Events"] },
-                { title: "Promotional material", items: ["Brand Strategy", "Visual Identity System", "Voice & Tone", "Brand Guidelines", "Subbrands", "Programs", "Events"] },
+                { title: "Promo material", items: ["Brand Strategy", "Visual Identity System", "Voice & Tone", "Brand Guidelines", "Subbrands", "Programs", "Events"] },
               ].map((group) => (
                 <div key={group.title} className={styles.capGroup}>
                   <span className={`title-l ${styles.capGroupTitle}`}>
                     {group.title}
                   </span>
-                  {group.items.map((item) => (
-                    <span key={item} className="title-s text-secondary">
+                  {group.items.map((item, i) => (
+                    <span key={i} className="body-m text-secondary">
                       {item}
                     </span>
                   ))}

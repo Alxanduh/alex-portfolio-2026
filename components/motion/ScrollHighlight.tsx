@@ -53,17 +53,20 @@ export default function ScrollHighlight({
       if (!words.length) return;
 
       ctx = gsap.context(() => {
-        gsap.to(words, {
-          color: activeColor,
-          stagger: 0.05,
-          ease: "none",
-          scrollTrigger: {
-            trigger: container,
-            start: "top 80%",
-            end: "bottom 40%",
-            scrub: true,
-          },
-        });
+        gsap.fromTo(words, 
+          { color: "#888888" },
+          {
+            color: "#FFFFF0",
+            stagger: 0.05,
+            ease: "none",
+            scrollTrigger: {
+              trigger: container,
+              start: "top 80%",
+              end: "bottom 40%",
+              scrub: true,
+            },
+          }
+        );
       });
     })();
 
