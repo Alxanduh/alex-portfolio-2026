@@ -6,12 +6,14 @@
 
 /* Hero */
 .hero {
-  padding-top: var(--space-section-l);
-  padding-bottom: var(--space-section-m);
+  padding-top: var(--space-section-xl);
+  padding-bottom: var(--space-block);
 }
 
 .heroTitle {
   text-align: center;
+  font-size: 8.5vw;
+  line-height: 1.05;
 }
 
 /* ————————————————————————————————————————
@@ -23,6 +25,7 @@
   grid-template-columns: 1fr 1fr;
   gap: var(--space-stack);
   align-items: start;
+  padding-top: var(--space-section-m);
 }
 
 .photoCol {
@@ -37,7 +40,7 @@
 
 .photoItem {
   position: relative;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 3 / 4;
   overflow: hidden;
   border-radius: var(--radius-s);
   background-color: var(--color-text-secondary);
@@ -182,6 +185,12 @@
   gap: var(--space-stack);
   overflow-x: auto;
   padding-left: var(--layout-gutter);
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.testimonialRow::-webkit-scrollbar {
+  display: none;
 }
 
 .testimonialCard {

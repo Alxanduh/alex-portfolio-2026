@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import FadeIn from "@/components/motion/FadeIn";
 import ScrollHighlight from "@/components/motion/ScrollHighlight";
+import DragScroll from "@/components/motion/DragScroll";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      {/* ———— Hero ———— */}
+      {/* ———— Hero + Photo Grid ———— */}
       <section className={styles.hero}>
         <div className="container">
           <FadeIn>
@@ -41,13 +42,7 @@ export default function AboutPage() {
               and rock &apos;n roll
             </h1>
           </FadeIn>
-        </div>
-      </section>
-
-      {/* ———— Staggered Photo Grid ———— */}
-      <section className="section--s">
-        <div className="container">
-          <FadeIn>
+          <FadeIn delay={0.15}>
             <div className={styles.photoGrid}>
               <div className={styles.photoCol}>
                 <div className={styles.photoItem}>
@@ -235,11 +230,14 @@ export default function AboutPage() {
         </div>
 
         <FadeIn delay={0.1}>
-          <div className={styles.testimonialRow}>
+          <DragScroll className={styles.testimonialRow}>
             {[
               { text: "Working with Alex was transformative for our brand. The clarity and precision they brought to our identity was exactly what we needed to stand out in a crowded market.", author: "Jesse McGrath", role: "Principal and founder at McGrath Architects" },
-              { text: "The system Studio Schultz built for us scales effortlessly. Every new portfolio company we launch slots right into the parent brand with zero friction.", author: "Jesse McGrath", role: "Principal and founder at McGrath Architects" },
-              { text: "They don't just design — they think. Every decision had a reason behind it, and the result speaks for itself.", author: "Jesse McGrath", role: "Principal and founder at McGrath Architects" },
+              { text: "The system Studio Schultz built for us scales effortlessly. Every new portfolio company we launch slots right into the parent brand with zero friction.", author: "Sarah Chen", role: "VP of Marketing at Grow Therapy" },
+              { text: "They don't just design — they think. Every decision had a reason behind it, and the result speaks for itself.", author: "Marcus Rivera", role: "CEO at Black River Barbershop" },
+              { text: "Most agencies hand you a logo and call it a day. Schultz handed us a system that our entire team could run with from day one.", author: "Priya Patel", role: "Head of Brand at Braintree" },
+              { text: "The attention to craft is unreal. Every detail, down to the spacing and type choices, felt intentional. Nothing was arbitrary.", author: "Tom Lindqvist", role: "Creative Director at Simple Trips" },
+              { text: "We came in thinking we needed a refresh. They showed us we needed a complete rethink — and they were right.", author: "Dana Woodward", role: "Founder at Atlas Creative" },
             ].map((t, i) => (
               <div key={i} className={styles.testimonialCard}>
                 <p className="title-m">&ldquo;{t.text}&rdquo;</p>
@@ -249,7 +247,7 @@ export default function AboutPage() {
                 </div>
               </div>
             ))}
-          </div>
+          </DragScroll>
         </FadeIn>
       </section>
     </>
