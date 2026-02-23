@@ -25,6 +25,11 @@ export default function Footer() {
     let ctx: { revert: () => void } | undefined;
 
     (async () => {
+      // Wait for fonts to load so width measurement is accurate
+      if (document.fonts?.ready) {
+        await document.fonts.ready;
+      }
+
       const { gsap } = await import("gsap");
       const track = marqueeRef.current;
       if (!track) return;

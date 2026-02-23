@@ -79,6 +79,7 @@
 
 .marqueeTrack {
   display: flex;
+  width: max-content;
   white-space: nowrap;
   will-change: transform;
 }
@@ -141,7 +142,7 @@
 @media (max-width: 767px) {
   .columns {
     flex-direction: column;
-    gap: var(--space-section-m);
+    gap: var(--space-section-l);
   }
 
   .bottomMeta {
