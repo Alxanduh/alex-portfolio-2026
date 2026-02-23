@@ -77,7 +77,7 @@
   gap: var(--space-stack);
 }
 
-/* ———— Marquee — full width, outside container ———— */
+/* ———— Marquee — pure CSS animation, no JS ———— */
 .marquee {
   overflow: hidden;
   padding-top: var(--space-tight);
@@ -87,16 +87,35 @@
 .marqueeTrack {
   display: flex;
   width: max-content;
-  white-space: nowrap;
+  animation: marqueeScroll 30s linear infinite;
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marqueeTrack {
+    animation: none;
+  }
+}
+
+.marqueeSet {
+  display: flex;
+  flex-shrink: 0;
 }
 
 .marqueeText {
   flex-shrink: 0;
   display: inline-block;
-  padding-right: 0.08em;
 }
 
-/* Alternating color: odd = secondary, even = primary */
+/* Alternating color across both sets */
 .marqueeText:nth-child(odd) {
   color: var(--color-text-secondary);
 }

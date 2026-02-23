@@ -1,6 +1,5 @@
 "use client";
 
-import { useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./Footer.module.css";
@@ -13,61 +12,9 @@ const LINE_HEIGHTS = [
   42, 44, 46,
 ];
 
+const MARQUEE_TEXT = "SCHULTZ.DESIGN\u00A0\u00A0";
+
 export default function Footer() {
-  const marqueeRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
-    ).matches;
-    if (prefersReduced) return;
-
-    let ctx: { revert: () => void } | undefined;
-
-    (async () => {
-      // Wait for fonts to load so width measurement is accurate
-      // Use a race with a timeout for Safari compatibility
-      await Promise.race([
-        document.fonts?.ready,
-        new Promise((r) => setTimeout(r, 1000)),
-      ]);
-
-      // Force layout recalc before measuring
-      await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
-
-      const { gsap } = await import("gsap");
-      const track = marqueeRef.current;
-      if (!track) return;
-
-      // Measure the width of the first half (one full set)
-      const items = track.children;
-      const halfCount = items.length / 2;
-      let halfWidth = 0;
-      for (let i = 0; i < halfCount; i++) {
-        halfWidth += (items[i] as HTMLElement).offsetWidth;
-      }
-
-      // Bail if measurement failed (can happen on Safari)
-      if (halfWidth <= 0) return;
-      // Rate-based: pixels per second for consistent speed
-      const pxPerSecond = 80;
-      const duration = halfWidth / pxPerSecond;
-
-      ctx = gsap.context(() => {
-        gsap.set(track, { x: 0 });
-        gsap.to(track, {
-          x: -halfWidth,
-          repeat: -1,
-          duration,
-          ease: "none",
-          force3D: true,
-        });
-      });
-    })();
-
-    return () => ctx?.revert();
-  }, []);
-
   return (
     <footer className={styles.footer}>
       {/* ———— Upper: Divider + meta + columns ———— */}
@@ -109,12 +56,20 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* ———— Marquee — full width, no container ———— */}
+      {/* ———— Marquee — pure CSS, no JS ———— */}
       <div className={styles.marquee}>
-        <div className={styles.marqueeTrack} ref={marqueeRef}>
-          {[...Array(12)].map((_, i) => (
-            <span key={i} className={`display-m ${styles.marqueeText}`}>
-              SCHULTZ.DESIGN
+        <div className={styles.marqueeTrack}>
+          {/* Two identical sets — animation translates -50% for seamless loop */}
+          {[0, 1].map((set) => (
+            <span key={set} className={styles.marqueeSet} aria-hidden={set === 1}>
+              {[...Array(6)].map((_, i) => (
+                <span
+                  key={i}
+                  className={`display-m ${styles.marqueeText}`}
+                >
+                  {MARQUEE_TEXT}
+                </span>
+              ))}
             </span>
           ))}
         </div>
