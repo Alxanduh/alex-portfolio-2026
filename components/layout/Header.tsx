@@ -39,9 +39,6 @@ export default function Header() {
             <Link href="/about" className={`nav-primary ${styles.navLink}`}>
               About
             </Link>
-            <span className={`nav-primary ${styles.navLinkDisabled}`}>
-              Archives
-            </span>
           </nav>
 
           {/* Desktop logo mark */}
@@ -91,9 +88,6 @@ export default function Header() {
           <Link href="/about" className={`headline-m ${styles.mobileNavLink}`} onClick={closeMenu}>
             About
           </Link>
-          <span className={`headline-m ${styles.mobileNavLinkDisabled}`}>
-            Archives
-          </span>
         </nav>
       </div>
     </>

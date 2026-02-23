@@ -26,9 +26,14 @@ export default function Footer() {
 
     (async () => {
       // Wait for fonts to load so width measurement is accurate
-      if (document.fonts?.ready) {
-        await document.fonts.ready;
-      }
+      // Use a race with a timeout for Safari compatibility
+      await Promise.race([
+        document.fonts?.ready,
+        new Promise((r) => setTimeout(r, 1000)),
+      ]);
+
+      // Force layout recalc before measuring
+      await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
 
       const { gsap } = await import("gsap");
       const track = marqueeRef.current;
@@ -42,16 +47,20 @@ export default function Footer() {
         halfWidth += (items[i] as HTMLElement).offsetWidth;
       }
 
+      // Bail if measurement failed (can happen on Safari)
+      if (halfWidth <= 0) return;
       // Rate-based: pixels per second for consistent speed
       const pxPerSecond = 80;
       const duration = halfWidth / pxPerSecond;
 
       ctx = gsap.context(() => {
+        gsap.set(track, { x: 0 });
         gsap.to(track, {
           x: -halfWidth,
           repeat: -1,
           duration,
           ease: "none",
+          force3D: true,
         });
       });
     })();
@@ -85,9 +94,6 @@ export default function Footer() {
                 <Link href="/about" className={`headline-l ${styles.link}`}>
                   About
                 </Link>
-                <span className={`headline-l ${styles.linkDisabled}`}>
-                  Archives
-                </span>
               </div>
             </div>
             <div className={styles.column}>
