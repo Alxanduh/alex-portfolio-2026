@@ -238,10 +238,10 @@ export default function AboutPage() {
               { text: "We came in thinking we needed a refresh. They showed us we needed a complete rethink — and they were right.", author: "Dana Woodward", role: "Founder at Atlas Creative" },
             ].map((t, i) => (
               <div key={i} className={styles.testimonialCard}>
-                <p className="title-m">&ldquo;{t.text}&rdquo;</p>
+                <p className={`title-m ${styles.testimonialQuote}`}>&ldquo;{t.text}&rdquo;</p>
                 <div className={styles.testimonialAuthor}>
-                  <span className="label-l text-secondary">{t.author}</span>
-                  <span className="label-s text-secondary">{t.role}</span>
+                  <span className="title-s">{t.author}</span>
+                  <span className="body-s text-secondary">{t.role}</span>
                 </div>
               </div>
             ))}

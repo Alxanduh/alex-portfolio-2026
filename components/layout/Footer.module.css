@@ -147,4 +147,10 @@
   .bottomMeta {
     gap: var(--space-tight);
   }
+
+  .peaceHand {
+    transform: scale(0.86);
+    padding-top: var(--space-block);
+    padding-bottom: var(--space-block);
+  }
 }
