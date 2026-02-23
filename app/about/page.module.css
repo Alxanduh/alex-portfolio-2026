@@ -241,6 +241,12 @@
     padding-top: 0;
   }
 
+  .photoCaption {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-micro);
+  }
+
   .capGrid {
     grid-template-columns: 1fr;
   }
