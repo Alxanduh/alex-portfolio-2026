@@ -154,6 +154,7 @@
   align-items: center;
   padding-top: var(--space-section-s);
   padding-bottom: var(--space-section-s);
+  transform: scale(0.9);
 }
 
 
