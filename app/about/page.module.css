@@ -242,6 +242,10 @@
     grid-template-columns: 1fr;
   }
 
+  .disciplineGrid {
+    gap: var(--space-section-m);
+  }
+
   .photoColOffset {
     padding-top: 0;
   }
@@ -254,6 +258,7 @@
 
   .capGrid {
     grid-template-columns: 1fr;
+    gap: var(--space-section-m);
   }
 
   .polaroid {
