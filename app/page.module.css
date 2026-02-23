@@ -173,6 +173,7 @@
 @media (max-width: 767px) {
   .hero {
     height: 60vh;
+    padding-bottom: var(--layout-gutter);
   }
 
   .content {
