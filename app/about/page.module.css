@@ -187,6 +187,7 @@
   gap: var(--space-stack);
   overflow-x: auto;
   padding-left: var(--layout-gutter);
+  padding-right: var(--layout-gutter);
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
 }
@@ -225,7 +226,7 @@
   }
 
   .testimonialCard {
-    width: calc((100vw - 3 * var(--layout-gutter)) / 2);
+    width: calc((100vw - 3.5 * var(--layout-gutter)) / 2);
   }
 }
 
@@ -251,7 +252,14 @@
     grid-template-columns: 1fr;
   }
 
+  .polaroid {
+    padding: var(--space-micro);
+    padding-bottom: var(--space-block);
+  }
+
   .testimonialCard {
-    width: calc(100vw - 2 * var(--layout-gutter));
+    width: 85vw;
+    aspect-ratio: auto;
+    min-height: 320px;
   }
 }
