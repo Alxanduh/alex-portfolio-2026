@@ -183,7 +183,7 @@
   }
 
   .peaceHand {
-    transform: scale(0.86);
+    transform: scale(0.7);
     padding-top: var(--space-block);
     padding-bottom: var(--space-block);
   }
