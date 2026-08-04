@@ -49,37 +49,6 @@ export default function HomePage() {
 
       {/* ———— 2. Content — slides over hero ———— */}
       <div className={styles.content}>
-        {/* Intro */}
-        <section className={styles.introSection}>
-          <div className="container">
-            <FadeIn>
-              <p className={`label-m text-secondary ${styles.introLabel}`}>
-                A brief introduction
-              </p>
-              <div className={styles.introDivider} />
-              <div className={styles.introGrid}>
-                <div>
-                  <h2 className="display-s">
-                    Studio
-                    <br />
-                    Schultz
-                  </h2>
-                </div>
-                <div className="stack">
-                  <p className="body-l">
-                    Studio Schultz is an independent brand and digital design
-                    studio led by Alex Schultz, creating brands and digital
-                    experiences rooted in clarity, systems thinking, and craft.
-                  </p>
-                  <p className="body-l">
-                    Art direction provided intermittently by Lola. Scheduling
-                    depends on naps.
-                  </p>
-                </div>
-              </div>
-            </FadeIn>
-          </div>
-        </section>
 
         {/* Selected Projects */}
         <section className={styles.workSection}>

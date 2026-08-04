@@ -11,8 +11,8 @@ const atlas: CaseStudy = {
   tools: ["Figma", "Illustrator", "After Effects"],
   meta: [
     { label: "Industry", value: "Manufacturing" },
+    { label: "Role", value: "Brand Identity, Packaging, Art Direction" },
     { label: "Services", value: "Brand, Packaging" },
-    { label: "Timeline", value: "6 Weeks" },
   ],
   summary:
     "A comprehensive brand identity and packaging system for an industrial manufacturer embracing modern design.",

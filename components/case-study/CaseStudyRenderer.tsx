@@ -141,8 +141,8 @@ export default function CaseStudyRenderer({ modules }: CaseStudyRendererProps) {
                 <section className={mediaSectionClass}>
                   <div className="container">
                     <div className={styles.media2up}>
-                      {mod.images.map((img) => (
-                        <div key={img.src} className={styles.mediaItem}>
+                      {mod.images.map((img, idx) => (
+                        <div key={idx} className={styles.mediaItem}>
                           <Image
                             src={img.src}
                             alt={img.alt}
@@ -164,8 +164,8 @@ export default function CaseStudyRenderer({ modules }: CaseStudyRendererProps) {
                 <section className={mediaSectionClass}>
                   <div className="container">
                     <div className={styles.media3up}>
-                      {mod.images.map((img) => (
-                        <div key={img.src} className={styles.mediaItem}>
+                      {mod.images.map((img, idx) => (
+                        <div key={idx} className={styles.mediaItem}>
                           <Image
                             src={img.src}
                             alt={img.alt}

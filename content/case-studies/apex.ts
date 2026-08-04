@@ -11,8 +11,8 @@ const apex: CaseStudy = {
   tools: ["Figma", "Framer", "After Effects", "Three.js"],
   meta: [
     { label: "Industry", value: "Fintech" },
+    { label: "Role", value: "Brand Strategy, UI/UX, Motion Design" },
     { label: "Services", value: "Brand, UI/UX" },
-    { label: "Timeline", value: "14 Weeks" },
   ],
   summary:
     "A precision-crafted brand and product experience for a fintech platform where performance meets personality.",

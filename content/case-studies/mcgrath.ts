@@ -11,7 +11,7 @@ const mcgrath: CaseStudy = {
   tools: ["Figma", "Next.js", "GSAP", "Sanity CMS"],
   meta: [
     { label: "Industry", value: "Healthcare" },
-    { label: "Services", value: "UI, UX, Branding" },
+    { label: "Role", value: "Art Direction, Web Design, 3D Rendering" },
     { label: "Services", value: "UI, UX, Branding" },
   ],
   summary:

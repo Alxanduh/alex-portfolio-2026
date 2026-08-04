@@ -11,8 +11,8 @@ const nomad: CaseStudy = {
   tools: ["Figma", "InDesign", "Next.js"],
   meta: [
     { label: "Industry", value: "Travel" },
+    { label: "Role", value: "Editorial Design, Web Design, Content Strategy" },
     { label: "Services", value: "Editorial, Web" },
-    { label: "Timeline", value: "10 Weeks" },
   ],
   summary:
     "An editorial-first brand and web experience for a travel publication redefining how stories are told.",

@@ -4,35 +4,40 @@ const grow: CaseStudy = {
   title: "Grow Therapy",
   slug: "grow",
   year: "2024",
-  eyebrow: "Climate-tech meets design systems",
-  role: "Brand Strategy, Visual Identity, Digital Product Design",
+  eyebrow: "Scaling care through better design",
+  role: "Senior Brand Designer",
   client: "Grow Therapy",
   duration: "12 weeks",
   tools: ["Figma", "React", "TypeScript", "Framer Motion"],
   meta: [
-    { label: "Industry", value: "Climate Tech" },
-    { label: "Services", value: "Brand, Identity" },
-    { label: "Timeline", value: "12 Weeks" },
+    { label: "Industry", value: "HealthTech" },
+    { label: "Role", value: "Staff Visual Designer" },
+    { label: "Services", value: "Art Direction, UI/UX Design, Design Systems, Web Design" },
   ],
   summary:
     "A digital-first brand and product design for a venture studio scaling climate-focused startups.",
-  coverImage: "/images/grow/cover.jpg",
-  heroImage: "/images/grow/hero.jpg",
+  coverImage: "/images/grow/image-cover-grow-therapy.jpg",
+  heroImage: "/images/grow/image-hero-grow-therapy.jpg",
   order: 2,
   featured: true,
   draft: false,
   seoTitle: "Grow Therapy — Studio Schultz",
   seoDescription:
     "Brand strategy and digital product design for Grow Therapy, a climate-tech venture studio.",
-  modules: [
+  modules: [ 
     {
       type: "intro",
       heading: "Scaling with intention",
-      body: "Grow needed a brand that could flex across portfolio companies without losing its own identity. We built a system — not a logo — that acts as a container for growth. The visual language scales from pitch decks to product interfaces while maintaining the rigor of a single, confident voice.\n\nA brand, at its strongest, is a decision that has found its resolve to stand the growth, and questions that arrive in a competitive market.\n\nThe design emphasizes reliability and efficiency, key factors needed to build trust and credibility as they expand to new markets.",
+      body: "I developed a new logo mark for Grow Therapy and built a transitional visual system around it — one that could elevate the current brand while remaining flexible for a larger rebrand planned downstream. The system needed to feel ownable in the short term, but modular and restrained enough to scale across future brand, product, and marketplace contexts.\n\nI helped evolve Grow Therapy’s brand during a transitional moment for the company. The work included developing a new logo mark to pair with the existing wordmark, expanding the visual language, shaping art direction, and building modular UI-driven brand components that could scale across the website, marketplace, and product-adjacent experiences — without overcommitting the team to a fully rebuilt identity ahead of a future rebrand.",
     },
     {
       type: "media-full",
-      image: "/images/grow/cover.jpg",
+      image: "/images/grow/image-grow-therapy-logomark.jpg",
+      alt: "Grow Therapy brand system overview",
+    },
+    {
+      type: "media-full",
+      image: "/images/grow/image-grow-therapy-brand-overview.jpg",
       alt: "Grow Therapy brand system overview",
     },
     {
@@ -72,7 +77,7 @@ const grow: CaseStudy = {
     },
     {
       type: "media-full",
-      image: "/images/grow/cover.jpg",
+      image: "/images/grow/image-grow-ui-a.jpg",
       alt: "Grow Therapy website on multiple devices",
     },
     {
@@ -83,6 +88,11 @@ const grow: CaseStudy = {
       ],
     },
     {
+      type: "media-full",
+      image: "/images/grow/image-grow-therapy-body-home-layout-test-a.jpg",
+      alt: "Grow brand system final overview",
+    },
+    {
       type: "media-2up",
       images: [
         { src: "/images/grow/cover.jpg", alt: "Grow detail" },
@@ -91,7 +101,7 @@ const grow: CaseStudy = {
     },
     {
       type: "media-full",
-      image: "/images/grow/cover.jpg",
+      image: "/images/grow/image-grow-therapy-brand-overview.jpg",
       alt: "Grow brand system final overview",
     },
     {

@@ -11,8 +11,8 @@ const runnr: CaseStudy = {
   tools: ["Figma", "After Effects", "React Native", "GSAP"],
   meta: [
     { label: "Industry", value: "Fitness" },
+    { label: "Role", value: "Brand Identity, App Design, Motion" },
     { label: "Services", value: "Brand, App Design" },
-    { label: "Timeline", value: "10 Weeks" },
   ],
   summary:
     "A kinetic brand identity and mobile app design for a running community platform redefining how people train together.",
